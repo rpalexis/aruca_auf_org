@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n pagination_tags %}
+
+{% block Contenu %}
+<div id="texte">
+
+<div class="chercheur">
+
+	<h3>{% trans "Activation de votre compte" %}</h3>
+    {% if validlink %}
+    <form method="post">{% csrf_token %}
+        <h4>{% trans "Veuillez choisir un mot de passe." %}</h4>
+        <table>
+            {% include "render_form.html" %}
+            <tr><th></th><td><input type="submit" value="Envoyer" /></td></tr>
+        </table>
+    </form>
+    {% else %}
+    <p>{% trans "Cette clé d'activation est invalide. Assurez-vous de bien copier le lien qui vous a été envoyé par courriel." %}</p>
+    {% endif %}
+    
+</div>    
+    
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+﻿{% extends "base.html" %}
+{% load i18n pagination_tags%}
+
+{% block Contenu %}
+<div id="texte">		
+
+	<h3>Album photo {{ album_detail.nom }}</h3>				
+            <p>{{ album_detail.texte }}</p>
+            {% if list_photo %} {% for photo in list_photo %}{% if photo.image %}<a href="{{ MEDIA_URL }}{{ photo.image }}"><img src="{{ MEDIA_URL }}{{ photo.image }}" class="centre"/></a>{% endif %}{% if photo.legende %}<p class="legende">{{ photo.legende }}</p>{% endif %}{% endfor %}{% endif %}
+
+
+{% paginate %}
+</div>
+
+{% endblock %}

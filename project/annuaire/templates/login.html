@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% load i18n pagination_tags%}
+
+{% block Contenu %}
+<div id="texte">
+
+<div class="chercheur">
+
+	<h3>{% trans "Connexion" %}</h3>
+
+    {% if form.errors %}
+    <ul class="errorlist"><li>{% trans "Login ou mot de passe invalide." %}</li></ul>
+    {% endif %}
+
+    <form method="post">{% csrf_token %}
+        <p><label>{% trans "Adresse électronique" %}</label>{{ form.username }}</p>
+        <p><label>{% trans "Mot de passe" %}</label>{{ form.password }}</p> 
+        <input type="submit" value="Connexion" />
+    </form>
+    
+    <p><a href="{% url "chercheurs-password-reset" %}">{% trans "Mot de passe oublié ?" %}</a></p>
+    <p>{% trans "Vous n'avez pas encore de compte?" %} <a href="{% url "annuaire.views.InscriptionChercheur" %}">{% trans "Inscrivez-vous" %}</a></p>
+</div>
+    
+</div>
+
+{% endblock %}
+

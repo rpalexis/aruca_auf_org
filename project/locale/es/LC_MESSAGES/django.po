@@ -1,0 +1,804 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-09 06:50-0400\n"
+"PO-Revision-Date: 2014-03-14 16:12+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: dashboard.py:16
+msgid "Applications"
+msgstr "Aplicaciones"
+
+#: dashboard.py:22
+msgid "Administration"
+msgstr "Administración"
+
+#: dashboard.py:27
+msgid "Recent Actions"
+msgstr "Acciones recientes"
+
+#: settings.py:37
+msgid "Français"
+msgstr "Francés"
+
+#: settings.py:38
+msgid "Espagnol"
+msgstr "Español"
+
+#: annuaire/templates/accueil.html:23
+msgid ""
+"\n"
+"                            <h3>Bienvenue</h3>\n"
+"\n"
+"                            <p>Cet annuaire électronique bilingue de la "
+"recherche (français et espagnol) mis en œuvre dans les universités de la "
+"Caraïbe, membres de l’Agence Universitaire de la Francophonie et de la "
+"Conférence des Recteurs et des Présidents d’Universités de la Caraïbe "
+"(CORPUCA) a été réalisé dans le cadre d’un Programme de Coopération "
+"Scientifique Inter Universitaire (PCSI), portant sur la gouvernance "
+"universitaire, développé par l’Université des Antilles et de la Guyane (Pr. "
+"Max Louis et Alain Arconte), l’Université de la Havane (Pr. Rita Gonzalez "
+"Delgado) et l’Université de Quisqueya (Pr. Evens Emmanuel). Il vise "
+"principalement la construction et l’émergence de nouvelles capacités de "
+"recherche autour de projets solidaires en s’appuyant sur des axes "
+"vectoriels. </p>\n"
+"                            \n"
+"\t\t\t\t\t\t\t<p>Cet annuaire intègre les équipes de recherche répertoriées "
+"dans les universités mais également les chercheurs indépendants qui sont "
+"nombreux, dans la perspective de faciliter l’intégration de ces derniers au "
+"sein des équipes ou autour de thèmes fédérateurs permettant ainsi "
+"l’émergence de réseaux thématiques de recherche.</p>\n"
+"                            \n"
+"\t\t\t\t\t\t\t<p>Un classement par thème des équipes et des chercheurs "
+"indépendants a ensuite permis d’identifier cinq grands axes de recherche "
+"transversaux qui autorisent des forces de propositions en réponse aux "
+"priorités définies par la commission régionale d’experts (CRE) et aux appels "
+"à projet de l’AUF et d’autres organisations internationales. Une telle "
+"démarche représente une valeur ajoutée non négligeable pour toutes ces "
+"universités et en particulier pour les universités haïtiennes au moment où "
+"elles viennent de mettre en place leur première école doctorale. Cette "
+"démarche doit aboutir également à la mobilisation de l’expertise caribéenne "
+"et à la mise en place d’un réseau d’experts bien identifié dans la région. "
+"Enfin, la réalisation de cet annuaire des chercheurs vient enrichir le "
+"répertoire électronique des chercheurs de l’AUF et de son réseau d’experts.</"
+"p>\n"
+"\t\t\t\t\t\t\t"
+msgstr ""
+"\n"
+"                            <h3>Bienvenido</h3>\n"
+"\n"
+"                            <p>Este directorio bilingüe electrónica de "
+"investigación (francés y español ) , implementado en las universidades en el "
+"Caribe, miembros de la Agencia Universitaria de la Francofonía y de la "
+"Conferencia de Rectores y Presidentes de Universidades del Caribe "
+"( CORPUCA ) tiene se llevó a cabo como parte de un Programa de Cooperación "
+"Científica de la Universidad Interamericana ( HPIC ) sobre la gobernanza "
+"universitaria , desarrollado por la Universidad de las Antillas y la Guayana "
+"(Prof. Max Louis y Alain Arconte ) , la Universidad de la Habana (Prof. Rita "
+"González Delgado) y la Universidad de Quisqueya (Pr. Evens Emmanuel ) . "
+"Afecta principalmente a la construcción ya la aparición de nueva capacidad "
+"de investigación en torno a proyectos de la comunidad en base a ejes "
+"vectoriales.</p>\n"
+"                            \n"
+"\t\t\t\t\t\t\t<p>Este libro integra los equipos de investigación que figuran "
+"en las universidades , sino también a los investigadores independientes que "
+"son numerosas, desde la perspectiva de facilitar la integración de éstos "
+"dentro de los equipos o alrededor de temas unificadores que permite la "
+"aparición de redes temáticas de investigación.</p>\n"
+"                            \n"
+"\t\t\t\t\t\t\t<p>Una clasificación por equipos temáticos e investigadores "
+"independientes luego identificó cinco áreas de investigación transversales "
+"que permiten a las fuerzas propuestas en respuesta a las prioridades "
+"identificadas por el Comité Regional de Expertos ( CRE ) y pide que el "
+"proyecto AUF y otras organizaciones internacionales . Este enfoque "
+"representa un importante valor añadido para todas estas universidades y en "
+"especial para las universidades haitianas cuando vienen a crear su primera "
+"escuela de posgrado . Esto también debería conducir a la movilización de la "
+"pericia del Caribe y el establecimiento de una red de expertos claramente "
+"identificadas en la región. Por último , la realización de este directorio "
+"investigadores enriquece el directorio electrónico de investigadores de la "
+"AUF y su red de expertos.</p>\n"
+"\t\t\t\t\t\t\t"
+
+#: annuaire/templates/activation.html:9
+msgid "Activation de votre compte"
+msgstr "Activación de su cuenta"
+
+#: annuaire/templates/activation.html:12
+msgid "Veuillez choisir un mot de passe."
+msgstr "Sirvase elegir una nueva contraseña"
+
+#: annuaire/templates/activation.html:19
+msgid ""
+"Cette clé d'activation est invalide. Assurez-vous de bien copier le lien qui "
+"vous a été envoyé par courriel."
+msgstr ""
+"Esta llave no es válida. Asegúrese de copiar bien el vínculo que le fue "
+"enviado por vía electrónica"
+
+#: annuaire/templates/base.html:43
+msgid "Vous êtes connecté sous"
+msgstr "Esta conectado bajo…"
+
+#: annuaire/templates/base.html:43
+msgid "Espace personnel"
+msgstr "Espacio personal"
+
+#: annuaire/templates/base.html:44 annuaire/templates/base.html.py:152
+msgid "À propos"
+msgstr "A propósito"
+
+#: annuaire/templates/base.html:44 annuaire/templates/base.html.py:152
+msgid "Aide"
+msgstr "Ayuda"
+
+#: annuaire/templates/base.html:44 annuaire/templates/base.html.py:77
+#: annuaire/templates/base.html:152
+msgid "Contact"
+msgstr "Contacto"
+
+#: annuaire/templates/base.html:45 annuaire/templates/logged_out.html:10
+msgid "Déconnexion"
+msgstr "Desconexión"
+
+#: annuaire/templates/base.html:47 annuaire/templates/login.html:10
+msgid "Connexion"
+msgstr "Conexión"
+
+#: annuaire/templates/base.html:58
+msgid ""
+"Annuaire électronique de la recherche<br/> dans les universités de la Caraibe"
+msgstr ""
+"Anuario electrónico de la investigación en las universidades del Caribe"
+
+#: annuaire/templates/base.html:72
+msgid "Accueil"
+msgstr "Inicio"
+
+#: annuaire/templates/base.html:73
+msgid "Equipes de Recherche"
+msgstr "Equipo de investigatión"
+
+#: annuaire/templates/base.html:74
+msgid "Chercheurs indépendants"
+msgstr "Investigador independientes"
+
+#: annuaire/templates/base.html:75
+msgid "Appels à projets"
+msgstr "Candidaturas"
+
+#: annuaire/templates/base.html:76
+msgid "Liens utiles"
+msgstr "Vinculos"
+
+#: annuaire/templates/base.html:78
+msgid "Photos événements"
+msgstr "Fotos de eventos"
+
+#: annuaire/templates/base.html:105
+msgid "Trouver par discipline:"
+msgstr "Encontrar por disciplinas"
+
+#: annuaire/templates/base.html:109
+msgid ""
+"Ressources Vivantes naturelles et exploitées dans le cadre du développement "
+"durable"
+msgstr "Rcursos vivos, naturales y explotados en un marco de desarrollo"
+
+#: annuaire/templates/base.html:110
+msgid "Santé humaine et épidémiologie en millieu tropical insulaire"
+msgstr "Salud humana y epidemiologia en medio tropical insular"
+
+#: annuaire/templates/base.html:111
+msgid ""
+"Territoires,sciences humaines,cultures et sociétés dans la région caribéenne"
+msgstr ""
+"Territorios, ciencias humanas, culturas y sociedades en la region del Caribe"
+
+#: annuaire/templates/base.html:112
+msgid "Economie et développement endogène dans la caraibe"
+msgstr "Economia y desarrollo endogeno en el Caribe"
+
+#: annuaire/templates/base.html:113
+msgid "Connaissance,exploitation et gestion du millieu physique"
+msgstr "Conocimiento, explotacion y gestion del medio fisico"
+
+#: annuaire/templates/base.html:118
+msgid "Inscrivez-vous:"
+msgstr "Inscribase"
+
+#: annuaire/templates/base.html:121
+msgid "Une Equipe de recherche"
+msgstr "Equipo de investigaciones"
+
+#: annuaire/templates/base.html:125
+msgid "Un chercheur indépendant"
+msgstr "Investigador independiente"
+
+#: annuaire/templates/base.html:132
+msgid "Suivez-nous"
+msgstr "Síganos!"
+
+#: annuaire/templates/base.html:135
+msgid "Abonnez vous au flux RSS"
+msgstr "Anonese al flujo RSS"
+
+#: annuaire/templates/chercheur.html:9 annuaire/templates/equipe.html:9
+msgid "Fiche détaillée de"
+msgstr "Ficha detallada de "
+
+#: annuaire/templates/chercheur.html:15 annuaire/templates/editC.html:16
+#: annuaire/templates/fiche.html:9 annuaire/templates/inscriptionC.html:21
+msgid "Etablissement"
+msgstr "Establecimiento"
+
+#: annuaire/templates/chercheur.html:16 annuaire/templates/chercheurs.html:25
+#: annuaire/templates/equipe.html:16 annuaire/templates/equipes.html:25
+#: annuaire/templates/fiche.html:10 annuaire/templates/inscriptionC.html:24
+#: annuaire/templates/inscriptionE.html:29 templates/search.html:19
+msgid "Université"
+msgstr "Universidad"
+
+#: annuaire/templates/chercheur.html:17 annuaire/templates/equipe.html:17
+#: annuaire/templates/fiche.html:11
+msgid "Faculté,institut,école"
+msgstr "Facultad, Instituto, Escuela"
+
+#: annuaire/templates/chercheur.html:18 annuaire/templates/editC.html:29
+#: annuaire/templates/equipe.html:18 annuaire/templates/fiche.html:12
+#: annuaire/templates/inscriptionC.html:34
+#: annuaire/templates/inscriptionE.html:39
+msgid "Pays"
+msgstr "Pais"
+
+#: annuaire/templates/chercheur.html:22 annuaire/templates/fiche.html:16
+msgid "Informations chercheur"
+msgstr "Informaciones personales"
+
+#: annuaire/templates/chercheur.html:23 annuaire/templates/editC.html:41
+#: annuaire/templates/equipe.html:26 annuaire/templates/fiche.html:17
+#: annuaire/templates/inscriptionC.html:46
+#: annuaire/templates/inscriptionE.html:66
+msgid "Nom"
+msgstr "Apellido"
+
+#: annuaire/templates/chercheur.html:24 annuaire/templates/editC.html:51
+#: annuaire/templates/equipe.html:27 annuaire/templates/fiche.html:18
+#: annuaire/templates/inscriptionC.html:56
+#: annuaire/templates/inscriptionE.html:76
+msgid "Courriel"
+msgstr "Correo electrónico "
+
+#: annuaire/templates/chercheur.html:25 annuaire/templates/equipe.html:28
+#: annuaire/templates/fiche.html:19
+msgid "Site Internet"
+msgstr "Sitio de internet"
+
+#: annuaire/templates/chercheur.html:26 annuaire/templates/editC.html:66
+#: annuaire/templates/equipe.html:29 annuaire/templates/fiche.html:20
+#: annuaire/templates/inscriptionC.html:71
+#: annuaire/templates/inscriptionE.html:91
+msgid "Numéro de téléphone"
+msgstr "Número de teléfono"
+
+#: annuaire/templates/chercheur.html:27 annuaire/templates/editC.html:71
+#: annuaire/templates/equipe.html:30 annuaire/templates/fiche.html:21
+#: annuaire/templates/inscriptionC.html:76
+#: annuaire/templates/inscriptionE.html:96
+msgid "Numéro de télécopie"
+msgstr "Numero de FAX"
+
+#: annuaire/templates/chercheur.html:28 annuaire/templates/editC.html:76
+#: annuaire/templates/fiche.html:22 annuaire/templates/inscriptionC.html:81
+msgid "Diplôme le plus élevé"
+msgstr "Diploma de mas nivel"
+
+#: annuaire/templates/chercheur.html:29 annuaire/templates/editC.html:175
+#: annuaire/templates/fiche.html:23 annuaire/templates/inscriptionC.html:180
+msgid "Thèse"
+msgstr "tésis"
+
+#: annuaire/templates/chercheur.html:29 annuaire/templates/chercheur.html:60
+#: annuaire/templates/equipe.html:70 annuaire/templates/fiche.html:54
+msgid "pages"
+msgstr "Páginas"
+
+#: annuaire/templates/chercheur.html:33 annuaire/templates/editC.html:80
+#: annuaire/templates/equipe.html:43 annuaire/templates/fiche.html:27
+msgid "Enseignements"
+msgstr "Enseñanzas"
+
+#: annuaire/templates/chercheur.html:34 annuaire/templates/chercheurs.html:26
+#: annuaire/templates/editC.html:88 annuaire/templates/fiche.html:28
+#: annuaire/templates/inscriptionC.html:88 templates/search.html:20
+msgid "Enseignements dispensés"
+msgstr "Docencia impartida"
+
+#: annuaire/templates/chercheur.html:35 annuaire/templates/editC.html:93
+#: annuaire/templates/equipe.html:44 annuaire/templates/fiche.html:29
+#: annuaire/templates/inscriptionC.html:98
+#: annuaire/templates/inscriptionE.html:135
+msgid "Problématique et description de la recherche"
+msgstr "Problematica y breve descripción de la investigación"
+
+#: annuaire/templates/chercheur.html:36 annuaire/templates/editC.html:98
+#: annuaire/templates/equipe.html:45 annuaire/templates/fiche.html:30
+#: annuaire/templates/inscriptionC.html:103
+#: annuaire/templates/inscriptionE.html:140
+msgid "Mots-clés"
+msgstr "Palabras claves"
+
+#: annuaire/templates/chercheur.html:40 annuaire/templates/chercheur.html:41
+#: annuaire/templates/editC.html:102 annuaire/templates/equipe.html:49
+#: annuaire/templates/equipe.html.py:50 annuaire/templates/fiche.html:34
+#: annuaire/templates/fiche.html.py:35
+#: annuaire/templates/inscriptionC.html:107
+#: annuaire/templates/inscriptionE.html:144
+msgid "Equipement"
+msgstr "Equipamiento"
+
+#: annuaire/templates/chercheur.html:42 annuaire/templates/editC.html:110
+#: annuaire/templates/equipe.html:51 annuaire/templates/fiche.html:36
+#: annuaire/templates/inscriptionC.html:115
+#: annuaire/templates/inscriptionE.html:152
+msgid "Laboratoire"
+msgstr "Laboratorio"
+
+#: annuaire/templates/chercheur.html:43 annuaire/templates/editC.html:115
+#: annuaire/templates/equipe.html:52 annuaire/templates/fiche.html:37
+#: annuaire/templates/inscriptionC.html:120
+#: annuaire/templates/inscriptionE.html:157
+msgid "Terrain"
+msgstr "Terreno"
+
+#: annuaire/templates/chercheur.html:47 annuaire/templates/editC.html:119
+#: annuaire/templates/equipe.html:56 annuaire/templates/fiche.html:41
+#: annuaire/templates/inscriptionC.html:124
+#: annuaire/templates/inscriptionE.html:161
+msgid "Valorisation et autres"
+msgstr "Valorización y otros"
+
+#: annuaire/templates/chercheur.html:48 annuaire/templates/editC.html:122
+#: annuaire/templates/equipe.html:57 annuaire/templates/fiche.html:42
+#: annuaire/templates/inscriptionC.html:127
+#: annuaire/templates/inscriptionE.html:164
+msgid "Valorisation et domaine de compétence"
+msgstr "Valorisación y esferas de competencia"
+
+#: annuaire/templates/chercheur.html:49 annuaire/templates/editC.html:127
+#: annuaire/templates/equipe.html:58 annuaire/templates/fiche.html:43
+#: annuaire/templates/inscriptionC.html:132
+#: annuaire/templates/inscriptionE.html:169
+msgid "Partenaires"
+msgstr "Colaboradores"
+
+#: annuaire/templates/chercheur.html:50 annuaire/templates/editC.html:132
+#: annuaire/templates/equipe.html:60 annuaire/templates/fiche.html:44
+#: annuaire/templates/inscriptionC.html:137
+#: annuaire/templates/inscriptionE.html:179
+msgid "Doctorants"
+msgstr "Doctorantes"
+
+#: annuaire/templates/chercheur.html:51 annuaire/templates/equipe.html:61
+#: annuaire/templates/fiche.html:45
+msgid "Autres stagiaires"
+msgstr "Otros practicantes"
+
+#: annuaire/templates/chercheur.html:56 annuaire/templates/editC.html:144
+#: annuaire/templates/equipe.html:66 annuaire/templates/fiche.html:50
+#: annuaire/templates/inscriptionE.html:191
+msgid "Nombre de publication de niveau internationales"
+msgstr "Nùmero de publicaciones de nivel internacional"
+
+#: annuaire/templates/chercheur.html:57 annuaire/templates/editC.html:149
+#: annuaire/templates/equipe.html:67 annuaire/templates/fiche.html:51
+#: annuaire/templates/inscriptionC.html:154
+#: annuaire/templates/inscriptionE.html:196
+msgid "Autres publications"
+msgstr "Otros publicaciones"
+
+#: annuaire/templates/chercheur.html:58 annuaire/templates/editC.html:154
+#: annuaire/templates/equipe.html:68 annuaire/templates/fiche.html:52
+#: annuaire/templates/inscriptionC.html:159
+#: annuaire/templates/inscriptionE.html:201
+msgid ""
+"Nombre de publication ayant fait l'objet de publication dans actes de "
+"colloque"
+msgstr ""
+"Nùmero de publicaciones que han sido objeto de publicacion en actas de "
+"coloquios"
+
+#: annuaire/templates/chercheur.html:59 annuaire/templates/editC.html:159
+#: annuaire/templates/equipe.html:69 annuaire/templates/fiche.html:53
+#: annuaire/templates/inscriptionC.html:164
+#: annuaire/templates/inscriptionE.html:206
+msgid "Autres communications"
+msgstr "Otras comunicaciones"
+
+#: annuaire/templates/chercheur.html:60 annuaire/templates/equipe.html:70
+#: annuaire/templates/fiche.html:54
+msgid "Publications majeurs"
+msgstr "Publicaciones relevantes"
+
+#: annuaire/templates/chercheurs.html:9
+msgid "Filtrez vos recherches"
+msgstr "Filtre sus investigaciones"
+
+#: annuaire/templates/chercheurs.html:27 annuaire/templates/equipes.html:27
+#: templates/search.html:21
+msgid "Mots-clefs"
+msgstr "Palabras claves"
+
+#: annuaire/templates/chercheurs.html:34
+msgid "Aucun chercheur"
+msgstr "Ningun investigador"
+
+#: annuaire/templates/desinscription.html:9
+msgid "Désinscription"
+msgstr "Anular la inscripcion"
+
+#: annuaire/templates/desinscription.html:11
+msgid "Voulez-vous vraiment vous désinscrire du site ARUCA?"
+msgstr "¿Desea realmente anular su inscripcion del sitio ARUCA?"
+
+#: annuaire/templates/edit.html:5
+msgid "Modification de la fiche de"
+msgstr "Modificacion de la ficha de…"
+
+#: annuaire/templates/editC.html:7 annuaire/templates/inscriptionC.html:12
+#: annuaire/templates/inscriptionE.html:12
+msgid "Des erreurs ne permettent pas de s'inscrire."
+msgstr "Algunos errores no permiten la inscripcion"
+
+#: annuaire/templates/editC.html:9 annuaire/templates/inscriptionC.html:14
+#: annuaire/templates/inscriptionE.html:14
+msgid "Propriété de la Fiche"
+msgstr "Propiedad de la ficha"
+
+#: annuaire/templates/editC.html:12 annuaire/templates/inscriptionC.html:17
+#: annuaire/templates/inscriptionE.html:17
+msgid "Langue"
+msgstr "Lengua"
+
+#: annuaire/templates/editC.html:19
+msgid "Université:"
+msgstr "Universidad"
+
+#: annuaire/templates/editC.html:24 annuaire/templates/inscriptionC.html:29
+#: annuaire/templates/inscriptionE.html:34
+msgid "Faculté/institut/école"
+msgstr "Facultad/Instituto/Escuela"
+
+#: annuaire/templates/editC.html:33
+msgid "Informations personnelles"
+msgstr "Informaciones personales"
+
+#: annuaire/templates/editC.html:36 annuaire/templates/inscriptionC.html:41
+#: annuaire/templates/inscriptionE.html:61
+msgid "Genre"
+msgstr "Género"
+
+#: annuaire/templates/editC.html:46 annuaire/templates/inscriptionC.html:51
+#: annuaire/templates/inscriptionE.html:71
+msgid "Prénom"
+msgstr "Nombre"
+
+#: annuaire/templates/editC.html:56 annuaire/templates/inscriptionC.html:61
+#: annuaire/templates/inscriptionE.html:81
+msgid "Afficher courriel"
+msgstr "Escriba el correo electrónico"
+
+#: annuaire/templates/editC.html:61 annuaire/templates/inscriptionC.html:66
+#: annuaire/templates/inscriptionE.html:86
+msgid "Site internet"
+msgstr "Sitio de internet"
+
+#: annuaire/templates/editC.html:83 annuaire/templates/inscriptionC.html:93
+#: annuaire/templates/inscriptionE.html:130
+msgid "Axe de recherche"
+msgstr "Eje de investigaciones"
+
+#: annuaire/templates/editC.html:105 annuaire/templates/inscriptionC.html:110
+#: annuaire/templates/inscriptionE.html:147
+msgid "Equipement disponible"
+msgstr "Equipamiento disponible"
+
+#: annuaire/templates/editC.html:137 annuaire/templates/inscriptionC.html:142
+#: annuaire/templates/inscriptionE.html:184
+msgid "Stagiaire"
+msgstr "Estudiante (de un curso de formación)"
+
+#: annuaire/templates/editC.html:141 annuaire/templates/editC.html.py:180
+#: annuaire/templates/equipe.html:65 annuaire/templates/fiche.html:49
+#: annuaire/templates/inscriptionC.html:146
+#: annuaire/templates/inscriptionE.html:188
+msgid "Publications"
+msgstr "Publicaciones"
+
+#: annuaire/templates/editC.html:163 annuaire/templates/inscriptionC.html:168
+msgid "Equipe de recherche"
+msgstr "Equipo de investigación"
+
+#: annuaire/templates/editC.html:166 annuaire/templates/inscriptionC.html:171
+msgid "Etes-vous intéressé à créer ou intégrer une équipe de recherche?"
+msgstr ""
+"¿ Está usted interesado en crear o integrar un equipo de investigación ?"
+
+#: annuaire/templates/editC.html:171 annuaire/templates/inscriptionC.html:176
+msgid "Si oui dans quel domaine?"
+msgstr ""
+"¿ Está usted interesado en crear o integrar un equipo de investigación ?"
+
+#: annuaire/templates/editC.html:192 annuaire/templates/inscriptionC.html:197
+#: annuaire/templates/inscriptionE.html:229
+msgid "Attestation"
+msgstr "Certificado"
+
+#: annuaire/templates/equipe.html:15 annuaire/templates/inscriptionE.html:21
+msgid "Informations sur l'équipe de recherche"
+msgstr "Informacion sobre el equipo de investigación"
+
+#: annuaire/templates/equipe.html:19 annuaire/templates/inscriptionE.html:44
+msgid "Date de création"
+msgstr "Fecha de creación"
+
+#: annuaire/templates/equipe.html:20
+msgid "Date d'évaluation"
+msgstr "Fecha de la últma evaluación"
+
+#: annuaire/templates/equipe.html:21 annuaire/templates/inscriptionE.html:54
+msgid "Présentation de l'équipe"
+msgstr "resentación del equipo"
+
+#: annuaire/templates/equipe.html:25 annuaire/templates/inscriptionE.html:58
+msgid "Informations sur le responsable de l'équipe"
+msgstr "Informaciones sobre el responsable del equipo"
+
+#: annuaire/templates/equipe.html:34 annuaire/templates/inscriptionE.html:100
+msgid "Effectifs"
+msgstr "Efectivos"
+
+#: annuaire/templates/equipe.html:35 annuaire/templates/inscriptionE.html:103
+msgid "Professeurs"
+msgstr "Profesores"
+
+#: annuaire/templates/equipe.html:36 annuaire/templates/inscriptionE.html:108
+msgid "Maître de Conférence"
+msgstr "Profesores Auxiliares"
+
+#: annuaire/templates/equipe.html:37 annuaire/templates/inscriptionE.html:113
+msgid "Assistants"
+msgstr "Asistentes"
+
+#: annuaire/templates/equipe.html:38 annuaire/templates/inscriptionE.html:118
+msgid "Chercheurs à temps plein"
+msgstr "Investigadores a tiempo completo "
+
+#: annuaire/templates/equipe.html:39 annuaire/templates/inscriptionE.html:123
+msgid "Autres"
+msgstr "Otros"
+
+#: annuaire/templates/equipe.html:59
+msgid "Liste des enseignants-chercheurs de l'unité"
+msgstr "Lista de docentes-investigadores de la unidad "
+
+#: annuaire/templates/equipe.html:74 annuaire/templates/equipe.html.py:75
+#: annuaire/templates/inscriptionE.html:222
+#: annuaire/templates/inscriptionE.html:225
+msgid "Informations complémentaires"
+msgstr "Informaciones complementarias"
+
+#: annuaire/templates/equipes.html:9
+msgid "Filtrez vos rechercher"
+msgstr "Filtra tus búsquedas"
+
+#: annuaire/templates/equipes.html:26
+msgid "Intitulé de l'équipe"
+msgstr "Titulo del equipo"
+
+#: annuaire/templates/equipes.html:34
+msgid "Aucune équipe"
+msgstr "Ningun equipo"
+
+#: annuaire/templates/fiche.html:4
+msgid "Votre fiche détaillée"
+msgstr "Su ficha detallada"
+
+#: annuaire/templates/inscriptionC.html:38
+msgid "Informations sur le chercheur"
+msgstr "Informacion sobre el equipo de investigación"
+
+#: annuaire/templates/inscriptionC.html:85
+msgid "Enseignements et Recherche"
+msgstr "Equipo de investigatión"
+
+#: annuaire/templates/inscriptionC.html:149
+msgid "Nombre de publications de niveau international"
+msgstr "Nùmero de publicaciones de nivel internacional"
+
+#: annuaire/templates/inscriptionC.html:185
+#: annuaire/templates/inscriptionE.html:210
+msgid ""
+"Publications (donner 10 références maximum, les plus représentatives de "
+"l'activité scientifique)"
+msgstr "Publicaciones (dan un máximo de 10 referencias, las más representativas de la actividad científica)"
+
+#: annuaire/templates/inscriptionE.html:7
+msgid "Inscription de votre équipe de chercheurs"
+msgstr "Inscripción de su equipo de investigaciones"
+
+#: annuaire/templates/inscriptionE.html:24
+msgid "Intitule de l'équipe"
+msgstr "Titulo del equipo"
+
+#: annuaire/templates/inscriptionE.html:49
+msgid "Date de la dernière évaluation"
+msgstr "Fecha de la últma evaluación"
+
+#: annuaire/templates/inscriptionE.html:127
+msgid "Recherche"
+msgstr "Eje de investigaciones"
+
+#: annuaire/templates/inscriptionE.html:174
+msgid "Liste des chercheurs de l'unité"
+msgstr "Lista de investigadores de la unidad"
+
+#: annuaire/templates/logged_out.html:11
+msgid "Vous êtes maintenant déconnecté."
+msgstr "Está ahora desconectado"
+
+#: annuaire/templates/logged_out.html:12
+#: annuaire/templates/password_reset_done.html:11
+msgid "Retour à l'accueil"
+msgstr "Regreso al inicio"
+
+#: annuaire/templates/login.html:13
+msgid "Login ou mot de passe invalide."
+msgstr "Nombre de usuario o contraseña no válidos"
+
+#: annuaire/templates/login.html:17
+msgid "Adresse électronique"
+msgstr "Correo electrónico "
+
+#: annuaire/templates/login.html:18
+msgid "Mot de passe"
+msgstr "Contraseña"
+
+#: annuaire/templates/login.html:22
+msgid "Mot de passe oublié ?"
+msgstr "¿Olvidó su contraseña?"
+
+#: annuaire/templates/login.html:23
+msgid "Vous n'avez pas encore de compte?"
+msgstr "¿No ha abierto todavía una cuenta?"
+
+#: annuaire/templates/login.html:23
+msgid "Inscrivez-vous"
+msgstr "Inscríbase!"
+
+#: annuaire/templates/new_password.html:5
+#: annuaire/templates/password_reset_complete.html:9
+#: annuaire/templates/password_reset_confirm.html:9
+#: annuaire/templates/password_reset_done.html:9
+#: annuaire/templates/password_reset_form.html:8
+msgid "Demande de changement de mot de passe"
+msgstr "Solicitud de cambio de contraseña"
+
+#: annuaire/templates/new_password.html:6
+msgid "Mot de passe:"
+msgstr "Contraseña:"
+
+#: annuaire/templates/password_change_done.html:9
+msgid "Modification de votre mot de passe"
+msgstr "Modificación de contraseña"
+
+#: annuaire/templates/password_change_done.html:10
+msgid "Votre nouveau mot de passe a été enregistré"
+msgstr "Su nueva contraseña ha sido registrada"
+
+#: annuaire/templates/password_change_done.html:11
+msgid "Vous pouvez maintenant "
+msgstr "Usted puede ahora"
+
+#: annuaire/templates/password_change_form.html:9
+msgid "Changement de mot de passe"
+msgstr "Cambio de contraseña"
+
+#: annuaire/templates/password_reset_complete.html:10
+msgid "Votre nouveau mot de passe a été enregistré."
+msgstr "Su nueva contraseña ha sido registrada"
+
+#: annuaire/templates/password_reset_complete.html:11
+msgid "Vous pouvez maintenant vous"
+msgstr "Usted puede ahora"
+
+#: annuaire/templates/password_reset_confirm.html:11
+msgid "Veuillez choisir un nouveau mot de passe."
+msgstr "Sirvase escoger una nueva contraseña"
+
+#: annuaire/templates/password_reset_confirm.html:17
+msgid ""
+"Cette clé est invalide. Assurez-vous de bien copier le lien qui vous a été "
+"envoyé par courriel."
+msgstr ""
+"Esta llave no es válida. Asegúrese de copiar bien el vínculo que le fue "
+"enviado por vía electrónica"
+
+#: annuaire/templates/password_reset_confirm.html:18
+msgid "Vous pouvez aussi essayer"
+msgstr "También puede tratar"
+
+#: annuaire/templates/password_reset_done.html:10
+msgid "Un message a été envoyé à l'adresse électronique spécifiée."
+msgstr "Un mensaje fue enviado a la direccion electrónica especificada"
+
+#: annuaire/templates/password_reset_form.html:11
+msgid ""
+"Veuillez entrer l'adresse électronique avec laquelle vous avez completé "
+"votre inscription."
+msgstr ""
+"Sirvase entrar la direccion electronica que usted utilizo para inscribirse"
+
+#: annuaire/templates/perso.html:8
+msgid "Éditer votre fiche"
+msgstr "Editar su ficha"
+
+#: annuaire/templates/perso.html:9
+msgid "Modifier votre mot de passe"
+msgstr "Modifique su contraseña"
+
+#: annuaire/templates/perso.html:10
+msgid "Vous désinscrire du répertoire"
+msgstr "Finalizar sesión"
+
+#: annuaire/templates/validation.html:7
+#: annuaire/templates/validation_equipe.html:7
+msgid "Validation"
+msgstr "Validación"
+
+#: annuaire/templates/validation.html:8
+msgid "L'enregistrement a bien été validé."
+msgstr "El registro ha sido exitoso"
+
+#: annuaire/templates/validation.html:9
+msgid "Un courriel contenant un lien d'activation vous a été envoyé."
+msgstr "Un correo conteniendo un punto de activacion le fue enviado"
+
+#: annuaire/templates/validation.html:11
+msgid "Inscrire un nouveau chercheur"
+msgstr "Inscribir un nuevo investigador"
+
+#: annuaire/templates/validation.html:12
+#: annuaire/templates/validation_equipe.html:12
+msgid "Revenir à la page d'accueil"
+msgstr "Regresar a la pagina de inicio"
+
+#: annuaire/templates/validation_equipe.html:8
+msgid "L'equipe de recherche a bien été validée."
+msgstr "El equipo de investigacion fue bien evaluado"
+
+#: annuaire/templates/validation_equipe.html:9
+msgid ""
+"Votre fiche sera mise en ligne lorsque l'administrateur aura validé votre "
+"fiche"
+msgstr "Su ficha se pondra en linea una vez que el administrador  la valide"
+
+#: annuaire/templates/validation_equipe.html:11
+msgid "Inscrire une nouvelle équipe de chercheurs"
+msgstr "Inscribir un nuevo equipo de investigadores"
+
+#~ msgid "Légal"
+#~ msgstr "Legal"

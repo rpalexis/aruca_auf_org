@@ -1,0 +1,35 @@
+﻿{% extends "base.html" %}
+{% load i18n pagination_tags%}
+
+{% block Contenu %}
+<div id="texte">
+        
+            
+            	<h1>Recherche</h1>
+
+                    <form action="/recherche/" method="get">
+                    
+                    <p>La recherche "{{ query_string }}" a donnée les résultats suivants:</p>
+                    
+                    <div class="actu">
+                    {% if found_entries %}
+                    	{% for item in found_entries%}
+                               <div class="chercheur">
+				<h3><a href="{{ item.get_absolute_url }}">{{ item.nom }} {{ item.prenom }}</a></h3>
+                                <p><span>{% trans "Université" %} :</span> {{ item.etablissement }}, {{ item.etablissement_autre_nom }}</p>
+                		<p><span>{% trans "Enseignements dispensés" %} :</span> {{ item.discipline }}</p>
+                		<p><span>{% trans "Mots-clefs" %} :</span> {{ item.mots_cles }}</p>
+                               </div>       	            
+                        {% endfor %}
+                    {% else%}
+                              <p style="margin-top: 20px;">Pas de résultat</p>                
+                    {% endif %}
+                    </div>
+                    
+		</form>
+                  
+            </div>
+                
+</div>
+        
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n cms_tags%}
+{% block Contenu %}
+                        
+{% if slider_list%}
+    	
+        {% with slider_list as item_list %}
+                <div id="slide">
+						<div class="slider-wrapper theme-default">
+							<div id="slider" class="nivoSlider">
+                            {% for item in item_list %}
+                            	 {% if item.lien %}<a href="{{ item.lien }}">{% endif %}<img src="{{ MEDIA_URL }}{{ item.image}}" alt="{{ item.titre }}" title="{{ item.titre }}" />{% if item.lien %}</a>{% endif %}
+                           {% endfor %}
+                    	   </div>
+				       </div>
+			   </div>
+         {% endwith %}
+                            
+{% endif %}
+						
+						<div id="texte">
+							
+                            {% show_placeholder "Texter" "accueil"%}
+                            
+						  </div>
+        
+{% endblock %}
