@@ -1,0 +1,40 @@
+﻿{% extends "base.html" %}
+{% load i18n pagination_tags%}
+
+{% block Contenu %}
+<div id="texte">
+<!--<h3>Liste des chercheurs</h3>-->
+
+<div class="chercheur">
+   <h3>{% trans "Filtrez vos recherches" %}</h3>
+   <form method="get" action="">
+  	{{ ChercherCForm.as_p }}
+  	<input type="submit" class="bouton" value="Rechercher" />
+  </form>
+</div>
+
+<p>{{message}}</p>
+
+{% if chercheurs_list %}
+	
+    {% with chercheurs_list as item_list %}
+
+        {% for item in item_list %}
+        	<div class="chercheur">
+            	<h3><a href="{{ item.get_absolute_url }}">{{ item.nom }} {{ item.prenom }}</a></h3>
+                <p><span>{% trans "Université" %} :</span> {{ item.etablissement }}, {{ item.etablissement_autre_nom }}</p>
+                <p><span>{% trans "Enseignements dispensés" %} :</span> {{ item.discipline }}</p>
+                <p><span>{% trans "Mots-clefs" %} :</span> {{ item.mots_cles }}</p>
+           </div>
+		{% endfor %}
+
+    {% endwith %}
+    
+{% else %}
+    <p>{% trans "Aucun chercheur" %}</p>
+{% endif %}
+
+{% paginate %}
+</div>
+
+{% endblock %}

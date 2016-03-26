@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n pagination_tags %}
+
+{% block Contenu %}
+<div id="texte">
+
+    <h3>Appels à projet</h3>
+
+        {% if appel_offre_list %}
+            {% with appel_offre_list as item_list %}
+                    {% for item in item_list %}
+                        <div class="boiteContent">
+                            <div class="actu">
+                                            <div class="actuImg">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                      {% if item.image %}
+                                                      <img src="{{ MEDIA_URL }}{{ item.image }}" width="96" height="100" alt="{{ item.titre }}" title="{{ item.titre }}"/>
+                                                      {% else %}
+                                                      <img src="{{ STATIC_URL }}img/Logo_Auf.png" width="96" height="100" alt="Actualité IFGU" title="Actualité IFGU"/>
+                                                      {% endif %}
+                                                </a>
+                                            </div>
+                                            <div class="actuTxt">
+                                                <h1 style="margin-top: 6px"><a href="{{ item.get_absolute_url }}">{{ item.titre }}</a></h1>
+                                                <p>{{ item.texte|striptags|truncatewords_html:45 }}</p>
+                                                <span><a href="{{ item.get_absolute_url }}">Lire la suite - Publié le {{ item.date_pub }}</a></span>
+                                            </div>
+                                        </div>
+                          </div>
+                    {% endfor %}
+            {% endwith %}
+        {% else %}
+            <p>Aucune actualité pour le moment</p>
+        {% endif %}
+
+{% paginate %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+﻿{% extends "base.html" %}
+{% load i18n pagination_tags%}
+
+{% block Contenu %}
+<div id="texte">
+<h3>Liste des albums photo</h3>
+
+{% if album_list %}
+	
+    {% with album_list as item_list %}
+
+        {% for item in item_list %}
+        	<div class="chercheur">
+            	<h3><a href="{{ item.get_absolute_url }}">{{ item.nom }}</a></h3>
+                <p>{{ item.date_album }}</p>
+                <p>{{ item.texte }}</p>
+           </div>
+		{% endfor %}
+
+    {% endwith %}
+    
+{% else %}
+    <p>Aucun Album</p>
+{% endif %}
+
+{% paginate %}
+</div>
+
+{% endblock %}
