@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% load i18n pagination_tags %}
-
-{% block Contenu %}
-<h3>{% trans "Modification de la fiche de" %} {{ chercheur.prenom }} {{ chercheur.nom }}</h3>
-<form method="post" action="">{% csrf_token %}
-    {% include "editC.html" %}
-</form>
-{% endblock %}
