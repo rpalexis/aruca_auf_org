@@ -14,6 +14,7 @@ from feeds import DerniersAjouts
 admin.autodiscover()
 
 urlpatterns = i18n_patterns('',
+    url(r'^$','views.acc'),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin_tools/', include('admin_tools.urls')),

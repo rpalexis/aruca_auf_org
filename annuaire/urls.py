@@ -4,7 +4,7 @@ from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
 
 urlpatterns = patterns('annuaire.views',
-    (r'^$', 'accueil'),
+    url(r'^$', 'accueil'),
     url(r'^chercheurs/$', 'list_chercheur'),
     url(r'^chercheurs/(?P<id>[-\w]+)/$', 'chercheur_detail'),
     url(r'^inscription-chercheur/$', 'InscriptionChercheur', name='chercheur-inscription'),

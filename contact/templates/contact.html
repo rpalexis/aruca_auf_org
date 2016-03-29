@@ -2,16 +2,16 @@
 
 
 {% block Contenu %}
-    
+
     <div id="texte">
-    	<h3>Formualire de contact</h3>
-        
+    	<h3>Formulaire de contact</h3>
+
         <p>{{ message }}</p>
-        
+
         <div class="chercheur">
             <form action="" method="post">{% csrf_token %}
             	{{ forms.chercheur.non_field_errors }}
-                
+
                 <h3 style="margin: 10px 0px 28px 0px">envoyer</h3>
                         <div class="fieldWrapper">
                             {{ contact_form.nom.errors }}
@@ -33,12 +33,12 @@
                             <label for="id_message">Message <span class="requis">*</span>:</label>
                             {{ contact_form.message }}
                         </div>
-                        
+
             <input type="submit" value="Envoyer le formulaire" />
-            </form>    
+            </form>
         </div>
-        
+
     </div>
-    
-    
+
+
 {% endblock Contenu %}

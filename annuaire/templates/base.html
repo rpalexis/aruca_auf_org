@@ -1,4 +1,4 @@
-{% load sekizai_tags i18n%}
+{% load sekizai_tags i18n staticfiles%}
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
@@ -11,16 +11,16 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <title>Annuaire</title>
-  <link href="{{ STATIC_URL }}css/nivo-slider.css?v=1" rel="stylesheet" type="text/css" media="screen" />
-  <link href="{{ STATIC_URL }}css/style.css?v=1" rel="stylesheet" type="text/css" media="screen" />
-  <link href="{{ STATIC_URL }}css/style_print.css?v=1" rel="stylesheet" type="text/css" media="print" />
+  <link href="{% static 'css/nivo-slider.css' %}" rel="stylesheet" type="text/css" media="screen" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+  <link href="{% static 'css/style_print.css' %}" rel="stylesheet" type="text/css" media="print" />
   {% render_block "css" %}
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-  <script type="text/javascript" src="{{ STATIC_URL }}scripts/swfobject.js"></script>
-  <script type="text/javascript" src="{{ STATIC_URL }}scripts/site.js"></script>
-  <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.formset.js"></script>
+  <script type="text/javascript" src="{% static 'scripts/swfobject.js' %}"></script>
+  <script type="text/javascript" src="{% static 'scripts/site.js' %}"></script>
+  <script type="text/javascript" src="{% static 'scripts/jquery.formset.js' %}"></script>
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.js"></script>-->
-  <script  type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.nivo.slider.pack.js"></script>
+  <script  type="text/javascript" src="{% static 'scripts/jquery.nivo.slider.pack.js' %}"></script>
   <script type="text/javascript">
 				$(window).load(function() {
 					$('#slider').nivoSlider({
@@ -42,16 +42,16 @@
 		<div id="sub">
 				{% if user.is_authenticated %}<p style="text-align:left; width: 510px; float: left"><a href="/chercheur/perso/" style="text-align:left">{% trans "Vous êtes connecté sous" %} {{ user.email }}</a><a href="/chercheur/perso/" style="text-align:left">{% trans "Espace personnel" %}</a></p>{% endif %}
             	<p style="text-align:right; width: 400px; float: right"><a href="/a-propos/">{% trans "À propos" %}</a><a href="/aide/">{% trans "Aide" %}</a><a href="/contact/">{% trans "Contact" %}</a>{% if user.is_authenticated %}
-                        <a href="/deconnexion/" class="connex">{% trans "Déconnexion" %}</a></p>
+                        <a href="/annuaire/deconnexion/" class="connex">{% trans "Déconnexion" %}</a></p>
                         {% else %}
-                        <a href="/connexion/" class="connex">{% trans "Connexion" %}</a></p>
+                        <a href="/annuaire/connexion/" class="connex">{% trans "Connexion" %}</a></p>
                         {% endif %}
         </div>
 
 		<header>
 
 			<div id="logo1">
-				<img src="{{ STATIC_URL }}img/Logo_Auf.png" alt="Logo de l`AUF"/>
+				<img src="{% static 'img/Logo_Auf.png' %}" alt="Logo de l`AUF"/>
 			</div>
 
 			<div id="titre_princ">
@@ -59,7 +59,7 @@
             </div>
 
             		<div id="logo2">
-				<img src="{{ STATIC_URL }}img/logo2.png" alt="Logo de la corpuca" id="log"/>
+				<img src="{% static 'img/logo2.png' %}" alt="Logo de la corpuca" id="log"/>
 			</div>
 		</header>
 
@@ -69,24 +69,24 @@
 
 		<nav id="menu">
 			<ul>
-                    <li><a href="/">{% trans "Accueil" %}</a></li>
-                    <li><a href="/equipes/">{% trans "Equipes de Recherche" %}</a></li>
-                    <li><a href="/chercheurs/">{% trans "Chercheurs indépendants" %}</a></li>
-                    <li><a href="/appels-offre/">{% trans "Appels à projets" %}</a></li>
+                    <li><a href="/annuaire/">{% trans "Accueil" %}</a></li>
+                    <li><a href="/annuaire/equipes/">{% trans "Equipes de Recherche" %}</a></li>
+                    <li><a href="/annuaire/chercheurs/">{% trans "Chercheurs indépendants" %}</a></li>
+                    <li><a href="/appels/appels-offre/">{% trans "Appels à projets" %}</a></li>
                     <li><a href="/liens-utiles/">{% trans "Liens utiles" %}</a></li>
                     <li><a href="/contact/">{% trans "Contact" %}</a></li>
-                    <li><a href="/album/">{% trans "Photos événements" %}</a></li>
+                    <li><a href="/photos/album/">{% trans "Photos événements" %}</a></li>
                     <li style="padding-left: 10px;"> {% ifequal LANGUAGE_CODE 'fr' %}
                     				<form action="/i18n/setlang/" method="post">
                                         {% csrf_token %}
                                         <input type="hidden" name="language" value="es" />
-                                        <input type="image" src="{{ STATIC_URL }}img/es.png" width="18" height="12" />
+                                        <input type="image" src="{% static 'img/es.png' %}" width="18" height="12" />
                                     </form>
                              {% else %}
                                     <form action="/i18n/setlang/" method="post">
                                         {% csrf_token %}
                                         <input type="hidden" name="language" value="fr" />
-                                        <input type="image" src="{{ STATIC_URL }}img/fr.png" width="18" height="12" />
+                                        <input type="image" src="{% static 'img/fr.png' %}" width="18" height="12" />
                                     </form>
 							 {% endifequal %}
               		</li>
@@ -106,11 +106,11 @@
 
                             <ul id="discipline">
 
-								<li class="bleu"><a href="/chercheurs/?nom=&etablissement=&axe=1">{% trans "Ressources Vivantes naturelles et exploitées dans le cadre du développement durable" %}</a></li>
-								<li class="vert"><a href="/chercheurs/?nom=&etablissement=&axe=2">{% trans "Santé humaine et épidémiologie en millieu tropical insulaire" %}</a></li>
-							    <li class="mauve"><a href="/chercheurs/?nom=&etablissement=&axe=3">{% trans "Territoires,sciences humaines,cultures et sociétés dans la région caribéenne" %}</a></li>
-								<li class="rouge"><a href="/chercheurs/?nom=&etablissement=&axe=4">{% trans "Economie et développement endogène dans la caraibe" %}</a></li>
-								<li class="jaune"><a href="/chercheurs/?nom=&etablissement=&axe=5">{% trans "Connaissance,exploitation et gestion du millieu physique" %}</a></li>
+								<li class="bleu"><a href="/annuaire/chercheurs/?nom=&etablissement=&axe=1">{% trans "Ressources Vivantes naturelles et exploitées dans le cadre du développement durable" %}</a></li>
+								<li class="vert"><a href="/annuaire/chercheurs/?nom=&etablissement=&axe=2">{% trans "Santé humaine et épidémiologie en millieu tropical insulaire" %}</a></li>
+							    <li class="mauve"><a href="/annuaire/chercheurs/?nom=&etablissement=&axe=3">{% trans "Territoires,sciences humaines,cultures et sociétés dans la région caribéenne" %}</a></li>
+								<li class="rouge"><a href="/annuaire/chercheurs/?nom=&etablissement=&axe=4">{% trans "Economie et développement endogène dans la caraibe" %}</a></li>
+								<li class="jaune"><a href="/annuaire/chercheurs/?nom=&etablissement=&axe=5">{% trans "Connaissance,exploitation et gestion du millieu physique" %}</a></li>
 
 							</ul>
 
@@ -118,11 +118,11 @@
 					<h3>{% trans "Inscrivez-vous:" %}</h3>
 
 							<div id="chercheur_ch">
-								<a href="/inscription-equipe/"><img src="{{ STATIC_URL }}img/chercheur_eq.png" alt="" title=/> <span>{% trans "Une Equipe de recherche" %}</span></a>
+								<a href="/annuaire/inscription-equipe/"><img src="{% static 'img/chercheur_eq.png' %}" alt="" title=/> <span>{% trans "Une Equipe de recherche" %}</span></a>
 							</div>
 
 							<div id="chercheur_eq">
-								<a href="/inscription-chercheur/"><img src="{{ STATIC_URL }}img/chercheur_ind.png" alt=""/> <span>{% trans "Un chercheur indépendant" %}</span></a>
+								<a href="/annuaire/inscription-chercheur/"><img src="{% static 'img/chercheur_ind.png' %}" alt=""/> <span>{% trans "Un chercheur indépendant" %}</span></a>
 							</div>
 
 					</div>
@@ -132,7 +132,7 @@
 					<h3>{% trans "Suivez-nous" %}</h3>
 
 							<div id="chercheur_ch">
-								<a href="/flux-rss/"><img src="{{ STATIC_URL }}img/rss.png" alt=""/> <span>{% trans "Abonnez vous au flux RSS" %}</span> </a>
+								<a href="/flux-rss/"><img src="{% static 'img/rss.png' %}" alt=""/> <span>{% trans "Abonnez vous au flux RSS" %}</span> </a>
 							</div>
 
 					</div>

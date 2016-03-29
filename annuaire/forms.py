@@ -32,28 +32,33 @@ class SetPasswordForm(forms.Form):
 class AuthenticationForm(DjangoAuthenticationForm):
     username = forms.CharField(label='Courriel')
 
-# class InscriptionCForm(forms.ModelForm):
-#     class Meta:
-#         model = Chercheur
-#
-#     def clean_courriel(self):
-#         """On veut s'assurer qu'il n'y ait pas d'autre utilisateur actif
-#            avec le même courriel."""
-#         courriel = self.cleaned_data['courriel']
-#         print (courriel)
-#         existing = Chercheur.objects.filter(courriel=courriel, actif=True)
-#         if self.instance and self.instance.id:
-#             existing = existing.exclude(id=self.instance.id)
-#
-#         else:
-#             # Nouveau chercheur
-#             user = User.objects.filter(is_active=True, email=courriel)
-#             if user.count():
-#                 raise forms.ValidationError('Il existe déjà une fiche pour cette adresse électronique')
-#
-#         if existing.count():
-#             raise forms.ValidationError('Il existe déjà une fiche pour cette adresse électronique')
-#         return courriel
+class InscriptionCForm(forms.ModelForm):
+    class Meta:
+        model = Chercheur
+        fields = ['langue','etablissement','etablissement_autre_nom','etablissement_autre_pays','genre','nom',
+                    'prenom','courriel','afficher_courriel','site','telephone','telecopie','axe','mots_cles',
+                    'diplome','discipline','theme_recherche','equipement','laboratoire','terrain' ,'valorisation',
+                    'partenaires','doctorants', 'stagiaire' , 'publicationsInternational','publicationsAutre',
+                    'publicationsColloc', 'communication', 'equipe', 'domaine', 'actif'
+                ]
+    def clean_courriel(self):
+        """On veut s'assurer qu'il n'y ait pas d'autre utilisateur actif
+           avec le même courriel."""
+        courriel = self.cleaned_data['courriel']
+        print (courriel)
+        existing = Chercheur.objects.filter(courriel=courriel, actif=True)
+        if self.instance and self.instance.id:
+            existing = existing.exclude(id=self.instance.id)
+
+        else:
+            # Nouveau chercheur
+            user = User.objects.filter(is_active=True, email=courriel)
+            if user.count():
+                raise forms.ValidationError('Il existe déjà une fiche pour cette adresse électronique')
+
+        if existing.count():
+            raise forms.ValidationError('Il existe déjà une fiche pour cette adresse électronique')
+        return courriel
 
 class TheseForm(forms.ModelForm):
     class Meta:
@@ -105,9 +110,10 @@ class ChercheurFormGroup(object):
             return self.chercheur.instance
 
 
-# class InscriptionEForm(forms.ModelForm):
-#     class Meta:
-#         model = Equipe
+class InscriptionEForm(forms.ModelForm):
+    class Meta:
+        model = Equipe
+        exclude = ['date_mod','date_pub']
 
 class PublicationFormEquipe(forms.ModelForm):
     class Meta:

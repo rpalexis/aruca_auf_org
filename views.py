@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 from django.template import Context, RequestContext
 from django.db.models import Q
 from itertools import chain
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 def normalize_query(query_string,
                     findterms=re.compile(r'"([^"]+)"|(\S+)').findall,
@@ -64,3 +64,7 @@ def help(request):
 
 def useful(request):
     return render_to_response('hintPages/liens.html')
+
+
+def acc(request):
+    return HttpResponseRedirect('annuaire/')

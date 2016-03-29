@@ -53,7 +53,7 @@ WSGI_APPLICATION = 'aruca_auf_org.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'America/Port-au-Prince'
 
@@ -170,9 +170,9 @@ INSTALLED_APPS = (
 )
 
 LANGUAGES = (
-    ## Customize this
-    ('en', gettext('en')),
+    ## Customize this`
     ('fr', gettext('fr')),
+    # ('en', gettext('en')),
 )
 
 CMS_LANGUAGES = {
@@ -183,13 +183,13 @@ CMS_LANGUAGES = {
         'hide_untranslated': False,
     },
     1: [
-        {
-            'name': gettext('en'),
-            'redirect_on_fallback': True,
-            'code': 'en',
-            'public': True,
-            'hide_untranslated': False,
-        },
+        # {
+        #     'name': gettext('en'),
+        #     'redirect_on_fallback': True,
+        #     'code': 'en',
+        #     'public': True,
+        #     'hide_untranslated': False,
+        # },
         {
             'name': gettext('fr'),
             'redirect_on_fallback': True,

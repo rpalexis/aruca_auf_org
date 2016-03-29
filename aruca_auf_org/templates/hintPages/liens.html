@@ -1,13 +1,12 @@
 {% extends "base.html" %}
-{% load i18n pagination_tags cms_tags%}
+{% load pagination_tags cms_tags%}
 
 {% block Contenu %}
 <div id="texte">
-        
-            
+
+
             	<h1>{% page_attribute "page_title" "liens"%}</h1>
-		<p>{% show_placeholder "Texter" "liens"%}</p>
-                
+
 </div>
-        
+
 {% endblock %}
