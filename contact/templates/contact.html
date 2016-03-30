@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block Contenu %}
+
+    <div id="texte">
+    	<h3>Formulaire de contact</h3>
+
+        <p>{{ message }}</p>
+
+        <div class="chercheur">
+            <form action="" method="post">{% csrf_token %}
+            	{{ forms.chercheur.non_field_errors }}
+
+                <h3 style="margin: 10px 0px 28px 0px">envoyer</h3>
+                        <div class="fieldWrapper">
+                            {{ contact_form.nom.errors }}
+                            <label for="id_message">Nom <span class="requis">*</span>:</label>
+                            {{ contact_form.nom }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ contact_form.email.errors }}
+                            <label for="id_message">Courriel:</label>
+                            {{ contact_form.email }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ contact_form.sujet.errors }}
+                            <label for="id_message">Sujet <span class="requis">*</span>:</label>
+                            {{ contact_form.sujet }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ contact_form.message.errors }}
+                            <label for="id_message">Message <span class="requis">*</span>:</label>
+                            {{ contact_form.message }}
+                        </div>
+
+            <input type="submit" value="Envoyer le formulaire" />
+            </form>
+        </div>
+
+    </div>
+
+
+{% endblock Contenu %}
