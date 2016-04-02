@@ -36,7 +36,7 @@ urlpatterns = i18n_patterns('',
     url(r'^liens-utiles/$', 'views.useful'),
     #search
     (r'^i18n/', include('django.conf.urls.i18n')),
-    url(r'^', include('cms.urls')),
+    url(r'^t/', include('cms.urls')),
 
 )
 

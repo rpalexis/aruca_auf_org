@@ -163,10 +163,11 @@ INSTALLED_APPS = (
     'appels',
     'contact',
     'photos',
-    #Apps added
     'auf.django.references',
+    #Apps added
     'filebrowser',
     'pagination',#Pagination handling
+    # 'references',
 )
 
 LANGUAGES = (
