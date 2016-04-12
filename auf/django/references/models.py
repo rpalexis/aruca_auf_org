@@ -91,7 +91,7 @@ class Employe(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return u"%s, %s" % (self.nom, self.prenom)
 
 
@@ -107,7 +107,7 @@ class Authentification(ActifsModel):
         ordering = ['id']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.courriel
 
 
@@ -122,7 +122,7 @@ class Service(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nom
 
 
@@ -136,7 +136,7 @@ class PosteType(ActifsModel):
         db_table = u'ref_poste_type'
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nom
 
 
@@ -236,7 +236,7 @@ class Discipline(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nom
 
 
@@ -256,7 +256,7 @@ class Programme(ActifsModel):
         db_table = u'ref_programme'
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nom
 
 
@@ -301,7 +301,7 @@ class Projet(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s - %s" % (self.code, self.nom)
 
 
@@ -320,7 +320,7 @@ class ProjetComposante(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s - %s" % (self.code, self.nom)
 
 
@@ -336,7 +336,7 @@ class UniteProjet(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s - %s" % (self.code, self.nom)
 
 
@@ -351,7 +351,7 @@ class ObjectifSpecifique(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s - %s" % (self.id, self.nom)
 
 
@@ -364,7 +364,7 @@ class ObjectifStrategique(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s - %s" % (self.id, self.nom)
 
 
@@ -376,7 +376,7 @@ class Thematique(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s - %s" % (self.id, self.nom)
 
 
@@ -407,7 +407,7 @@ class Poste(ActifsModel):
         db_table = u'ref_poste'
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s - %s (%s)" % (self.code, self.nom, self.type)
 
 
@@ -436,7 +436,7 @@ class ProjetPoste(ActifsModel):
         db_table = u'ref_projet_poste'
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.code
 
 
@@ -460,7 +460,7 @@ class Region(ActifsModel):
         verbose_name_plural = u"régions"
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nom
 
 
@@ -482,7 +482,7 @@ class ZoneAdministrative(ActifsModel):
         verbose_name_plural = u'zones administratives'
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nom
 
 
@@ -516,7 +516,7 @@ class Bureau(ActifsModel):
         verbose_name_plural = u"bureaux"
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nom
 
 
@@ -635,7 +635,7 @@ class Implantation(ActifsModel):
         ordering = ['nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nom
 
 
@@ -676,7 +676,7 @@ class Pays(ActifsModel):
         verbose_name_plural = u"pays"
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nom
 
 
@@ -772,7 +772,7 @@ class _Etablissement(ActifsModel):
         ordering = ['pays__nom', 'nom']
         managed = MANAGED
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s - %s" % (self.pays_id, self.nom)
 
 
