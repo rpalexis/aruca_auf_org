@@ -7,17 +7,18 @@
 <h3>Inscription</h3>
 
         	<div class="chercheur">
-                
-                <form action="/inscription-chercheur/" method="post">{% csrf_token %}
+
+                <form action="/annuaire/inscription-chercheur/" method="POST">
+                    {% csrf_token %}
                     {% if forms.chercheur.errors %}<ul class="errorlist"><li>{% trans "Des erreurs ne permettent pas de s'inscrire." %}</li></ul>{% endif %}
-                    
+
                     <h3 style="margin-bottom: 28px;">{% trans "Propriété de la Fiche" %}</h3>
                         <div class="fieldWrapper">
                             {{ forms.chercheur.langue.errors }}
                             <label for="id_subject">{% trans "Langue" %} <span class="requis">*</span>:</label>
                             {{ forms.chercheur.langue }}
                         </div>
-                        
+
                     <h3 style="margin: 10px 0px 28px 0px">{% trans "Etablissement" %}</h3>
                         <div class="fieldWrapper">
                             {{ forms.chercheur.etablissement.errors }}
@@ -34,7 +35,7 @@
                             <label for="id_cc_myself">{% trans "Pays" %} :</label>
                             {{ forms.chercheur.etablissement_autre_pays }}
                         </div>
-                        
+
                     <h3 style="margin: 10px 0px 28px 0px">{% trans "Informations sur le chercheur" %}</h3>
                         <div class="fieldWrapper">
                             {{ forms.chercheur.genre.errors }}
@@ -81,7 +82,7 @@
                             <label for="id_cc_myself">{% trans "Diplôme le plus élevé" %} :</label>
                             {{ forms.chercheur.diplome }}
                         </div>
-                        
+
                     <h3 style="margin: 10px 0px 28px 0px">{% trans "Enseignements et Recherche" %}</h3>
 			<div class="fieldWrapper">
                             {{ forms.chercheur.discipline.errors }}
@@ -103,7 +104,7 @@
                             <label for="id_cc_myself">{% trans "Mots-clés" %} :</label>
                             {{ forms.chercheur.mots_cles }}
                         </div>
-                        
+
                       <h3 style="margin: 10px 0px 28px 0px">{% trans "Equipement" %}</h3>
                         <div class="fieldWrapper">
                             {{ forms.chercheur.equipement.errors }}
@@ -120,7 +121,7 @@
                             <label for="id_cc_myself">{% trans "Terrain" %} :</label>
                             {{ forms.chercheur.terrain }}
                         </div>
-                        
+
                     <h3 style="margin: 10px 0px 28px 0px">{% trans "Valorisation et autres" %}</h3>
                         <div class="fieldWrapper">
                             {{ forms.chercheur.valorisation.errors }}
@@ -142,7 +143,7 @@
                             <label for="id_cc_myself">{% trans "Stagiaire" %} :</label>
                             {{ forms.chercheur.stagiaire }}
                         </div>
-                        
+
                     <h3 style="margin: 10px 0px 28px 0px">{% trans "Publications" %}</h3>
                         <div class="fieldWrapper">
                             {{ forms.chercheur.publicationsInternational.errors }}
@@ -164,7 +165,7 @@
                             <label for="id_cc_myself">{% trans "Autres communications" %} :</label>
                             {{ forms.chercheur.communication }}
                         </div>
-                        
+
                      <h3 style="margin: 10px 0px 28px 0px">{% trans "Equipe de recherche" %}</h3>
                         <div class="fieldWrapper">
                             {{ forms.chercheur.equipe.errors }}
@@ -176,36 +177,36 @@
                             <label for="id_sender">{% trans "Si oui dans quel domaine?" %}</label>
                             {{ forms.chercheur.domaine }}
                         </div>
-                        
+
                      <h3 style="margin: 10px 0px 28px 0px">{% trans "Thèse" %} <em style="font-size:12px">(ou tout autre travail de recherche &#8212; mémoire, HDR, etc. &#8212; encadré par un universitaire)</em></h3>
                             {% with forms.these as form %}
                             {% include "render_form.html" %}
                             {% endwith %}
-                            
+
                      <h3 style="margin: 10px 0px 28px 0px">{% trans "Publications (donner 10 références maximum, les plus représentatives de l'activité scientifique)" %}</h3>
                      <fieldset id="publications">
-                         
+
                                {{ forms.publications.management_form }}
                                     {% for form in forms.publications %}
                                     <fieldset style="border: 1px solid #aaaaaa; padding: 14px 0px 0px 10px; margin-bottom: 10px">
                                         {{ form }}
                                     </fieldset>
                                     {% endfor %}
-                         
+
                      </fieldset>
-  
+
                      <h3 style="margin: 10px 0px 28px 0px">{% trans "Attestation" %}</h3>
                         <div class="fieldWrapper">
                             {{ forms.attestation.attestation.errors }}
                             {{ forms.attestation.attestation }}
                             <label for="id_sender" id="long">{{ forms.attestation.attestation.label_tag }}</label>
                         </div>
-                        
-                    <p align="center"><input type="submit" value="Enregistrer le chercheur" /></p>
+
+                    <p align="center"><input type="submit" name="env" value="Enregistrer le chercheur" /></p>
                 </form>
-                
+
            </div>
-           
+
 </div>
 
 {% endblock %}

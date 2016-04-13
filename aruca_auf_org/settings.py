@@ -214,12 +214,12 @@ CMS_PLACEHOLDER_CONF = {}
 DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
-        'NAME': 'project.db',
-        'PASSWORD': '',
+        'NAME': 'aruca_db',
+        'PASSWORD': 'fasil',
         'PORT': '',
-        'USER': ''
+        'USER': 'root'
     }
 }
 

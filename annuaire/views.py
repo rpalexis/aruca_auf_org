@@ -39,29 +39,37 @@ def accueil(request):
 
 
 def InscriptionChercheur(request):
+    # print(request.body["nn"])
+    print(request.META.get('HTTP_X_CSRFTOKEN','s'))
+    print(str(request.POST.dict())+" haiti")
     if request.method == 'POST':
-        forms = ChercheurFormGroup(request.POST)
-        if forms.is_valid():
-            chercheur = forms.save()
-            id_base36 = int_to_base36(chercheur.id)
-            token = chercheur.activation_token()
-            template = get_template('activation_email.txt')
-            domain = RequestSite(request).domain
-            message = template.render(Context({
-                'chercheur': chercheur,
-                'id_base36': id_base36,
-                'token': token,
-                'domain': domain
-            }))
-            send_mail(
-                'Votre inscription au site ARUCA',
-                message, 'webmestre@auf.org', [chercheur.courriel]
-            )
-            return HttpResponseRedirect('/validation/')
+        print("In Post")
+        # print("I'm in the post")
+        # forms = ChercheurFormGroup(request.POST)
+        # if forms.is_valid():
+        #     print("I'm in the validation of form")
+        #     chercheur = forms.save()
+        #     id_base36 = int_to_base36(chercheur.id)
+        #     token = chercheur.activation_token()
+        #     template = get_template('activation_email.txt')
+        #     domain = RequestSite(request).domain
+        #     message = template.render(Context({
+        #         'chercheur': chercheur,
+        #         'id_base36': id_base36,
+        #         'token': token,
+        #         'domain': domain
+        #     }))
+        #     send_mail(
+        #         'Votre inscription au site ARUCA',
+        #         message, 'webmestre@auf.org', [chercheur.courriel]
+        #     )
+        #     return HttpResponseRedirect('/validation/')
     else:
         forms = ChercheurFormGroup()
+        print("I'm in the GET part")
 
-    return render_to_response('inscriptionC.html', {'forms' : forms}, context_instance=RequestContext(request))
+    # return render_to_response('inscriptionC.html', {'forms' : forms}, context_instance=RequestContext(request))
+    return render(request,'inscriptionC.html',{'forms':forms})
 
 @chercheur_required
 def perso(request):

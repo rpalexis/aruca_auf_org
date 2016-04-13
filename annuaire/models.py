@@ -65,7 +65,7 @@ class These(models.Model):
     etablissement = models.CharField(max_length=255, null=True, blank=True, verbose_name='Établissement de soutenance')
     nb_pages = models.IntegerField(verbose_name='Nombre de pages', null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.titre
 
 class PublicationsMajeur(models.Model):
@@ -76,7 +76,7 @@ class PublicationsMajeur(models.Model):
     annee = models.CharField(max_length=255, null=True, blank=True, verbose_name='Date de publication')
     nb_pages = models.CharField(max_length=255, null=True, blank=True, verbose_name='nombre de pages')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.titre
 
 
@@ -138,7 +138,7 @@ class PublicationsMajeurEquipe(models.Model):
     annee = models.CharField(max_length=255, null=True, blank=True, verbose_name='Date de publication')
     nb_pages = models.CharField(max_length=255, null=True, blank=True, verbose_name='nombre de pages')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.titre
 
 class AuthLDAP(models.Model):
@@ -146,5 +146,5 @@ class AuthLDAP(models.Model):
     ldap_hash = models.CharField('hash LDAP', max_length=255)
     date_modification = models.DateTimeField(auto_now=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.username
