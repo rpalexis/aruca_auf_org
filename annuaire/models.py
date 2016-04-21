@@ -48,7 +48,8 @@ class Chercheur(models.Model):
     actif = models.BooleanField(default=False)
 
     def activation_token(self):
-        return sha_constructor(settings.SECRET_KEY + unicode(self.id)).hexdigest()[::2]
+        enc = settings.SECRET_KEY + str(self.id)
+        return sha_constructor(enc.encode('utf-8')).hexdigest()[::2]
 
     def get_absolute_url(self):
         return "/chercheurs/%s/" %self.id

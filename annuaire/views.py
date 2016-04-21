@@ -18,7 +18,7 @@ from django.shortcuts import redirect
 from django.http import HttpResponse, Http404
 from django.http import HttpResponseRedirect
 from django.forms import ModelForm
-#from django.template.loader import get_template, Loader
+from django.template.loader import get_template #, loader
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_protect
 from annuaire.utils import get_django_user_for_email, create_ldap_hash, check_ldap_hash
@@ -42,28 +42,31 @@ def InscriptionChercheur(request):
     # print(request.body["nn"])
     print(request.META.get('HTTP_X_CSRFTOKEN','s'))
     print(str(request.POST.dict())+" haiti")
+    # forms = {}
     if request.method == 'POST':
-        print("In Post")
-        # print("I'm in the post")
-        # forms = ChercheurFormGroup(request.POST)
-        # if forms.is_valid():
-        #     print("I'm in the validation of form")
-        #     chercheur = forms.save()
-        #     id_base36 = int_to_base36(chercheur.id)
-        #     token = chercheur.activation_token()
-        #     template = get_template('activation_email.txt')
-        #     domain = RequestSite(request).domain
-        #     message = template.render(Context({
-        #         'chercheur': chercheur,
-        #         'id_base36': id_base36,
-        #         'token': token,
-        #         'domain': domain
-        #     }))
-        #     send_mail(
-        #         'Votre inscription au site ARUCA',
-        #         message, 'webmestre@auf.org', [chercheur.courriel]
-        #     )
-        #     return HttpResponseRedirect('/validation/')
+        print("In Post at View")
+        print("I'm in the post in the view")
+        forms = ChercheurFormGroup(request.POST)
+        if forms.is_valid():
+            print("I'm in the validation of form")
+            chercheur = forms.save()
+            id_base36 = int_to_base36(chercheur.id)
+            token = chercheur.activation_token()
+            template = get_template('activation_email.txt')
+            domain = RequestSite(request).domain
+            message = template.render(Context({
+                'chercheur': chercheur,
+                'id_base36': id_base36,
+                'token': token,
+                'domain': domain
+            }))
+            #The url for the user's connection
+            #   http://{{ domain }}{% url chercheur-activation id_base36=id_base36, token=token %}
+            # send_mail(
+            #     'Votre inscription au site ARUCA',
+            #     message, 'webmestre@auf.org', [chercheur.courriel]
+            # )
+            return HttpResponseRedirect('/annuaire/validation/')
     else:
         forms = ChercheurFormGroup()
         print("I'm in the GET part")

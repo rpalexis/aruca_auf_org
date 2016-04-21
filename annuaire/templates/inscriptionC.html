@@ -8,7 +8,8 @@
 
         	<div class="chercheur">
 
-                <form action="/annuaire/inscription-chercheur/" method="POST">
+                <form action="" method="POST">
+                   <!-- /annuaire/inscription-chercheur/ -->
                     {% csrf_token %}
                     {% if forms.chercheur.errors %}<ul class="errorlist"><li>{% trans "Des erreurs ne permettent pas de s'inscrire." %}</li></ul>{% endif %}
 
