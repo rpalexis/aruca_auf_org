@@ -1,6 +1,6 @@
 import re
 from annuaire.models import *
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,render
 from django.template import Context, RequestContext
 from django.db.models import Q
 from itertools import chain
@@ -58,16 +58,16 @@ def search(request):
     return HttpResponse("<p>Merde</p>")
 @chercheur_required
 def propos(request):
-    return render_to_response('hintPages/propos.html')
+    return render(request,'hintPages/propos.html',{})
 
 @chercheur_required
 def help(request):
-    return render_to_response('hintPages/aide.html')
+    return render(request,'hintPages/aide.html',{})
 
 
 @chercheur_required
 def useful(request):
-    return render_to_response('hintPages/liens.html')
+    return render_to_response('hintPages/liens.html',context_instance=RequestContext(request))
 
 @chercheur_required
 def acc(request):
