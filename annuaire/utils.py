@@ -36,6 +36,13 @@ def get_django_user_for_email(email):
         user.save()
     return user
 
+
+def get_username_from_email(email):
+    username = email.split('@')[0]
+    username = re.sub('\W', '_', username)[:30]
+    return username
+
+
 def export(queryset, type):
     from chercheurs.models import These
 
@@ -108,12 +115,12 @@ def export(queryset, type):
 def create_ldap_hash(password):
     salt = os.urandom(4)
     raw_hash = hashlib.sha1(password.encode('utf-8') + salt).digest()
-    ldap_hash = '{SSHA}' + base64.b64encode(raw_hash + salt)
+    ldap_hash = '{SSHA}' + str(base64.b64encode(raw_hash + salt))
 
     return ldap_hash
 
 def check_ldap_hash(ldap_hash, password):
-    hash_salt = base64.b64decode(ldap_hash[6:])
+    hash_salt = base64.b64decode(ldap_hash[7:])#Shift from 6 to 7
     hash = hash_salt[:-4]
     salt = hash_salt[-4:]
     test = hashlib.sha1(password.encode('utf-8') + salt).digest()

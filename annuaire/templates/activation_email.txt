@@ -6,6 +6,7 @@ Veuillez maintenant activer votre compte en suivant le lien
 suivant:
 
 
+http://{{ domain }}{% url 'chercheur_activation' id_base36=id_base36 token=token %}
 
 Si vous rencontrez des difficultés, vous pouvez écrire à : contact@aruca.org
 

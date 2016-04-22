@@ -52,7 +52,7 @@ class Chercheur(models.Model):
         return sha_constructor(enc.encode('utf-8')).hexdigest()[::2]
 
     def get_absolute_url(self):
-        return "/chercheurs/%s/" %self.id
+        return "/annuaire/chercheurs/%s/" %self.id
 
     class Meta:
         ordering = ["nom", "prenom", "langue"]

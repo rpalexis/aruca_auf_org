@@ -11,7 +11,7 @@ def chercheur_required(func):
     def wrapper(request, *args, **kwargs):
         if not request.user.is_authenticated():
             return HttpResponseRedirect(settings.LOGIN_URL)
-        chercheur = request.chercheur
+        chercheur = Chercheur.objects.filter(courriel = request.user.email)[0]
         if chercheur:
             return func(request, *args, **kwargs)
         else:

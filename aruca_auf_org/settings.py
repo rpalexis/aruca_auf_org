@@ -237,3 +237,16 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+#EMAIL Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'rpalexis1991@gmail.com'
+EMAIL_HOST_PASSWORD = 'P@$$word123!'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
+#The Logging url
+LOGIN_URL = '/annuaire/connexion/'
+LOGIN_REDIRECT_URL = '/annuaire/chercheur/perso/'

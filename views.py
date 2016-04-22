@@ -6,6 +6,8 @@ from django.db.models import Q
 from itertools import chain
 from django.http import HttpResponse, HttpResponseRedirect
 
+from annuaire.decorators import chercheur_required #Resolving stay connected for a-propos
+
 def normalize_query(query_string,
                     findterms=re.compile(r'"([^"]+)"|(\S+)').findall,
                     normspace=re.compile(r'\s{2,}').sub):
@@ -54,17 +56,19 @@ def search(request):
                                   { 'query_string': query_string, 'found_entries': found_entries },
                                   context_instance=RequestContext(request))
     return HttpResponse("<p>Merde</p>")
-
+@chercheur_required
 def propos(request):
     return render_to_response('hintPages/propos.html')
 
-
+@chercheur_required
 def help(request):
     return render_to_response('hintPages/aide.html')
 
+
+@chercheur_required
 def useful(request):
     return render_to_response('hintPages/liens.html')
 
-
+@chercheur_required
 def acc(request):
     return HttpResponseRedirect('annuaire/')

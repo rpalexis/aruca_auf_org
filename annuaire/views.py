@@ -21,7 +21,7 @@ from django.forms import ModelForm
 from django.template.loader import get_template #, loader
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_protect
-from annuaire.utils import get_django_user_for_email, create_ldap_hash, check_ldap_hash
+from annuaire.utils import get_django_user_for_email, get_username_from_email, create_ldap_hash, check_ldap_hash
 
 from annuaire.decorators import chercheur_required
 from annuaire.models import *
@@ -39,33 +39,31 @@ def accueil(request):
 
 
 def InscriptionChercheur(request):
-    # print(request.body["nn"])
-    print(request.META.get('HTTP_X_CSRFTOKEN','s'))
-    print(str(request.POST.dict())+" haiti")
     # forms = {}
     if request.method == 'POST':
-        print("In Post at View")
         print("I'm in the post in the view")
         forms = ChercheurFormGroup(request.POST)
         if forms.is_valid():
             print("I'm in the validation of form")
             chercheur = forms.save()
-            id_base36 = int_to_base36(chercheur.id)
+            id_base36 = chercheur.id #int_to_base36
             token = chercheur.activation_token()
             template = get_template('activation_email.txt')
             domain = RequestSite(request).domain
+            print(domain)
             message = template.render(Context({
                 'chercheur': chercheur,
                 'id_base36': id_base36,
                 'token': token,
                 'domain': domain
             }))
+            print(message)
             #The url for the user's connection
-            #   http://{{ domain }}{% url chercheur-activation id_base36=id_base36, token=token %}
-            # send_mail(
-            #     'Votre inscription au site ARUCA',
-            #     message, 'webmestre@auf.org', [chercheur.courriel]
-            # )
+            #   http://{{ domain }}{% url chercheur_activation id_base36=id_base36, token=token %}
+            send_mail(
+                'Votre inscription au site ARUCA',
+                message, 'rulxphilome.alexis@gmail.com', [chercheur.courriel]
+            )
             return HttpResponseRedirect('/annuaire/validation/')
     else:
         forms = ChercheurFormGroup()
@@ -77,7 +75,7 @@ def InscriptionChercheur(request):
 @chercheur_required
 def perso(request):
     """Espace chercheur (espace personnel du chercheur)"""
-    chercheur = request.chercheur
+    chercheur = Chercheur.objects.filter(courriel = request.user.email)[0]  #request.chercheur
     modification = request.GET.get('modification')
     list_publi = PublicationsMajeur.objects.filter(chercheur=chercheur)
     list_these = These.objects.filter(chercheur=chercheur)
@@ -135,7 +133,7 @@ def desinscription(request):
 @never_cache
 def edit(request):
     """Edition d'un chercheur"""
-    chercheur = request.chercheur
+    chercheur = Chercheur.objects.filter(courriel = request.user.email)[0] #request.chercheur
     if request.method == 'POST':
         forms = ChercheurFormGroup(request.POST, chercheur=chercheur)
         if forms.is_valid():
@@ -152,9 +150,10 @@ def edit(request):
         'chercheur': chercheur
     })
 
+
 def activation(request, id_base36, token):
     """Activation d'un chercheur"""
-    id = base36_to_int(id_base36)
+    id = id_base36 #base36_to_int
     chercheur = get_object_or_404(Chercheur.objects.all(), id=id)
     if token == chercheur.activation_token():
         validlink = True
@@ -167,11 +166,11 @@ def activation(request, id_base36, token):
                 user = get_django_user_for_email(email)
                 user.set_password(password)
                 user.save()
-                chercheur.user = user
+                # chercheur.user = user
                 chercheur.save()
                 # Auto-login
                 auth_login(
-                    request, authenticate(username=email, password=password)
+                    request, authenticate(username= get_username_from_email(email), password=password)
                 )
                 return redirect('annuaire.views.perso')
         else:
@@ -239,7 +238,14 @@ def login(request, template_name='registration/login.html',
     redirect_to = request.REQUEST.get(redirect_field_name, '')
 
     if request.method == "POST":
-        form = AuthenticationForm(data=request.POST)
+        print(request.POST.get('username'))
+        posted_data = {'username':get_username_from_email(request.POST.get('username')),
+        'password':request.POST.get('password'),
+        'csrfmiddlewaretoken':request.POST.get('csrfmiddlewaretoken')}
+        form = AuthenticationForm(data=posted_data)
+
+        print(posted_data)
+        # print(form.get_user())
         if form.is_valid():
             # Light security check -- make sure redirect_to isn't garbage.
             if not redirect_to or ' ' in redirect_to:
@@ -255,7 +261,9 @@ def login(request, template_name='registration/login.html',
                 authldap.save()
 
             # Okay, security checks complete. Log the user in.
+            print(form.get_user())
             auth_login(request, form.get_user())
+
 
             if request.session.test_cookie_worked():
                 request.session.delete_test_cookie()
