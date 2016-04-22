@@ -126,7 +126,7 @@ class Equipe(models.Model):
     actif = models.BooleanField(default=False)
 
     def get_absolute_url(self):
-        return "/equipes/%s/" %self.id
+        return "/annuaire/equipes/%s/" %self.id
 
     class Meta:
         ordering = ["nom", "prenom", "langue"]

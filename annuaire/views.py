@@ -207,10 +207,11 @@ def InscriptionEquipe(request):
 
     if request.method == 'POST':
         forms = EquipeFormGroup(request.POST)
+
         if forms.is_valid():
             equip = forms.save()
             #send_mail('Inscription au site ARUCA', 'Votre équipe de chercheurs est inscrit sur le site ARUCA. merci','webmestre@auf.org',[equip.courriel])
-            return HttpResponseRedirect('/validation_equipe/')
+            return HttpResponseRedirect('/annuaire/validation_equipe/')
     else:
         forms = EquipeFormGroup()
 
