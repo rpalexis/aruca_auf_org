@@ -75,7 +75,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'aruca_auf_org', 'static'),
 )
-SITE_ID = 1
+SITE_ID = 2
 
 
 TEMPLATES = [
@@ -164,6 +164,7 @@ INSTALLED_APPS = (
     'contact',
     'photos',
     'auf.django.references',
+    'ciec_portail',
     #Apps added
     'filebrowser',
     'pagination',#Pagination handling

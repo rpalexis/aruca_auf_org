@@ -1,0 +1,136 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>|CIEC</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/bootstrap.min.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/style.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/font-awesome.min.css' %}" />
+      {% render_block "css" %}
+  </head>
+  <body>
+    {% cms_toolbar %}
+    {% block 'menu_common_things' %}
+    <div class="container-fluid">
+      <!-- navigation -->
+      <nav class="navbar navbar-default" id="navigation_bar">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <!-- inline_bar_top -->
+              <div class="row">
+                <ul class="col-lg-12" id="inline_bar_top">
+                    <li class="imfp"><a href="#">Connexion</a></li>
+                    <li class="imfp"><a href="#">CGU</a></li>
+                    <li class="imfp"><a href="#">Contact</a></li>
+                    <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'auf_refonte/images/fr.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'auf_refonte/images/fr.png' %}"></a></li>
+                    <li>
+                      <form class="form-inline">
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="Recherche a travers le site">
+                          <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+
+                      </form>
+                    </li>
+                </ul>
+              </div>
+              <!-- fin inline_bar_top -->
+
+              <!-- scrolled_menu -->
+              <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
+                <li ><a href="{% url 'ciec_home' %}">Accueil</a></li>
+                <li class="active"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
+                <li><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
+                <li><a href="/aruca/">ARUCA</a></li>
+              </ul>
+              <!-- scrolled_menu -->
+
+              <!-- menu_principal -->
+              <ul class="nav navbar-nav affiche" id="menu_nav">
+                <li ><a href="{% url 'ciec_home' %}">Accueil</a></li>
+                <li class="active"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
+                <li><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
+                <li><a href="/aruca/">ARUCA</a></li>
+              </ul>
+              <!-- menu_principal -->
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+      </nav>
+      <!-- navigation -->
+      <div class="hr_bar"></div>
+      <div class="row" id="banderolle_row">
+        <div class="col-lg-3">
+          <!-- image espace --><br />
+          <img src="{% static 'auf_refonte/images/auf-menu-logo.svg' %}">
+        </div>
+        <div class="col-lg-7">
+          <!-- text aruca -->
+          <h1 style="font-weight:bolder;color:#AA0A2F;">
+          Chaire inter-universitaire d'Etudes Carib&eacute;ennes |
+          <u><i>CIEC</i></u>
+          </h1>
+        </div>
+        <div class="col-lg-2">
+          <img src="{% static 'auf_refonte/images/corpuca_logo.png' %}" width="150px"/>
+        </div>
+    </div>
+    <br />
+    {% endblock %}
+
+    <!-- Espace contenu  -->
+    <div id="contenu">
+    </div>
+    <!-- Espace contenu  -->
+    <br /><br /><br />
+
+    {% block 'pied_page' %}
+    <div class="row">
+      <div class="col-md-12" style="background: #707070">
+        <footer id="PiedPage">
+          <img width="170" height="121" src="{% static 'auf_refonte/images/auf-menu-logo.svg' %}" alt="">
+          <ul>
+            <li>Mentions Legales</li>
+            <li>Contact</li>
+            <li>Connexion</li>
+            <li>CGU</li>
+            <li>AUF (c) 2016 Copyright Holder All Rights Reserved.</li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+    {% endblock %}
+  </div>
+    <script src="{% static 'auf_refonte/js/jquery_auf_v_12.min.js' %}"></script>
+    <script src="{% static 'auf_refonte/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript">
+    $(document).ready(function (){
+         $(window).scroll(function () {
+             if ($(document).scrollTop() <= 40) {
+                 $('#menu_nav_scroll').addClass('cache');
+                 $('#menu_nav_scroll').removeClass('affiche');
+                 $('#menu_nav').addClass('affiche');
+             } else {
+               $('#menu_nav_scroll').addClass('affiche');
+               $('#menu_nav_scroll').removeClass('cache');
+               $('#menu_nav').addClass('cache');
+             }
+         });
+    });
+    </script>
+    {% render_block "js" %}
+  </body>
+</html>

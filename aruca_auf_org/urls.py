@@ -14,7 +14,8 @@ from feeds import DerniersAjouts
 admin.autodiscover()
 
 urlpatterns = i18n_patterns('',
-    url(r'^$','views.acc'),
+    # url(r'^$','views.acc'),
+    url(r'^$', include('ciec_portail.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin_tools/', include('admin_tools.urls')),
@@ -24,10 +25,11 @@ urlpatterns = i18n_patterns('',
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^select2/', include('django_select2.urls')),
     #Apps urls
-    url(r'^annuaire/', include('annuaire.urls')),
+    url(r'^aruca/', include('annuaire.urls')),
     url(r'^appels/', include('appels.urls')),
     url(r'^contact/', include('contact.urls')),
     url(r'^photos/', include('photos.urls')),
+    url(r'^portail/', include('ciec_portail.urls')),
     #Apps urls
     #search
     url(r'^recherche/$', 'views.search'),
