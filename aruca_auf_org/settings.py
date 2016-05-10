@@ -220,7 +220,10 @@ DATABASES = {
         'NAME': 'aruca_db',
         'PASSWORD': 'fasil',
         'PORT': '',
-        'USER': 'root'
+        'USER': 'root',
+        'OPTIONS': {
+           "init_command": "SET storage_engine=MyISAM",
+    },
     }
 }
 

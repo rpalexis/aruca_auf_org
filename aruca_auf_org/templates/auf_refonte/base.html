@@ -30,7 +30,7 @@
               <!-- inline_bar_top -->
               <div class="row">
                 <ul class="col-lg-12" id="inline_bar_top">
-                    <li class="imfp"><a href="#">Connexion</a></li>
+                    <!-- <li class="imfp"><a href="#">Connexion</a></li> -->
                     <li class="imfp"><a href="#">CGU</a></li>
                     <li class="imfp"><a href="#">Contact</a></li>
                     <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
@@ -90,12 +90,13 @@
     </div>
     <br />
     {% endblock %}
-
+    {% block 'contenu' %}
     <!-- Espace contenu  -->
     <div id="contenu">
     </div>
     <!-- Espace contenu  -->
     <br /><br /><br />
+    {% endblock %}
 
     {% block 'pied_page' %}
     <div class="row">
@@ -131,6 +132,8 @@
          });
     });
     </script>
+    {%block 'extra_js'%}
+    {% endblock %}
     {% render_block "js" %}
   </body>
 </html>

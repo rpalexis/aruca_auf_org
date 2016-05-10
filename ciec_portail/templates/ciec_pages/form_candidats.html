@@ -1,2 +1,170 @@
 {% extends "auf_refonte/base.html" %}
-{% load cms_tags %}
+{% load cms_tags staticfiles addCss%}
+
+{% block 'contenu' %}
+<!-- Espace contenu  -->
+<div class="row">
+    <div class="col-md-2">
+        <p style="color:red;font-size:20px;">
+          Un mot quelconque <br />
+          Ou Les erreurs du formulaire
+
+        </p>
+    </div>
+    <div class="col-md-10">
+      <h2 class="text-center">Formulaire de candidature aux insctances de la CIEC</h2>
+      <form class="test" action="" method="POST">
+
+        <div class="form-group">
+          <label>{{form.statut_candidatures.help_text}} :</label>
+          {{form.statut_candidatures|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.sexe.help_text}} :</label>
+          {{form.sexe|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.nom.help_text}} :</label>
+          {{form.nom|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.prenom.help_text}} :</label>
+          {{form.prenom|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.pays_nationalite.help_text}} :</label>
+          {{form.pays_nationalite|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.adresse_residence.help_text}} :</label>
+          {{form.adresse_residence|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.ville_residence.help_text}} :</label>
+          {{form.ville_residence|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.numero_telephone_direct.help_text}} :</label>
+          {{form.numero_telephone_direct|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.mail_direct.help_text}} :</label>
+          {{form.mail_direct|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.etablissement_universitaire_1.help_text}} :</label>
+          {{form.etablissement_universitaire_1|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.etabliseement_universitaire_autres.help_text}} :</label>
+          {{form.etabliseement_universitaire_autres|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.discipline_scient_gnrl.help_text}} :</label>
+          {{form.discipline_scient_gnrl|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.fonction_academique_now.help_text}} :</label>
+          {{form.fonction_academique_now|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.fonction_academique_autre.help_text}} :</label>
+          {{form.fonction_academique_autre|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.pls_haut_diplome.help_text}} :</label>
+          {{form.pls_haut_diplome|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.annee_obt.help_text}} :</label>
+          {{form.annee_obt|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.langue_travail_prin.help_text}} :</label>
+          {{form.langue_travail_prin|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.autre_langue_prin.help_text}} :</label>
+          {{form.autre_langue_prin|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.langue_maitrise.help_text}} :</label>
+          {{form.langue_maitrise|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.autre_langue_maitrise.help_text}} :</label>
+          {{form.autre_langue_maitrise|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.implication_academique.help_text}} :</label>
+          {{form.implication_academique|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.synthese_principale.help_text}} :</label>
+          {{form.synthese_principale|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.ambition_pr_ciec.help_text}} :</label>
+          {{form.ambition_pr_ciec|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.avantage_comparatif.help_text}} :</label>
+          {{form.avantage_comparatif|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.cv_detaille.help_text}} :</label>
+          {{form.cv_detaille|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.lettre_soutien.help_text}} :</label>
+          {{form.lettre_soutien|add_css_classes:"form-control"}}
+        </div>
+        <div class="form-group">
+          <label>{{form.mise_disposition_legale.help_text}} :</label>
+          {{form.mise_disposition_legale|add_css_classes:"form-control"}}
+        </div>
+        <button type="submit" class="btn btn-default">Soummettre</button>
+      </form>
+    </div>
+
+</div>
+<!-- Espace contenu  -->
+<br /><br /><br />
+{% endblock %}
+
+{%block 'extra_js'%}
+  <script src="{% static 'auf_refonte/js/jquery.steps.min.js' %}"></script>
+  <script type="text/javascript">
+      var form = $(".test");
+      // form.validate({
+      //   errorPlacement: function errorPlacement(error, element) { element.before(error); },
+      //   rules: {
+      //       confirm: {
+      //           equalTo: "#password"
+      //       }
+      //   }
+      // });
+      // form.children("div").steps({
+      //   headerTag: "h3",
+      //   bodyTag: "section",
+      //   transitionEffect: "slideLeft",
+      //   onStepChanging: function (event, currentIndex, newIndex)
+      //   {
+      //       alert("Mine");
+      //       form.validate().settings.ignore = ":disabled,:hidden";
+      //       return form.valid();
+      //   },
+      //   onFinishing: function (event, currentIndex)
+      //   {
+      //       alert("Yours");
+      //       form.validate().settings.ignore = ":disabled";
+      //       return form.valid();
+      //   },
+      //   onFinished: function (event, currentIndex)
+      //   {
+      //
+      //       alert("Submitted!");
+      //   }
+      // });
+  </script>
+{% endblock %}

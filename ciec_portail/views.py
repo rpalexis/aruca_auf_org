@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
+from .forms import InstanceCandidatureForm
 # Create your views here.
 
 def ciec_home(request):
@@ -7,7 +9,8 @@ def ciec_home(request):
 
 
 def candidature_ciec(request):
-    return render(request,'ciec_pages/form_candidats.html',{})
+    form = InstanceCandidatureForm
+    return render(request,'ciec_pages/form_candidats.html',{'form':form})
 
 
 def candidature_instance(request):

@@ -1,27 +1,193 @@
-{% extends "base.html" %}
-{% load i18n cms_tags%}
-{% block Contenu %}
+{% extends "auf_refonte/base_aruca.html" %}
+{% load cms_tags staticfiles addCss%}
 
-{% if slider_list%}
+{% block 'contenu' %}
+<!-- Espace contenu  -->
+<div class="row">
+  <form id="search_dimension">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Rechercher les laboratoires"/>
+      <span type="submit" class="input-group-addon">
+          <i class="fa fa-search">Rechercher</i>
+      </span>
+    </div>
+  </form>
+</div>
+<br/>
 
-        {% with slider_list as item_list %}
-                <div id="slide">
-						<div class="slider-wrapper theme-default">
-							<div id="slider" class="nivoSlider">
-                            {% for item in item_list %}
-                            	 {% if item.lien %}<a href="{{ item.lien }}">{% endif %}<img src="{{ MEDIA_URL }}{{ item.image}}" alt="{{ item.titre }}" title="{{ item.titre }}" />{% if item.lien %}</a>{% endif %}
-                           {% endfor %}
-                    	   </div>
-				       </div>
-			   </div>
-         {% endwith %}
+<div class="row" id="proposition_btn">
+  <a href="#" class="btn btn-primary col-lg-3 col-lg-offset-2 col-xs-5 col-xs-offset-1">Proposer un laboratoire</a>
+  <a href="#" class="btn btn-primary col-lg-3 col-lg-offset-2 col-xs-5 col-xs-offset-1">Proposer une actualite ou une Appel d'Offre</a>
+</div>
+<br />
+<!-- les noms des laboratoires -->
+<div class="row labo_title">
+    <h1 class="text-center">Nos laboratoires</h1>
+</div>
+<div class='row'>
+  <div class='col-md-12'>
+    <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+      <!-- Bottom Carousel Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#quote-carousel" data-slide-to="1"></li>
+        <li data-target="#quote-carousel" data-slide-to="2"></li>
+      </ol>
 
-{% endif %}
+      <!-- Carousel Slides / Quotes -->
+      <div class="carousel-inner">
 
-						<div id="texte">
+        <!-- Quote 1 -->
+        <div class="item active">
+          <blockquote>
+            <div class="row">
+              <div class="col-sm-4 col-sm-offset-1 text-center">
+                <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+                <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+              </div>
+              <div class="col-sm-7">
+                <p>
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!
+                  Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!
+                </p>
+                <small>Someone famous</small>
+              </div>
+            </div>
+          </blockquote>
+        </div>
+        <!-- Quote 2 -->
+        <div class="item">
+          <blockquote>
+            <div class="row">
+              <div class="col-sm-4 col-sm-offset-1 text-center">
+                <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+              </div>
+              <div class="col-sm-7">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.
+                </p>
+                <small>Someone famous</small>
+              </div>
+            </div>
+          </blockquote>
+        </div>
+        <!-- Quote 3 -->
+        <div class="item">
+          <blockquote>
+            <div class="row">
+              <div class="col-sm-4 col-sm-offset-1 text-center">
+                <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+              </div>
+              <div class="col-sm-7">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.
+                </p>
+                <small>Someone famous</small>
+              </div>
+            </div>
+          </blockquote>
+        </div>
+      </div>
 
-                            
+      <!-- Carousel Buttons Next/Prev -->
+      <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+      <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+    </div>
+  </div>
+</div>
+<!-- presentation des articles -->
 
-						  </div>
+<div class="row labo_title">
+    <h1 class="text-center">Nos Articles</h1>
+</div>
 
+<div class="row">
+  <div class='col-md-12'>
+    <div class="carousel slide" data-ride="carousel" id="panel-carousel">
+      <!-- Bottom Carousel Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#panel-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#panel-carousel" data-slide-to="1"></li>
+        <li data-target="#panel-carousel" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Carousel Slides / Quotes -->
+      <div class="carousel-inner">
+
+        <!-- Quote 1 -->
+        <div class="item active">
+          <!-- <blockquote> -->
+            <div class="row">
+              <div class="col-sm-4 text-center">
+                <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+                <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+              </div>
+              <div class="col-sm-4  text-center">
+                <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+                <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+              </div>
+              <div class="col-sm-4 text-center">
+                <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+                <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+              </div>
+            </div>
+          <!-- </blockquote> -->
+        </div>
+        <!-- Quote 2 -->
+        <div class="item">
+          <div class="row">
+            <div class="col-sm-4 text-center">
+              <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+              <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+            </div>
+            <div class="col-sm-4  text-center">
+              <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+              <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+            </div>
+            <div class="col-sm-4 text-center">
+              <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+              <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+            </div>
+          </div>
+        </div>
+        <!-- Quote 3 -->
+        <div class="item">
+          <div class="row">
+            <div class="col-sm-4 text-center">
+              <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+              <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+            </div>
+            <div class="col-sm-4  text-center">
+              <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+              <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+            </div>
+            <div class="col-sm-4 text-center">
+              <img class="img-rounded" src="{% static 'auf_refonte/images/pl_hol.jpg' %}" />
+              <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Buttons Next/Prev -->
+      <a data-slide="prev" href="#panel-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+      <a data-slide="next" href="#panel-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- Espace contenu  -->
+<br /><br /><br />
 {% endblock %}

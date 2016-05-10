@@ -59,6 +59,8 @@
 
 #contenu{
   min-height: 350px;
+  /*border: 1px solid red;*/
+  padding-left: 220px;
 }
 
 
@@ -147,6 +149,11 @@
 }
 
 /*Base css*/
+
+
+
+/*ARUCA Style
+Desing pour la partie ARUCA*/
 
 /*CSS for ARUCA's home with slidding effect*/
 
