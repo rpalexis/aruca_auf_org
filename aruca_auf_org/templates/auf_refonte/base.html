@@ -6,6 +6,8 @@
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/bootstrap.min.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/style.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/font-awesome.min.css' %}" />
+      {% block 'extra_css' %}
+      {% endblock%}
       {% render_block "css" %}
   </head>
   <body>
