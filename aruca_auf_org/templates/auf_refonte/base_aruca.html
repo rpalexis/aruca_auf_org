@@ -30,7 +30,7 @@
               <!-- inline_bar_top -->
               <div class="row">
                 <ul class="col-lg-12" id="inline_bar_top">
-                    <li class="imfp"><a href="#">Connexion</a></li>
+                    <li class="imfp"><a href="{% url 'login' %}">Connexion</a></li>
                     <li class="imfp"><a href="#">CGU</a></li>
                     <li class="imfp"><a href="#">Contact</a></li>
                     <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
@@ -54,8 +54,8 @@
               <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
                 <li ><a href="#">Accueil</a></li>
                 <li class="active"><a href="#">Equipes de recherche</a></li>
-                <li><a href="#">Appels d'offres</a></li>
-                <li><a href="#">Actualites</a></li>
+                <li><a href="{% url 'appelO' %}">Appels d'offres</a></li>
+                <li><a href="{% url 'actualites' %}">Actualites</a></li>
                 <li><a href="#">Liens Utiles</a></li>
                 <li><a href="#">Presentation</a></li>
               </ul>
@@ -65,8 +65,8 @@
               <ul class="nav navbar-nav affiche" id="menu_nav">
                 <li ><a href="#">Accueil</a></li>
                 <li class="active"><a href="#">Equipes de recherche</a></li>
-                <li><a href="#">Appels d'offres</a></li>
-                <li><a href="#">Actualites</a></li>
+                <li><a href="{% url 'appelO' %}">Appels d'offres</a></li>
+                <li><a href="{% url 'actualites' %}">Actualites</a></li>
                 <li><a href="#">Liens Utiles</a></li>
                 <li><a href="#">Presentation</a></li>
               </ul>

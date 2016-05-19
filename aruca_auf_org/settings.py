@@ -252,5 +252,5 @@ EMAIL_USE_TLS = True
 
 
 #The Logging url
-LOGIN_URL = '/annuaire/connexion/'
-LOGIN_REDIRECT_URL = '/annuaire/chercheur/perso/'
+LOGIN_URL = '/aruca/connexion/'
+LOGIN_REDIRECT_URL = '/aruca/chercheur/perso/'

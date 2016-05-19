@@ -1,0 +1,86 @@
+{% extends "auf_refonte/base_aruca.html" %}
+{% load cms_tags staticfiles addCss%}
+
+
+{% block 'contenu' %}
+<!-- Espace contenu  -->
+<div id="contenu">
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModalNorm">
+Publication
+</button>
+
+<!-- Modal -->
+<div class="row">
+<div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog"
+ aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <button type="button" class="close"
+               data-dismiss="modal">
+                   <span aria-hidden="true">&times;</span>
+                   <span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+              Publier une actualite
+            </h4>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <form role="form" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {%for field in form%}
+              <div class="form-group">
+                {{field.label_tag}}
+                  {{field|add_css_classes:"form-control"}}
+              </div>
+              {% endfor %}
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+                    data-dismiss="modal">
+                        Close
+            </button>
+            <!-- <button type="button" class="btn btn-primary">
+                Save changes
+            </button> -->
+        </div>
+    </div>
+</div>
+</div>
+</div>
+  <div class="row" id="articles">
+    {% for ac in actu %}
+    <div class="thumbnail thumbnail-appels">
+      <div class="media">
+            <a class="pull-left" href="#">
+          <img class="img-thumbnail" src="{{ MEDIA_URL}}{{ac.image_artl}}" width="200px" height="200px">
+            </a>
+
+            <div class="media-body">
+              <h4 class="title-date">
+                    <a href="#">
+                {{ac.titre_artl}}
+                    </a>
+              </h4>
+                <!-- <p class="text-muted">Date de publication: <strong>19 mai 2016</strong></p> -->
+              <p>
+                {{ac.description_artl}}
+              </p>
+            </div>
+      </div>
+      <hr />
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- Espace contenu  -->
+<br /><br /><br />
+{% endblock %}

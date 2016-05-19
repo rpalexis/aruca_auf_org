@@ -1,15 +1,19 @@
-{% extends "base.html" %}
+{% extends "auf_refonte/base_aruca.html" %}
 {% load url from future %}
 {% load i18n pagination_tags %}
 
-{% block Contenu %}
-
+{% block 'contenu' %}
+<!-- Espace contenu  -->
+<div class="row">
 <ul class="actions">
     <li><a href="{% url "annuaire.views.edit" %}">{% trans "Éditer votre fiche" %}</a></li>
     <li><a href="{% url "chercheurs-password-change" %}">{% trans "Modifier votre mot de passe" %}</a></li>
     <li><a href="{% url "annuaire.views.desinscription" %}">{% trans "Vous désinscrire du répertoire" %}</a></li>
 </ul>
+<div>
 
+<div class="row">
 {% include "fiche.html" %}
+</div>
 
 {% endblock %}

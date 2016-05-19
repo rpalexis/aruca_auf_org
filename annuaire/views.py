@@ -28,6 +28,39 @@ from annuaire.models import *
 from annuaire.forms import *
 from annuaire.filters import *
 
+# Actualites view
+def actual(request):
+    if request.method == 'POST':
+        form = ActualitesAOForm(request.POST,request.FILES)
+        print(form)
+        if form.is_valid():
+            form.save()
+            print("saved")
+            return HttpResponse('/thanks/')
+        else:
+            print("Non validee")
+    else:
+        actu = ActualitesAO.objects.all().filter(type_artl="1")
+        # print(actu)
+        form = ActualitesAOForm
+    return render(request,'actuals.html',{'form':form,'actu':actu})
+
+def aos(request):
+    if request.method == 'POST':
+        form = ActualitesAOForm(request.POST,request.FILES)
+        print(form)
+        if form.is_valid():
+            form.save()
+            print("saved")
+            return HttpResponse('/thanks/')
+        else:
+            print("Non validee")
+    else:
+        actu = ActualitesAO.objects.all().filter(type_artl="2")
+        # print(actu)
+        form = ActualitesAOForm
+    return render(request,'aos.html',{'form':form,'actu':actu})
+# Actualites view
 
 
 def contact(request):
@@ -79,10 +112,11 @@ def perso(request):
     modification = request.GET.get('modification')
     list_publi = PublicationsMajeur.objects.filter(chercheur=chercheur)
     list_these = These.objects.filter(chercheur=chercheur)
-    return render(request, "perso.html", {
-        'chercheur': chercheur,
-        'modification': modification, 'list_publi': list_publi, 'list_these': list_these
-    })
+    return render(request, "perso_space.html",{})
+    # return render(request, "perso.html", {
+    #     'chercheur': chercheur,
+    #     'modification': modification, 'list_publi': list_publi, 'list_these': list_these
+    # })
 
 @csrf_protect
 @login_required

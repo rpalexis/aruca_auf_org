@@ -149,3 +149,23 @@ class AuthLDAP(models.Model):
 
     def __str__(self):
         return self.username
+
+#Added deuxieme lot
+chx_type = (
+    ("1","Actualites"),
+    ("2","Appels d'Offres"),
+)
+class ActualitesAO(models.Model):
+    def user_directory_path(instance, filename):
+        # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+        if(instance.type_artl == "1"):
+            return 'images_pic/Actualites_imgs/{0}'.format(filename)
+        else:
+            return 'images_pic/AO_imgs/{0}'.format(filename)
+
+    type_artl = models.CharField("Types de la publication *",max_length=2,help_text="Types de la publication *",choices=chx_type)
+    titre_artl = models.CharField("Titre de la publication *",max_length=100,help_text="Titre de la publication *")
+    description_artl = models.TextField("Description de la publication *",max_length=500,help_text="Description de la publication *")
+    image_artl = models.ImageField(upload_to=user_directory_path,help_text="Image de la publication")
+    lien_artl = models.URLField("Lien pour la publication *",help_text="Lien pour la publication *")
+#Added deuxieme lot

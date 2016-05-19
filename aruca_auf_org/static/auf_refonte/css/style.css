@@ -385,3 +385,13 @@ Carousell handling*/
   Grid handling
 */
 /*CSS for ARUCA's home with slidding effect*/
+/*pages styles*/
+#articles{
+    border: 1px solid gray;
+    padding: 10px;
+    box-shadow: 0px 0px 3px 3px;
+
+}
+#articles .row .thumbnails{
+  border-color: #8DBE23;
+}

@@ -148,3 +148,9 @@ class EquipeFormGroup(object):
             self.publications.instance = equipe
             self.publications.save()
             return self.equipe.instance
+
+
+class ActualitesAOForm(forms.ModelForm):
+    class Meta:
+        model = ActualitesAO
+        fields = ('type_artl','titre_artl','description_artl','image_artl','lien_artl')
