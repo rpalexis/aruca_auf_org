@@ -154,3 +154,9 @@ class ActualitesAOForm(forms.ModelForm):
     class Meta:
         model = ActualitesAO
         fields = ('type_artl','titre_artl','description_artl','image_artl','lien_artl')
+
+class ContactForm(forms.Form):
+    nom = forms.CharField(max_length=200)
+    email = forms.EmailField(max_length=200, required=False)
+    sujet = forms.CharField(max_length=200)
+    message = forms.CharField(widget=forms.Textarea)

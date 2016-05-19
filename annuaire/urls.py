@@ -20,6 +20,8 @@ urlpatterns = patterns('annuaire.views',
     url(r'^connexion/$', 'login', kwargs={'template_name': 'login.html'}, name='login'),
     url(r'^actualites/$', 'actual',name='actualites'),
     url(r'^appels_offres/$', 'aos',name='appelO'),
+    url(r'^liens_utiles/$', 'usefull_link',name='usefull_link'),
+    url(r'presentation/$', 'presentation',name='presentation'),
 )
 
 urlpatterns += patterns ('',

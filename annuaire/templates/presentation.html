@@ -1,0 +1,10 @@
+{% extends "auf_refonte/base_aruca.html" %}
+{% load cms_tags staticfiles addCss%}
+
+{% block 'contenu' %}
+<!-- Espace contenu  -->
+<div id="contenu">
+  {% static_placeholder "presentation" %}
+</div>
+
+{% endblock %}

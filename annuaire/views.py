@@ -30,6 +30,7 @@ from annuaire.filters import *
 
 # Actualites view
 def actual(request):
+    contact = ContactForm()
     if request.method == 'POST':
         form = ActualitesAOForm(request.POST,request.FILES)
         print(form)
@@ -43,9 +44,10 @@ def actual(request):
         actu = ActualitesAO.objects.all().filter(type_artl="1")
         # print(actu)
         form = ActualitesAOForm
-    return render(request,'actuals.html',{'form':form,'actu':actu})
+    return render(request,'actuals.html',{'form':form,'actu':actu,'contact':contact})
 
 def aos(request):
+    contact = ContactForm()
     if request.method == 'POST':
         form = ActualitesAOForm(request.POST,request.FILES)
         print(form)
@@ -59,7 +61,16 @@ def aos(request):
         actu = ActualitesAO.objects.all().filter(type_artl="2")
         # print(actu)
         form = ActualitesAOForm
-    return render(request,'aos.html',{'form':form,'actu':actu})
+    return render(request,'aos.html',{'form':form,'actu':actu,'contact':contact})
+
+
+def usefull_link(request):
+    contact = ContactForm()
+    return render(request,'usefull.html',{'contact':contact})
+
+def presentation(request):
+    contact = ContactForm()
+    return render(request,'presentation.html',{'contact':contact})
 # Actualites view
 
 
@@ -68,7 +79,9 @@ def contact(request):
     return render_to_response('contact.html', {'contact_form' : contact_form})
 
 def accueil(request):
-    return render_to_response('accueil.html', context_instance=RequestContext(request))
+    contact = ContactForm()
+    # return render_to_response('accueil.html', context_instance=RequestContext(request))
+    return render(request,'accueil.html',{'contact':contact})
 
 
 def InscriptionChercheur(request):
@@ -271,7 +284,7 @@ def login(request, template_name='registration/login.html',
           redirect_field_name=REDIRECT_FIELD_NAME):
     "The Django login view, but using a custom form."
     redirect_to = request.REQUEST.get(redirect_field_name, '')
-
+    contact = ContactForm()
     if request.method == "POST":
         print(request.POST.get('username'))
         posted_data = {'username':get_username_from_email(request.POST.get('username')),
@@ -319,6 +332,7 @@ def login(request, template_name='registration/login.html',
         redirect_field_name: redirect_to,
         'site': current_site,
         'site_name': current_site.name,
+        'contact':contact
     })
 login = never_cache(login)
 

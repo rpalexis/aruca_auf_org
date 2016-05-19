@@ -1,8 +1,8 @@
-{% load cms_tags staticfiles sekizai_tags menu_tags %}
+{% load cms_tags staticfiles sekizai_tags menu_tags addCss%}
 <!DOCTYPE html>
 <html>
   <head>
-      <title>HOME | CIEC</title>
+      <title>HOME | ARUCA</title>
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/bootstrap.min.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/style.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/font-awesome.min.css' %}" />
@@ -11,7 +11,7 @@
   <body>
     {% cms_toolbar %}
     {% block 'menu_common_things' %}
-    <div class="container-fluid">
+    <div class="container mine">
       <!-- navigation -->
       <nav class="navbar navbar-default" id="navigation_bar">
           <div class="container-fluid">
@@ -32,7 +32,7 @@
                 <ul class="col-lg-12" id="inline_bar_top">
                     <li class="imfp"><a href="{% url 'login' %}">Connexion</a></li>
                     <li class="imfp"><a href="#">CGU</a></li>
-                    <li class="imfp"><a href="#">Contact</a></li>
+                    <li class="imfp"><a href="#" data-toggle="modal" data-target="#contactForm">Contact</a></li>
                     <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
                     <li><a href="#"><img src="{% static 'auf_refonte/images/fr.png' %}"></a></li>
                     <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
@@ -52,23 +52,23 @@
 
               <!-- scrolled_menu -->
               <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
-                <li ><a href="#">Accueil</a></li>
+                <li ><a href="{% url 'aruca_home'%}">Accueil</a></li>
                 <li class="active"><a href="#">Equipes de recherche</a></li>
                 <li><a href="{% url 'appelO' %}">Appels d'offres</a></li>
                 <li><a href="{% url 'actualites' %}">Actualites</a></li>
-                <li><a href="#">Liens Utiles</a></li>
-                <li><a href="#">Presentation</a></li>
+                <li><a href="{% url 'usefull_link' %}">Liens Utiles</a></li>
+                <li><a href="{% url 'presentation' %}">Presentation</a></li>
               </ul>
               <!-- scrolled_menu -->
 
               <!-- menu_principal -->
               <ul class="nav navbar-nav affiche" id="menu_nav">
-                <li ><a href="#">Accueil</a></li>
+                <li ><a href="{% url 'aruca_home'%}">Accueil</a></li>
                 <li class="active"><a href="#">Equipes de recherche</a></li>
                 <li><a href="{% url 'appelO' %}">Appels d'offres</a></li>
                 <li><a href="{% url 'actualites' %}">Actualites</a></li>
-                <li><a href="#">Liens Utiles</a></li>
-                <li><a href="#">Presentation</a></li>
+                <li><a href="{% url 'usefull_link' %}">Liens Utiles</a></li>
+                <li><a href="{% url 'presentation' %}">Presentation</a></li>
               </ul>
               <!-- menu_principal -->
             </div><!-- /.navbar-collapse -->
@@ -79,7 +79,7 @@
       <div class="row" id="banderolle_row">
         <div class="col-lg-3">
           <!-- image espace --><br />
-          <img src="{% static 'auf_refonte/images/auf-menu-logo.svg' %}">
+          <img src="{% static 'auf_refonte/images/corpuca_logo_3.png' %}">
         </div>
         <div class="col-lg-7">
           <!-- text aruca -->
@@ -89,9 +89,10 @@
           </h1>
         </div>
         <div class="col-lg-2">
-          <img src="{% static 'auf_refonte/images/corpuca_logo.png' %}" width="150px"/>
+          <!-- <img src="{% static 'auf_refonte/images/corpuca_logo.png' %}" width="150px"/> -->
         </div>
     </div>
+    <div class="hr_bar"></div>
     <br />
     {% endblock %}
 
@@ -103,13 +104,59 @@
     <br /><br /><br />
     {% endblock %}
 
+    {% block "contactMod"%}
+    <div class="row">
+    <div class="modal fade" id="contactForm" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                  Contactez nous
+                </h4>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <form role="form" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {%for field in contact%}
+                  <div class="form-group">
+                    {{field.label_tag}}
+                      {{field|add_css_classes:"form-control"}}
+                  </div>
+                  {% endfor %}
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                            Close
+                </button>
+                <!-- <button type="button" class="btn btn-primary">
+                    Save changes
+                </button> -->
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    {% endblock %}
+
     {% block 'pied_page' %}
     <div class="row">
       <div class="col-md-12" style="background: #707070">
         <footer id="PiedPage">
-          <img width="170" height="121" src="{% static 'auf_refonte/images/auf-menu-logo.svg' %}" alt="">
+          <img width="170" height="121" src="{% static 'auf_refonte/images/corpuca_logo_3.png' %}" alt="">
           <ul>
-            <li>Mentions Legales</li>
             <li>Contact</li>
             <li>Connexion</li>
             <li>CGU</li>

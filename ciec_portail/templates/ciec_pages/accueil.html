@@ -1,2 +1,10 @@
 {% extends "auf_refonte/base.html" %}
 {% load cms_tags %}
+{% block 'contenu' %}
+<!-- Espace contenu  -->
+<div id="contenu">
+    {% static_placeholder "acceuil" %}
+</div>
+<!-- Espace contenu  -->
+<br /><br /><br />
+{% endblock %}
