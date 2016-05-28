@@ -8,15 +8,8 @@
 {% block 'contenu' %}
 <!-- Espace contenu  -->
 <div class="row">
-    <div class="col-md-2">
-        <p style="color:red;font-size:20px;">
-          Un mot quelconque <br />
-          Ou Les erreurs du formulaire
-          {{ form.errors }}
-        </p>
-    </div>
-    <div class="col-md-10">
-      <h2 class="text-center">Formulaire de candidature aux insctances de la CIEC</h2>
+    <div class="col-md-8 col-md-offset-2">
+      <h2 class="text-center">Formulaire de candidature aux insctances</h2>
       <form id="profileForm" class="test form-horizontal" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <h2>Etape 1</h2>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>|CIEC</title>
+      <title>Accueil|CIEC</title>
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/bootstrap.min.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/style.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/font-awesome.min.css' %}" />
@@ -75,22 +75,18 @@
       <!-- navigation -->
       <div class="hr_bar"></div>
       <div class="row" id="banderolle_row">
-        <div class="col-lg-3">
           <!-- image espace --><br />
-          <img src="{% static 'auf_refonte/images/corpuca_logo_3.png' %}">
+          <div class="col-lg-2">
+          <img id="cor_logo" src="{% static 'auf_refonte/images/corpuca_logo_3.png' %}">
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-10 desc">
           <!-- text aruca -->
           <h1 style="font-weight:bolder;color:#AA0A2F;">
-          Chaire inter-universitaire d'Etudes Carib&eacute;ennes |
-          <u><i>CIEC</i></u>
+          Chaire inter-universitaire d'Etudes Carib&eacute;ennes
+
           </h1>
         </div>
-        <div class="col-lg-2">
-          <!-- <img src="{% static 'auf_refonte/images/corpuca_logo.png' %}" width="150px"/> -->
-        </div>
     </div>
-    <div class="hr_bar"></div>
     <br />
     {% endblock %}
     {% block 'contenu' %}
