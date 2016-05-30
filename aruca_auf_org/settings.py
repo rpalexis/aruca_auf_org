@@ -75,7 +75,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'aruca_auf_org', 'static'),
 )
-SITE_ID = 2
+SITE_ID = 1
 
 
 TEMPLATES = [
@@ -217,7 +217,7 @@ DATABASES = {
         'CONN_MAX_AGE': 0,
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
-        'NAME': 'aruca_db',
+        'NAME': 'aruca2_db',
         'PASSWORD': 'fasil',
         'PORT': '',
         'USER': 'root',

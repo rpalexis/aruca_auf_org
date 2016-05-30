@@ -54,18 +54,18 @@
 
               <!-- scrolled_menu -->
               <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
-                <li ><a href="{% url 'ciec_home' %}">Accueil</a></li>
-                <li class="active"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
-                <li><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
+                <li class="portail active"><a href="{% url 'ciec_home' %}">Accueil</a></li>
+                <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
+                <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
                 <li><a href="/aruca/">ARUCA</a></li>
               </ul>
               <!-- scrolled_menu -->
 
               <!-- menu_principal -->
               <ul class="nav navbar-nav affiche" id="menu_nav">
-                <li ><a href="{% url 'ciec_home' %}">Accueil</a></li>
-                <li class="active"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
-                <li><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
+                <li class="portail active"><a href="{% url 'ciec_home' %}">Accueil</a></li>
+                <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
+                <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
                 <li><a href="/aruca/">ARUCA</a></li>
               </ul>
               <!-- menu_principal -->
@@ -175,9 +175,31 @@
                $('#menu_nav').addClass('cache');
              }
          });
+        //  alert(window.location.href);
+         var currentUrl = window.location.href;
+         var arr = currentUrl.split("/")
+        //  alert(arr[arr.length-2]);
+         var curPage = arr[arr.length-2];
+         switch(curPage){
+           case "candidature_ciec":
+                      $("#menu_nav_scroll li").removeClass("active");
+                      $("#menu_nav li").removeClass("active");
+                      $(".candidature_ciec").addClass("active");
+                      break;
+           case "candidature_instance":
+           $("#menu_nav_scroll li").removeClass("active");
+           $("#menu_nav li").removeClass("active");
+           $(".candidature_instance").addClass("active");
+                     break;
+           case "portail":
+           $("#menu_nav_scroll li").removeClass("active");
+           $("#menu_nav li").removeClass("active");
+           $(".portail").addClass("active");
+                     break;
+         }
     });
     </script>
-    {%block 'extra_js'%}
+    {% block 'extra_js' %}
     {% endblock %}
     {% render_block "js" %}
   </body>

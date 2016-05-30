@@ -2,9 +2,12 @@
 {% load cms_tags %}
 {% block 'contenu' %}
 <!-- Espace contenu  -->
-<div id="contenu">
+<div class="row">
+  <div class="jumbotron col-md-10 col-md-offset-1">
     {% static_placeholder "acceuil" %}
 </div>
+</div>
+
 <!-- Espace contenu  -->
 <br /><br /><br />
 {% endblock %}

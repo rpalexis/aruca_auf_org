@@ -2,22 +2,26 @@
 {% load cms_tags staticfiles addCss%}
 
 {% block 'extra_css' %}
+<link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/jquery.steps.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/date_picker.css' %}" />
 {% endblock%}
 
 {% block 'contenu' %}
+
 <!-- Espace contenu  -->
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h2 class="text-center">Formulaire de candidature aux insctances</h2>
+  <div class="jumbotron col-md-10 col-md-offset-1">
+    {% static_placeholder "text_instance" %}
+</div>
+<div class="row" style="padding-left:60px;">
+    <!-- <div class="col-md-8 col-md-offset-2"> -->
+      <!-- <h2 class="text-center">Formulaire de candidature aux insctances</h2> -->
       <form id="profileForm" class="test form-horizontal" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <h2>Etape 1</h2>
+        {{form.errors}}
         <section data-step="0">
-          <div class="form-group">
-            <label>{{form.statut_candidatures.help_text}} :</label>
-            {{form.statut_candidatures|add_css_classes:"form-control"}}
-          </div>
+          <h3>Etape 1</h3>
           <div class="form-group">
             <label>{{form.sexe.help_text}} :</label>
             {{form.sexe|add_css_classes:"form-control"}}
@@ -34,10 +38,6 @@
             <label>{{form.date_naissance.help_text}} :</label>
             {{ form.date_naissance|add_css_classes:"form-control datepicker"}}
           </div>
-        </section>
-
-        <h2>Etape 2</h2>
-        <section data-step="1">
           <div class="form-group">
             <label>{{form.pays_nationalite.help_text}} :</label>
             {{form.pays_nationalite|add_css_classes:"form-control"}}
@@ -46,9 +46,18 @@
             <label>{{form.adresse_residence.help_text}} :</label>
             {{form.adresse_residence|add_css_classes:"form-control"}}
           </div>
+        </section>
+
+        <h2>Etape 2</h2>
+        <section data-step="1">
+          <h3>Etape 2</h3>
           <div class="form-group">
             <label>{{form.ville_residence.help_text}} :</label>
             {{form.ville_residence|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.pays_residence.help_text}} :</label>
+            {{form.pays_residence|add_css_classes:"form-control"}}
           </div>
           <div class="form-group">
             <label>{{form.numero_telephone_direct.help_text}} :</label>
@@ -58,11 +67,6 @@
             <label>{{form.mail_direct.help_text}} :</label>
             {{form.mail_direct|add_css_classes:"form-control"}}
           </div>
-        </section>
-
-
-        <h2>Etape 3</h2>
-        <section date-step="2">
           <div class="form-group">
             <label>{{form.etablissement_universitaire_1.help_text}} :</label>
             {{form.etablissement_universitaire_1|add_css_classes:"form-control"}}
@@ -71,6 +75,12 @@
             <label>{{form.etabliseement_universitaire_autres.help_text}} :</label>
             {{form.etabliseement_universitaire_autres|add_css_classes:"form-control"}}
           </div>
+        </section>
+
+
+        <h2>Etape 3</h2>
+        <section date-step="2">
+          <h3>Etape 3</h3>
           <div class="form-group">
             <label>{{form.discipline_scient_gnrl.help_text}} :</label>
             {{form.discipline_scient_gnrl|add_css_classes:"form-control"}}
@@ -83,9 +93,6 @@
             <label>{{form.fonction_academique_autre.help_text}} :</label>
             {{form.fonction_academique_autre|add_css_classes:"form-control"}}
           </div>
-        </section>
-        <h2>Etape 4</h2>
-        <section data-step="3">
           <div class="form-group">
             <label>{{form.pls_haut_diplome.help_text}} :</label>
             {{form.pls_haut_diplome|add_css_classes:"form-control"}}
@@ -98,6 +105,10 @@
             <label>{{form.langue_travail_prin.help_text}} :</label>
             {{form.langue_travail_prin|add_css_classes:"form-control"}}
           </div>
+        </section>
+        <h2>Etape 4</h2>
+        <section data-step="3">
+          <h3>Etape 4</h3>
           <div class="form-group">
             <label>{{form.autre_langue_prin.help_text}} :</label>
             {{form.autre_langue_prin|add_css_classes:"form-control"}}
@@ -106,11 +117,6 @@
             <label>{{form.langue_maitrise.help_text}} :</label>
             {{form.langue_maitrise|add_css_classes:"form-control"}}
           </div>
-        </section>
-
-
-        <h2>Etape 5</h2>
-        <section data-step="4">
           <div class="form-group">
             <label>{{form.autre_langue_maitrise.help_text}} :</label>
             {{form.autre_langue_maitrise|add_css_classes:"form-control"}}
@@ -123,6 +129,12 @@
             <label>{{form.synthese_principale.help_text}} :</label>
             {{form.synthese_principale|add_css_classes:"form-control"}}
           </div>
+        </section>
+
+
+        <h2>Etape 5</h2>
+        <section data-step="4">
+          <h3>Etape 5</h3>
           <div class="form-group">
             <label>{{form.ambition_pr_ciec.help_text}} :</label>
             {{form.ambition_pr_ciec|add_css_classes:"form-control"}}
@@ -131,6 +143,10 @@
             <label>{{form.avantage_comparatif.help_text}} :</label>
             {{form.avantage_comparatif|add_css_classes:"form-control"}}
           </div>
+        </section>
+        <h2>Etape 6</h2>
+        <section data-step="5">
+          <h3>Etape 6</h3>
           <div class="form-group">
             <label>{{form.cv_detaille.help_text}} :</label>
             {{form.cv_detaille|add_css_classes:"form-control"}}
@@ -139,21 +155,18 @@
             <label>{{form.lettre_soutien.help_text}} :</label>
             {{form.lettre_soutien|add_css_classes:"form-control"}}
           </div>
-          <div class="form-group">
-            <label>{{form.mise_disposition_legale.help_text}} :</label>
-            {{form.mise_disposition_legale|add_css_classes:"form-control"}}
-          </div>
-          <button type="submit" class="btn btn-default">Soummettre</button>
+          <button type="submit" class="btn btn-primary">Soummettre</button>
         </section>
       </form>
-    </div>
+    <!-- </div> -->
 
 </div>
 <!-- Espace contenu  -->
 <br /><br /><br />
 {% endblock %}
 
-{%block 'extra_js'%}
+{% block 'extra_js' %}
+  <script src="{% static 'auf_refonte/js/jquery-ui.min.js' %}"></script>
   <script type="text/javascript">
       $(function() {
         $(".datepicker").datepicker({
@@ -163,180 +176,27 @@
         });
       });
   </script>
-  <script src="{% static 'auf_refonte/js/jquery.form-validator.min.js' %}"></script>
-  <!-- <script src="{% static 'auf_refonte/js/jquery.steps.min.js' %}"></script> -->
+  <!-- <script src="{% static 'auf_refonte/js/jquery.form-validator.min.js' %}"></script> -->
+  <script src="{% static 'auf_refonte/js/jquery.steps.min.js' %}"></script>
   <script type="text/javascript">
-$(document).ready(function() {
-    function adjustIframeHeight() {
-        var $body   = $('body'),
-            $iframe = $body.data('iframe.fv');
-        if ($iframe) {
-            // Adjust the height of iframe
-            $iframe.height($body.height());
-        }
-    }
-
-    // IMPORTANT: You must call .steps() before calling .formValidation()
-    $('#profileForm')
-        .steps({
-            headerTag: 'h2',
-            bodyTag: 'section',
-            onStepChanged: function(e, currentIndex, priorIndex) {
-                // You don't need to care about it
-                // It is for the specific demo
-                adjustIframeHeight();
-            },
-            // Triggered when clicking the Previous/Next buttons
-            onStepChanging: function(e, currentIndex, newIndex) {
-                var fv         = $('#profileForm').data('formValidation'), // FormValidation instance
-                    // The current step container
-                    $container = $('#profileForm').find('section[data-step="' + currentIndex +'"]');
-
-                // Validate the container
-                fv.validateContainer($container);
-
-                var isValidStep = fv.isValidContainer($container);
-                if (isValidStep === false || isValidStep === null) {
-                    // Do not jump to the next step
-                    return false;
-                }
-
-                return true;
-            },
-            // Triggered when clicking the Finish button
-            onFinishing: function(e, currentIndex) {
-                var fv         = $('#profileForm').data('formValidation'),
-                    $container = $('#profileForm').find('section[data-step="' + currentIndex +'"]');
-
-                // Validate the last step container
-                fv.validateContainer($container);
-
-                var isValidStep = fv.isValidContainer($container);
-                if (isValidStep === false || isValidStep === null) {
-                    return false;
-                }
-
-                return true;
-            },
-            onFinished: function(e, currentIndex) {
-                // Uncomment the following line to submit the form using the defaultSubmit() method
-                // $('#profileForm').formValidation('defaultSubmit');
-
-                // For testing purpose
-                $('#welcomeModal').modal();
-            }
-        })
-        .formValidation({
-            framework: 'bootstrap',
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            // This option will not ignore invisible fields which belong to inactive panels
-            excluded: ':disabled',
-            fields: {
-                username: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The username is required'
-                        },
-                        stringLength: {
-                            min: 6,
-                            max: 30,
-                            message: 'The username must be more than 6 and less than 30 characters long'
-                        },
-                        regexp: {
-                            regexp: /^[a-zA-Z0-9_\.]+$/,
-                            message: 'The username can only consist of alphabetical, number, dot and underscore'
-                        }
-                    }
-                },
-                email: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The email address is required'
-                        },
-                        emailAddress: {
-                            message: 'The input is not a valid email address'
-                        }
-                    }
-                },
-                password: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The password is required'
-                        },
-                        different: {
-                            field: 'username',
-                            message: 'The password cannot be the same as username'
-                        }
-                    }
-                },
-                confirmPassword: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The confirm password is required'
-                        },
-                        identical: {
-                            field: 'password',
-                            message: 'The confirm password must be the same as original one'
-                        }
-                    }
-                },
-                firstName: {
-                    row: '.col-xs-4',
-                    validators: {
-                        notEmpty: {
-                            message: 'The first name is required'
-                        },
-                        regexp: {
-                            regexp: /^[a-zA-Z\s]+$/,
-                            message: 'The first name can only consist of alphabetical and space'
-                        }
-                    }
-                },
-                lastName: {
-                    row: '.col-xs-4',
-                    validators: {
-                        notEmpty: {
-                            message: 'The last name is required'
-                        },
-                        regexp: {
-                            regexp: /^[a-zA-Z\s]+$/,
-                            message: 'The last name can only consist of alphabetical and space'
-                        }
-                    }
-                },
-                gender: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The gender is required'
-                        }
-                    }
-                },
-                dob: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The birthday is required'
-                        },
-                        date: {
-                            format: 'YYYY/MM/DD',
-                            message: 'The birthday is not valid'
-                        }
-                    }
-                },
-                bio: {
-                    validators: {
-                        stringLength: {
-                            max: 200,
-                            message: 'The bio must be less than 200 characters'
-                        }
-                    }
-                }
-            }
+    // $(document).ready(function() {
+    //   function adjustIframeHeight() {
+    //       var $body   = $('body'),
+    //           $iframe = $body.data('iframe.fv');
+    //       if ($iframe) {
+    //           // Adjust the height of iframe
+    //           $iframe.height($body.height());
+    //       }
+    //
+    //   }});
+      $(document).ready(function(){
+        $("#profileForm").steps({
+            headerTag: "h2",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            stepsOrientation: "vertical"
         });
-});
-</script>
-<script src="{% static 'auf_refonte/js/jquery-ui.min.js' %}"></script>
+      });
+  </script>
+
 {% endblock %}

@@ -4,11 +4,10 @@ from django.core.exceptions import ValidationError
 
 class InstanceCandidatureForm(forms.ModelForm):
     def clean(self):
-        if(self.cleaned_data.get('sexe')=='f'):
-            raise ValidationError(
-            'Tu nas pas de sexe'
-            )
-
+        # if(self.cleaned_data.get('sexe')=='f'):
+        #     raise ValidationError(
+        #     'Tu nas pas de sexe'
+        #     )
         return self.cleaned_data
     class Meta:
         model = InstanceCandidature

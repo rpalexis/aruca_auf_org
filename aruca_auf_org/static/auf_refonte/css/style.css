@@ -70,7 +70,11 @@ body{
   padding-left: 220px;
 }
 
-
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: 200;
+}
 
 #banderolle_row{
   /*background: url(../images/barre-couleur.png) no-repeat right 30px;
@@ -151,7 +155,7 @@ body{
 }
 
 
-#PiedPage img,ul{
+#PiedPage img,#PiedPage ul{
   float: left;
   margin-left: 10px;
   margin-top:10px;

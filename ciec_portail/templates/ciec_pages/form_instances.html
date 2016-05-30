@@ -1,27 +1,280 @@
 {% extends "auf_refonte/base.html" %}
 {% load cms_tags staticfiles addCss%}
 {% block 'extra_css' %}
+<link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/jquery.steps.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/date_picker.css' %}" />
+<style type="text/css">
+  .wizard.vertical > .steps {
+    margin-top: 45px;
+  }
+.wizard.vertical > .actions{
+  margin-top: -20em;
+}
+</style>
 {% endblock%}
 
 {% block 'contenu' %}
 <!-- Espace contenu  -->
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h2 class="text-center">Formulaire de candidature pour les membres</h2>
-      <form id="profileForm" class="test form-horizontal" action="" method="POST" enctype="multipart/form-data">
-        {% for field in form %}
-          <div class="form-group">
-            <label>{{field.help_text}} :</label>
-            {{field|add_css_classes:"form-control"}}
-          </div>
-        {% endfor %}
-        <button type="submit" class="btn btn-default">Soummettre</button>
-
-      </form>
-    </div>
-
+  <div class="jumbotron col-md-10 col-md-offset-1">
+    {% static_placeholder "text_membre" %}
 </div>
+</div>
+<div class="row" style="padding-left:60px;">
+    <!-- <div class="col-md-8 col-md-offset-2"> -->
+      <!-- <h2 class="text-center">Formulaire de candidature pour les membres</h2> -->
+      <form id="profileForm" class="test form-horizontal" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Etape 1</h2>
+        <section data-step="0">
+          <div class="form-group">
+            <label>{{form.etabl_nom.help_text}} :</label>
+            {{form.etabl_nom|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_sigle.help_text}} :</label>
+            {{form.etabl_sigle|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_annee_creation.help_text}} :</label>
+            {{form.etabl_annee_creation|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_statut_officiel.help_text}} :</label>
+            {{form.etabl_statut_officiel|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_adresse.help_text}} :</label>
+            {{form.etabl_adresse|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_ville.help_text}} :</label>
+            {{form.etabl_ville|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_ville.help_text}} :</label>
+            {{form.etabl_ville|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_phone_number.help_text}} :</label>
+            {{form.etabl_phone_number|add_css_classes:"form-control"}}
+          </div>
+        </section>
+        <h2>Etape 2</h2>
+        <section data-step="1">
+          <div class="form-group">
+            <label>{{form.etabl_email_gnrl.help_text}} :</label>
+            {{form.etabl_email_gnrl|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_site_internet.help_text}} :</label>
+            {{form.etabl_site_internet|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_pays_situe.help_text}} :</label>
+            {{form.etabl_pays_situe|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_list_associ.help_text}} :</label>
+            {{form.etabl_list_associ|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.etabl_partenariat_inter.help_text}} :</label>
+            {{form.etabl_partenariat_inter|add_css_classes:"form-control"}}
+          </div>        </section>
+        <h2>Etape 3</h2>
+        <section data-step="2">
+          <div class="form-group">
+            <label>{{form.res_etabl_nom.help_text}} :</label>
+            {{form.res_etabl_nom|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.res_etabl_prenom.help_text}} :</label>
+            {{form.res_etabl_prenom|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.res_etabl_fonction.help_text}} :</label>
+            {{form.res_etabl_fonction|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.res_etabl_autre_fct_precis.help_text}} :</label>
+            {{form.res_etabl_autre_fct_precis|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.res_etabl_numero_telephone_direct.help_text}} :</label>
+            {{form.res_etabl_numero_telephone_direct|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.res_etabl_email_direct.help_text}} :</label>
+            {{form.res_etabl_email_direct|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.corr_ciec_sexe.help_text}} :</label>
+            {{form.corr_ciec_sexe|add_css_classes:"form-control"}}
+          </div>
+
+        </section>
+        <h2>Etape 4</h2>
+        <section data-step="3">
+          <div class="form-group">
+            <label>{{form.corr_ciec_nom.help_text}} :</label>
+            {{form.corr_ciec_nom|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.corr_ciec_prenom.help_text}} :</label>
+            {{form.corr_ciec_prenom|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.corr_ciec_fonction.help_text}} :</label>
+            {{form.corr_ciec_fonction|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.corr_ciec_numero_telephone_direct.help_text}} :</label>
+            {{form.corr_ciec_numero_telephone_direct|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.corr_ciec_email_direct.help_text}} :</label>
+            {{form.corr_ciec_email_direct|add_css_classes:"form-control"}}
+          </div>
+        </section>
+        <h2>Etape 5</h2>
+        <section data-step="4">
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_etud_1_cy.help_text}} :</label>
+            {{form.el_sync_nbr_etud_1_cy|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_etud_2_cy.help_text}} :</label>
+            {{form.el_sync_nbr_etud_2_cy|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_etud_3_cy.help_text}} :</label>
+            {{form.el_sync_nbr_etud_3_cy|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_prof_tit.help_text}} :</label>
+            {{form.el_sync_nbr_prof_tit|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_prof_tit_with_doctorat.help_text}} :</label>
+            {{form.el_sync_nbr_prof_tit_with_doctorat|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_prof_vacat.help_text}} :</label>
+            {{form.el_sync_nbr_prof_vacat|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_prof_vacat_with_doctorat.help_text}} :</label>
+            {{form.el_sync_nbr_prof_vacat_with_doctorat|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_labo_equip.help_text}} :</label>
+            {{form.el_sync_nbr_labo_equip|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_dt_por_etud_cari.help_text}} :</label>
+            {{form.el_sync_dt_por_etud_cari|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_public_sc.help_text}} :</label>
+            {{form.el_sync_nbr_public_sc|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_dt_por_etud_cari_pub_sc.help_text}} :</label>
+            {{form.el_sync_dt_por_etud_cari_pub_sc|add_css_classes:"form-control"}}
+          </div>
+
+        </section>
+        <h2>Etape 6</h2>
+        <section data-step="5">
+          <div class="form-group">
+            <label>{{form.el_sync_nbr_public_sc.help_text}} :</label>
+            {{form.el_sync_nbr_public_sc|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_dt_por_etud_cari_theses_s.help_text}} :</label>
+            {{form.el_sync_dt_por_etud_cari_theses_s|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_langue_princi.help_text}} :</label>
+            {{form.el_sync_langue_princi|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_autre_langue_prin.help_text}} :</label>
+            {{form.el_sync_autre_langue_prin|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.el_sync_langue_aut.help_text}} :</label>
+            {{form.el_sync_langue_aut|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.frec_indique.help_text}} :</label>
+            {{form.frec_indique|add_css_classes:"form-control"}}
+          </div>
+        </section>
+        <h2>Etape 7</h2>
+        <section data-step="8">
+          <div class="form-group">
+            <label>{{form.frec_attente.help_text}} :</label>
+            {{form.frec_attente|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.frec_contribution.help_text}} :</label>
+            {{form.frec_contribution|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.ann_creation.help_text}} :</label>
+            {{form.ann_creation|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.ann_recon_off.help_text}} :</label>
+            {{form.ann_recon_off|add_css_classes:"form-control"}}
+          </div>
+          <div class="form-group">
+            <label>{{form.ann_list.help_text}} :</label>
+            {{form.ann_list|add_css_classes:"form-control"}}
+          </div>
+
+          <button type="submit" class="btn btn-primary">Soummettre</button>
+        </section>
+      </form>
+</div>
+
 <!-- Espace contenu  -->
 <br /><br /><br />
+{% endblock %}
+{% block 'extra_js' %}
+  <script src="{% static 'auf_refonte/js/jquery-ui.min.js' %}"></script>
+  <script type="text/javascript">
+      $(function() {
+        $(".datepicker").datepicker({
+          changeMonth: true,
+          changeYear: true,
+          yearRange: "1900:2016",
+        });
+      });
+  </script>
+  <!-- <script src="{% static 'auf_refonte/js/jquery.form-validator.min.js' %}"></script> -->
+  <script src="{% static 'auf_refonte/js/jquery.steps.min.js' %}"></script>
+  <script type="text/javascript">
+    // $(document).ready(function() {
+    //   function adjustIframeHeight() {
+    //       var $body   = $('body'),
+    //           $iframe = $body.data('iframe.fv');
+    //       if ($iframe) {
+    //           // Adjust the height of iframe
+    //           $iframe.height($body.height());
+    //       }
+    //
+    //   }});
+      $(document).ready(function(){
+        $("#profileForm").steps({
+            headerTag: "h2",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            stepsOrientation: "vertical"
+        });
+      });
+  </script>
+
 {% endblock %}
