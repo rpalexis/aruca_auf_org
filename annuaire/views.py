@@ -48,9 +48,11 @@ def actual(request):
 
 def aos(request):
     contact = ContactForm()
+    actu = []
     if request.method == 'POST':
         form = ActualitesAOForm(request.POST,request.FILES)
         print(form)
+        # actu = ActualitesAO.objects.all().filter(type_artl="2")
         if form.is_valid():
             form.save()
             print("saved")

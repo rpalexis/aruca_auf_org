@@ -41,7 +41,7 @@
                       <form class="form-inline">
                         <div class="form-group">
                           <input type="text" class="form-control" id="exampleInputName2" placeholder="Recherche a travers le site">
-                          <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                          <button type="submit" id="bout" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
 
                       </form>
@@ -52,23 +52,23 @@
 
               <!-- scrolled_menu -->
               <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
-                <li ><a href="{% url 'aruca_home'%}">Accueil</a></li>
-                <li class="active"><a href="#">Equipes de recherche</a></li>
-                <li><a href="{% url 'appelO' %}">Appels d'offres</a></li>
-                <li><a href="{% url 'actualites' %}">Actualites</a></li>
-                <li><a href="{% url 'usefull_link' %}">Liens Utiles</a></li>
-                <li><a href="{% url 'presentation' %}">Presentation</a></li>
+                <li class="aruca_home active"><a href="{% url 'aruca_home'%}">Accueil</a></li>
+                <li class=""><a href="#">Equipes de recherche</a></li>
+                <li class="appelO"><a href="{% url 'appelO' %}">Appels d'offres</a></li>
+                <li class="actualites"><a href="{% url 'actualites' %}">Actualites</a></li>
+                <li class="presentation"><a href="{% url 'presentation' %}">Presentation</a></li>
+                <li class="usefull_link"><a href="{% url 'usefull_link' %}">Liens Utiles</a></li>
               </ul>
               <!-- scrolled_menu -->
 
               <!-- menu_principal -->
               <ul class="nav navbar-nav affiche" id="menu_nav">
-                <li ><a href="{% url 'aruca_home'%}">Accueil</a></li>
-                <li class="active"><a href="#">Equipes de recherche</a></li>
-                <li><a href="{% url 'appelO' %}">Appels d'offres</a></li>
-                <li><a href="{% url 'actualites' %}">Actualites</a></li>
-                <li><a href="{% url 'usefull_link' %}">Liens Utiles</a></li>
-                <li><a href="{% url 'presentation' %}">Presentation</a></li>
+                <li class="active"><a href="{% url 'aruca_home'%}">Accueil</a></li>
+                <li class=""><a href="#">Equipes de recherche</a></li>
+                <li class="appelO"><a href="{% url 'appelO' %}">Appels d'offres</a></li>
+                <li class="actualites"><a href="{% url 'actualites' %}">Actualites</a></li>
+                <li class="presentation"><a href="{% url 'presentation' %}">Presentation</a></li>
+                <li class="usefull_link"><a href="{% url 'usefull_link' %}">Liens Utiles</a></li>
               </ul>
               <!-- menu_principal -->
             </div><!-- /.navbar-collapse -->
@@ -163,23 +163,73 @@
     </div>
     {% endblock %}
   </div>
-    <script src="{% static 'auf_refonte/js/jquery_auf_v_12.min.js' %}"></script>
-    <script src="{% static 'auf_refonte/js/bootstrap.min.js' %}"></script>
-    <script type="text/javascript">
-    $(document).ready(function (){
-         $(window).scroll(function () {
-             if ($(document).scrollTop() <= 40) {
-                 $('#menu_nav_scroll').addClass('cache');
-                 $('#menu_nav_scroll').removeClass('affiche');
-                 $('#menu_nav').addClass('affiche');
-             } else {
-               $('#menu_nav_scroll').addClass('affiche');
-               $('#menu_nav_scroll').removeClass('cache');
-               $('#menu_nav').addClass('cache');
-             }
-         });
+  <script src="{% static 'auf_refonte/js/jquery_auf_v_12.min.js' %}"></script>
+  <script src="{% static 'auf_refonte/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript">
+  $(document).ready(function (){
+       $(window).scroll(function () {
+           if ($(document).scrollTop() <= 40) {
+               $('#menu_nav_scroll').addClass('cache');
+               $('#menu_nav_scroll').removeClass('affiche');
+               $('#menu_nav').addClass('affiche');
+           } else {
+             $('#menu_nav_scroll').addClass('affiche');
+             $('#menu_nav_scroll').removeClass('cache');
+             $('#menu_nav').addClass('cache');
+           }
+       });
+      //  alert(window.location.href);
+       var currentUrl = window.location.href;
+       var arr = currentUrl.split("/")
+      //  alert(arr[arr.length-2]);
+       var curPage = arr[arr.length-2];
+       
+       switch(curPage){
+         case "aruca":
+                    $("#menu_nav_scroll li").removeClass("active");
+                    $("#menu_nav li").removeClass("active");
+                    $(".aruca_home").addClass("active");
+                    break;
+         case "appels_offres":
+         $("#menu_nav_scroll li").removeClass("active");
+         $("#menu_nav li").removeClass("active");
+         $(".appelO").addClass("active");
+                   break;
+         case "actualites":presentation
+         $("#menu_nav_scroll li").removeClass("active");
+         $("#menu_nav li").removeClass("active");
+         $(".actualites").addClass("active");
+                   break;
+         case "liens_utiles":
+         $("#menu_nav_scroll li").removeClass("active");
+         $("#menu_nav li").removeClass("active");
+         $(".usefull_link").addClass("active");
+                   break;
+         case "presentation":
+         $("#menu_nav_scroll li").removeClass("active");
+         $("#menu_nav li").removeClass("active");
+         $(".presentation").addClass("active");
+                   break;
+       }
+  });
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("#exampleInputName2").hide();
+        $("#bout").hover(function(){
+          $("#exampleInputName2").fadeIn();
+        },function(){
+          // $("#exampleInputName2").fadeOut();
+          if($("#exampleInputName2").is(":focus")){
+
+          }else{
+            // $("#exampleInputName2").fadeOut(3000);
+          }
+        });
     });
-    </script>
-    {% render_block "js" %}
+  </script>
+  {% block 'extra_js' %}
+  {% endblock %}
+  {% render_block "js" %}
   </body>
 </html>

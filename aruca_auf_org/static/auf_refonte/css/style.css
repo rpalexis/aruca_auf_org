@@ -32,6 +32,7 @@ body{
 }
 #navigation_bar{
   background-color: #fff;
+  border-color: #fff;
 }
 
 #navigation_bar #menu_nav{

@@ -43,7 +43,7 @@
                       <form class="form-inline">
                         <div class="form-group">
                           <input type="text" class="form-control" id="exampleInputName2" placeholder="Recherche a travers le site">
-                          <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                          <button id="bout" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
 
                       </form>
@@ -198,6 +198,21 @@
                      break;
          }
     });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $("#exampleInputName2").hide();
+          $("#bout").hover(function(){
+            $("#exampleInputName2").fadeIn();
+          },function(){
+            // $("#exampleInputName2").fadeOut();
+            if($("#exampleInputName2").is(":focus")){
+
+            }else{
+              // $("#exampleInputName2").fadeOut(3000);
+            }
+          });
+      });
     </script>
     {% block 'extra_js' %}
     {% endblock %}
