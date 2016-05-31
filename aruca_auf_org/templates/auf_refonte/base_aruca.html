@@ -6,6 +6,8 @@
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/bootstrap.min.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/style.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/font-awesome.min.css' %}" />
+      {% block 'extra_css' %}
+      {% endblock %}
       {% render_block "css" %}
   </head>
   <body>
@@ -53,7 +55,7 @@
               <!-- scrolled_menu -->
               <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
                 <li class="aruca_home active"><a href="{% url 'aruca_home'%}">Accueil</a></li>
-                <li class=""><a href="#">Equipes de recherche</a></li>
+                <li class="equipe_laboratoire"><a href="{% url 'equipe_laboratoire' %}">Equipes de recherche</a></li>
                 <li class="appelO"><a href="{% url 'appelO' %}">Appels d'offres</a></li>
                 <li class="actualites"><a href="{% url 'actualites' %}">Actualites</a></li>
                 <li class="presentation"><a href="{% url 'presentation' %}">Presentation</a></li>
@@ -64,7 +66,7 @@
               <!-- menu_principal -->
               <ul class="nav navbar-nav affiche" id="menu_nav">
                 <li class="active"><a href="{% url 'aruca_home'%}">Accueil</a></li>
-                <li class=""><a href="#">Equipes de recherche</a></li>
+                <li class="equipe_laboratoire"><a href="{% url 'equipe_laboratoire' %}">Equipes de recherche</a></li>
                 <li class="appelO"><a href="{% url 'appelO' %}">Appels d'offres</a></li>
                 <li class="actualites"><a href="{% url 'actualites' %}">Actualites</a></li>
                 <li class="presentation"><a href="{% url 'presentation' %}">Presentation</a></li>
@@ -183,7 +185,7 @@
        var arr = currentUrl.split("/")
       //  alert(arr[arr.length-2]);
        var curPage = arr[arr.length-2];
-       
+
        switch(curPage){
          case "aruca":
                     $("#menu_nav_scroll li").removeClass("active");
@@ -195,7 +197,7 @@
          $("#menu_nav li").removeClass("active");
          $(".appelO").addClass("active");
                    break;
-         case "actualites":presentation
+         case "actualites":
          $("#menu_nav_scroll li").removeClass("active");
          $("#menu_nav li").removeClass("active");
          $(".actualites").addClass("active");
@@ -209,6 +211,11 @@
          $("#menu_nav_scroll li").removeClass("active");
          $("#menu_nav li").removeClass("active");
          $(".presentation").addClass("active");
+                   break;
+         case "equipe_laboratoire":
+         $("#menu_nav_scroll li").removeClass("active");
+         $("#menu_nav li").removeClass("active");
+         $(".equipe_laboratoire").addClass("active");
                    break;
        }
   });

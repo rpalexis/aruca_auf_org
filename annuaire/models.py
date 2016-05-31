@@ -5,7 +5,15 @@ from django.contrib.auth.models import User
 from auf.django.references.models import Pays
 # from django.utils.hashcompat import sha_constructor
 from hashlib import sha1 as sha_constructor
+#Getting the list of global country
+All_Pays = Pays.objects.all()
+the_pa = []
+for pay in All_Pays:
+    a = (str(pay),str(pay))
+    the_pa.append(a)
 
+pays_tuple = tuple(the_pa)
+#Getting the list of global country
 
 GENRE_CHOICES = (('m', 'Homme'), ('f', 'Femme'))
 LANGUE_CHOICES = (('f', 'Francais'), ('e', 'Espagnol'))
@@ -168,4 +176,83 @@ class ActualitesAO(models.Model):
     description_artl = models.TextField("Description de la publication *",max_length=500,help_text="Description de la publication *")
     image_artl = models.ImageField(upload_to=user_directory_path,help_text="Image de la publication")
     lien_artl = models.URLField("Lien pour la publication *",help_text="Lien pour la publication *")
+
+langue_choices = (
+    ('FR','Francais'),
+    ('EN','Anglais'),
+    ('ES','Espagnol'),
+    ('CR','Creole'),
+    ('NOP','Pas d\'autres'),
+)
+
+class LaboEquip(models.Model):
+    def user_directory_path(instance, filename):
+        # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+        return 'images_pic/photo_labo/{0}'.format(filename)
+    def user_directory_path2(instance, filename):
+        # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+        return 'images_pic/logo_labo/{0}'.format(filename)
+    def user_directory_path3(instance, filename):
+        # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+        return 'images_pic/CV_Resp_Labo/{0}'.format(filename)
+    nom = models.CharField("Nom du laboratoire *",max_length=100,help_text="Nom du laboratoire *")
+    sigle = models.CharField("Sigle du laboratoire",max_length=50,help_text="Sigle du laboratoire")
+    universite = models.CharField("Nom de l'universite d'appartenance *",max_length=100,help_text="Nom de l'universite d'appartenance *")
+    faculte = models.CharField("Faculte/Institut/Ecole",max_length=100,help_text="Faculte/Institut/Ecole *")
+    disciplinePrinci = models.CharField("Discipline Principle *",max_length=100,help_text="Discipline Principle *")
+    disciplineSecond = models.CharField("Discipline Secondaire",max_length=100,help_text="Discipline Secondaire")
+    languePrincip = models.CharField("Langue principale de travail *",max_length=5,help_text="Langue principale de travail *",choices=langue_choices)
+    autrelangue = models.CharField("Autres langues (de facon significative > 25%) *",max_length=5,help_text="Autres langues (de facon significative > 25%) *",choices=langue_choices)
+    anneeCreation = models.CharField("Annee de creation(AAAA) *",max_length=5,help_text="Annee de creation(AAAA) *")
+    anneeLastEval = models.CharField("Annee de la derniere evaluation (AAAA)* <i>inscrire 0000 si le laboratoire n'a jamais ete evalue</i>",max_length=5,help_text="Annee de la derniere evaluation (AAAA)* <i>inscrire 0000 si le laboratoire n'a jamais ete evalue</i>")
+    adresse = models.CharField("Adresse *",max_length=100,help_text="Adresse *")
+    ville = models.CharField("Ville *",max_length=100,help_text="Ville *")
+    telNum = models.CharField("Numero de telephone *",max_length=20,help_text="Numero de telephone *")
+    email = models.EmailField("Adresse mail generale *",max_length=100,help_text="Adresse mail generale *")
+    siteInternet = models.URLField("Site internet",max_length=200,help_text="Site internet")
+    pays = models.CharField("Pays *",max_length=100,help_text="Pays *",choices=pays_tuple)
+    partenariatinter = models.TextField("Principaux partenariats internationaux *",help_text="Principaux partenariats internationaux *")
+    equipement =  models.TextField("Principaux equipements, terrains, materiels *",help_text="Principaux equipements, terrains, materiels *")
+    photoLabo = models.ImageField("Joindre une photo de votre laboratoire/equipe de recherche *",help_text="Joindre une photo de votre laboratoire/equipe de recherche *",upload_to=user_directory_path)
+    logoLabo = models.ImageField("Joindre une photo de votre laboratoire/equipe de recherche *",help_text="Joindre une photo de votre laboratoire/equipe de recherche *",upload_to=user_directory_path2)
+
+    #Informations sur le responsable du laboratoire / equipe de recherche
+    nom = models.CharField("Nom *",max_length=100,help_text="Nom *")
+    prenom = models.CharField("Prenom *",max_length=100,help_text="Prenom *")
+    rangUniv = models.CharField("Rang Universitaire *",max_length=100,help_text="Rang Universitaire *")
+    discipline = models.CharField("Discipline *",max_length=100,help_text="Discipline *")
+    autreFct = models.CharField("Autre Fonction ",max_length=200,help_text="Autre Fonction *")
+    phoneNumb = models.CharField("Numero de telephone direct *",max_length=200,help_text="Numero de telephone direct *")
+    afficheNumPub = models.BooleanField("Cocher pour afficher le numero publiquement",help_text="Cocher pour afficher le numero publiquement")
+    emailRsp = models.EmailField("Email direct *",max_length=100,help_text="Email direct *")
+    afficheMailPub = models.BooleanField("Cocher pour l'email publiquement",help_text="Cocher pour l'email publiquement")
+    cvResp = models.FileField("Joindre CV",help_text="Joindre CV",upload_to=user_directory_path3)
+    effectifs = models.FloatField("Effectifs <i>(Ne sont comptabilises que les chercheurs permanents.Ne pas comptabiliser les chercheurs visiteurs ou collaborations occasionnelles. Ecrire 0 si la categorie n'est pas concernee)</i>",help_text="Effectifs <i>(Ne sont comptabilises que les chercheurs permanents.Ne pas comptabiliser les chercheurs visiteurs ou collaborations occasionnelles. Ecrire 0 si la categorie n'est pas concernee)</i>")
+    profUniv = models.FloatField("Professeurs des universites (ou equivalent) *",help_text="Professeurs des universites (ou equivalent) *")
+    metConf = models.FloatField("Maitres de conference (ou equivalent) *",help_text="Maitres de conference (ou equivalent) *")
+    assistants = models.FloatField("Assistants (ou equivalents) *",help_text="Assistants (ou equivalents) *")
+    doctorants = models.FloatField("Doctorants *",help_text="Doctorants *")
+    autresComp = models.FloatField("Autres *",help_text="Autres *")
+    listeChercheurs = models.TextField("Liste des chercheurs de l'unite *",help_text="Liste des chercheurs de l'unite *")
+
+    #Informations sur le responsable du laboratoire / equipe de recherche
+
+    #recherche
+    probAxeRech = models.CharField("Problematiques et axes de recherches *",max_length=200,help_text="Problematiques et axes de recherches *")
+    mots_cles = models.CharField("Mots cles *",max_length=200,help_text="Mots cles *")
+    nombrePub = models.FloatField("Nombre de publications de rang international (5 dernires annees)*",help_text="Nombre de publications de rang international (5 dernires annees)*")
+    autrePub = models.FloatField("Autres publications dont actes de colloque (5 dernieres annees) *",help_text="Autres publications dont actes de colloque (5 dernieres annees) *")
+    theseSout = models.FloatField("Nombre de theses soutenues (5 dernieres annees) *",help_text="Nombre de theses soutenues (5 dernieres annees) *")
+
+    infoComple = models.TextField("Informations Complementaires",help_text="Informations Complementaires")
+
+    #recherche
+
+    show = models.CharField("A afficher publiquement",max_length=3,choices=(
+        ('1','Visible sur le Site'),
+        ('0','Invisible sur le Site'),
+    ),default=0)
+
+
+
 #Added deuxieme lot

@@ -160,3 +160,10 @@ class ContactForm(forms.Form):
     email = forms.EmailField(max_length=200, required=False)
     sujet = forms.CharField(max_length=200)
     message = forms.CharField(widget=forms.Textarea)
+
+
+
+class LaboEquipForm(forms.ModelForm):
+    class Meta:
+        model = LaboEquip
+        exclude = ('show',)

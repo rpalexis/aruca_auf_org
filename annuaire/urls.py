@@ -22,6 +22,7 @@ urlpatterns = patterns('annuaire.views',
     url(r'^appels_offres/$', 'aos',name='appelO'),
     url(r'^liens_utiles/$', 'usefull_link',name='usefull_link'),
     url(r'presentation/$', 'presentation',name='presentation'),
+    url(r'equipe_laboratoire/$', 'equipe_laboratoire',name='equipe_laboratoire'),
 )
 
 urlpatterns += patterns ('',

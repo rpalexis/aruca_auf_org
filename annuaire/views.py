@@ -73,6 +73,12 @@ def usefull_link(request):
 def presentation(request):
     contact = ContactForm()
     return render(request,'presentation.html',{'contact':contact})
+
+
+def equipe_laboratoire(request):
+    form = LaboEquipForm
+    contact = ContactForm()
+    return render(request,'searchTeam.html',{'form':form,'contact':contact})
 # Actualites view
 
 
