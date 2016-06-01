@@ -4,8 +4,11 @@
 
 {% block 'contenu' %}
 <!-- Espace contenu  -->
-<div id="contenu">
+<!-- <div class="row"> -->
 <!-- Button trigger modal -->
+<div class="jumbotron col-md-10 col-md-offset-1">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
 <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModalNorm">
 Publication
 </button>
@@ -56,8 +59,8 @@ Publication
 </div>
 </div>
 </div>
-<div class="row">
-  <h1 class="center">Appels d'Offres</h1>
+<div class="row labo_title">
+    <h1 class="text-center">Appels d'Offres</h1>
 </div>
 
 {% for ac in actu %}
@@ -79,16 +82,16 @@ Publication
 
             </div>
             <br />
-          <!-- <div class="col-xs-3">
+          <div class="col-xs-3">
             <span>Lien :<a target="_blank" href="{{ac.lien_artl}}">{{ac.lien_artl}}</a></span>
-          </div> -->
+          </div>
         </div>
         <br><br>
       </div>
     </div>
     <hr>
     {% endfor %}
-</div>
+<!-- </div> -->
 <!-- Espace contenu  -->
 <br /><br /><br />
 {% endblock %}

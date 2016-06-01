@@ -40,12 +40,12 @@
                     <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
                     <li><a href="#"><img src="{% static 'auf_refonte/images/fr.png' %}"></a></li>
                     <li>
-                      <form class="form-inline">
-                        <div class="form-group">
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="Recherche a travers le site">
-                          <button id="bout" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                        </div>
-
+                      <form action="" class="search-form">
+                          <div class="form-group has-feedback">
+                      		<label for="search" class="sr-only">Search</label>
+                      		<input type="text" class="form-control" name="search" id="search" placeholder="search">
+                        		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+                      	</div>
                       </form>
                     </li>
                 </ul>
