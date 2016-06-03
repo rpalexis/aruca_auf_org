@@ -169,6 +169,7 @@ INSTALLED_APPS = (
     'filebrowser',
     'pagination',#Pagination handling
     # 'references',
+    'administration',
 )
 
 LANGUAGES = (

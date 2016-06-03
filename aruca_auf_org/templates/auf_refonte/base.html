@@ -58,7 +58,11 @@
                 <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
                 <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
                 <li><a href="/aruca/">ARUCA</a></li>
+
               </ul>
+              <div class="admin">
+                {% show_menu %}
+              </div>
               <!-- scrolled_menu -->
 
               <!-- menu_principal -->
@@ -212,6 +216,11 @@
               // $("#exampleInputName2").fadeOut(3000);
             }
           });
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+        $(".admin li.child a").attr("target","_blank");
       });
     </script>
     {% block 'extra_js' %}
