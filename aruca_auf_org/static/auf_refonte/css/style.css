@@ -6,6 +6,28 @@
 body{
   background-color: #ccc;
 }
+
+.admin li.child{
+  list-style-type: none;
+  text-align: center;
+  padding-top: 5px;
+  font-weight: bolder;
+}
+.admin li.child a{
+  color : #f00;
+
+}
+.admin{
+  position: absolute; /* could be absolute */
+  top: 50px;
+  left: -80px;
+  z-index: 1000;
+  margin: auto;
+  width: 120px;
+  height: 30px;
+  background-color: #ffd500;
+  border-radius: 5px;
+}
 .mine{
   background-color: white;
 }

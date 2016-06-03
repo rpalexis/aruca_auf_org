@@ -60,9 +60,14 @@
                 <li><a href="/aruca/">ARUCA</a></li>
 
               </ul>
-              <div class="admin">
-                {% show_menu %}
-              </div>
+              {% if user.is_authenticated %}
+                  {% if user.is_active and user.is_staff %}
+                      <div class="admin">
+                        {% show_menu %}
+                      </div>
+                  {% endif %}
+              {% endif %}
+
               <!-- scrolled_menu -->
 
               <!-- menu_principal -->
