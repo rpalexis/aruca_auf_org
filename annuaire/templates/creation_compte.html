@@ -1,0 +1,31 @@
+{% extends "auf_refonte/base_aruca.html" %}
+{% load cms_tags staticfiles addCss%}
+
+
+{% block 'contenu' %}
+<div class="col-md-8 col-md-offset-2">
+								<div class="panel panel-color panel-success">
+									<div class="panel-heading">
+										<h3 class="panel-title">Inscription</h3>
+									</div>
+									<div class="panel-body">
+                      <p class="text-center">Veuillez fournir votre adresse email pour la creation de votre compte<br />
+                      Un email de confirmation sera envoye a cette adresse.</p>
+                      <div class="row">
+                        <form class="form-inline text-center" action="" method="POST" enctype="multipart/form-data">
+                          {% csrf_token %}
+                            <div class="form-group">
+                              <label for="id_chercheur-courriel">Adresse Email:</label>
+                              {{forms.chercheur.courriel|add_css_classes:"form-control"}}
+                            </div>
+                            <button type="submit" class="btn btn-default">S'inscrire</button>
+                        </form>
+                      </div>
+									</div>
+								</div>
+							</div>
+    <!-- <span>Email d'inscription</span></p>{{forms.chercheur.courriel}} -->
+
+
+
+{% endblock%}

@@ -109,7 +109,7 @@
 .wizard > .steps .disabled a:hover,
 .wizard > .steps .disabled a:active
 {
-    background: #8ABC1D;
+    background: rgba(112, 34, 131, 0.9);
     color: #fff;
     cursor: default;
 }

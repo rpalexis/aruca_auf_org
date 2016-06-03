@@ -253,4 +253,4 @@ EMAIL_USE_TLS = True
 
 #The Logging url
 LOGIN_URL = '/aruca/connexion/'
-LOGIN_REDIRECT_URL = '/aruca/chercheur/perso/'
+LOGIN_REDIRECT_URL = '/aruca/espace_utilisateur'

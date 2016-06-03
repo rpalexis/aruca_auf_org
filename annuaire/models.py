@@ -49,7 +49,7 @@ class Chercheur(models.Model):
     publicationsAutre = models.IntegerField(default=0, blank=True, verbose_name='Autres publications')
     publicationsColloc = models.IntegerField(default=0, blank=True, verbose_name='Nombre de publication ayant fait l\'objet de publication dans actes de colloque')
     communication = models.IntegerField(default=0, blank=True, verbose_name='Autres communications')
-    equipe = models.BooleanField(verbose_name='Etes-vous intéressé à créer ou intégrer une équipe de recherche?')
+    equipe = models.BooleanField(default=False,verbose_name='Etes-vous intéressé à créer ou intégrer une équipe de recherche?')
     domaine = models.CharField(max_length=255,verbose_name='Si oui dans quel domaine?', blank=True)
     date_mod = models.DateTimeField('date de modification', auto_now=True)
     date_pub = models.DateField('date de creation',auto_now_add=True)

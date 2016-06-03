@@ -35,12 +35,13 @@ class AuthenticationForm(DjangoAuthenticationForm):
 class InscriptionCForm(forms.ModelForm):
     class Meta:
         model = Chercheur
-        fields = ['langue','etablissement','etablissement_autre_nom','etablissement_autre_pays','genre','nom',
-                    'prenom','courriel','afficher_courriel','site','telephone','telecopie','axe','mots_cles',
-                    'diplome','discipline','theme_recherche','equipement','laboratoire','terrain' ,'valorisation',
-                    'partenaires','doctorants', 'stagiaire' , 'publicationsInternational','publicationsAutre',
-                    'publicationsColloc', 'communication', 'equipe', 'domaine', 'actif'
-                ]
+        # fields = ['langue','etablissement','etablissement_autre_nom','etablissement_autre_pays','genre','nom',
+        #             'prenom','courriel','afficher_courriel','site','telephone','telecopie','axe','mots_cles',
+        #             'diplome','discipline','theme_recherche','equipement','laboratoire','terrain' ,'valorisation',
+        #             'partenaires','doctorants', 'stagiaire' , 'publicationsInternational','publicationsAutre',
+        #             'publicationsColloc', 'communication', 'equipe', 'domaine', 'actif'
+        #         ]
+        fields = ('courriel','afficher_courriel',)
     def clean_courriel(self):
         """On veut s'assurer qu'il n'y ait pas d'autre utilisateur actif
            avec le même courriel."""
@@ -83,16 +84,16 @@ class ChercheurFormGroup(object):
         except These.DoesNotExist:
             these = These()
         self.chercheur = InscriptionCForm(data=data, prefix='chercheur', instance=chercheur)
-        self.these = TheseForm(data=data, prefix='these', instance=these)
-        self.attestation = attestationForm(data=data, prefix='attestation')
-        self.publications = PublicationFormSet(data=data, prefix='publication', instance=chercheur)
+        # self.these = TheseForm(data=data, prefix='these', instance=these)
+        # self.attestation = attestationForm(data=data, prefix='attestation')
+        # self.publications = PublicationFormSet(data=data, prefix='publication', instance=chercheur)
 
     @property
     def has_errors(self):
-        return bool(self.chercheur.errors or self.these.errors or self.publications.errors or self.attestation.errors)
+        return bool(self.chercheur.errors) #or self.these.errors or self.publications.errors or self.attestation.errors
 
     def is_valid(self):
-        return self.chercheur.is_valid() and self.these.is_valid() and self.publications.is_valid() and self.attestation.is_valid()
+        return self.chercheur.is_valid() #and self.these.is_valid() and self.publications.is_valid() and self.attestation.is_valid()
 
     def save(self):
         if self.is_valid():
@@ -103,10 +104,10 @@ class ChercheurFormGroup(object):
             # Puis les objets qui ont des clés étrangères vers nous
             # puisqu'on a besoin d'un id.
             chercheur = self.chercheur.instance
-            self.these.instance.chercheur = chercheur
-            self.these.save()
-            self.publications.instance = chercheur
-            self.publications.save()
+            # self.these.instance.chercheur = chercheur
+            # self.these.save()
+            # self.publications.instance = chercheur
+            # self.publications.save()
             return self.chercheur.instance
 
 

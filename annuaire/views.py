@@ -31,6 +31,7 @@ from annuaire.filters import *
 # Actualites view
 def actual(request):
     contact = ContactForm()
+    connexion = AuthenticationForm()
     if request.method == 'POST':
         form = ActualitesAOForm(request.POST,request.FILES)
         print(form)
@@ -44,10 +45,12 @@ def actual(request):
         actu = ActualitesAO.objects.all().filter(type_artl="1")
         # print(actu)
         form = ActualitesAOForm
-    return render(request,'actuals.html',{'form':form,'actu':actu,'contact':contact})
+        connexion = AuthenticationForm()
+    return render(request,'actuals.html',{'form':form,'actu':actu,'contact':contact,'connexion':connexion})
 
 def aos(request):
     contact = ContactForm()
+    connexion = AuthenticationForm()
     actu = []
     if request.method == 'POST':
         form = ActualitesAOForm(request.POST,request.FILES)
@@ -63,22 +66,26 @@ def aos(request):
         actu = ActualitesAO.objects.all().filter(type_artl="2")
         # print(actu)
         form = ActualitesAOForm
-    return render(request,'aos.html',{'form':form,'actu':actu,'contact':contact})
+        connexion = AuthenticationForm()
+    return render(request,'aos.html',{'form':form,'actu':actu,'contact':contact,'connexion':connexion})
 
 
 def usefull_link(request):
     contact = ContactForm()
-    return render(request,'usefull.html',{'contact':contact})
+    connexion = AuthenticationForm()
+    return render(request,'usefull.html',{'contact':contact,'connexion':connexion})
 
 def presentation(request):
     contact = ContactForm()
-    return render(request,'presentation.html',{'contact':contact})
+    connexion = AuthenticationForm()
+    return render(request,'presentation.html',{'contact':contact,'connexion':connexion})
 
 
 def equipe_laboratoire(request):
-    form = LaboEquipForm
+    # form = LaboEquipForm
     contact = ContactForm()
-    return render(request,'searchTeam.html',{'form':form,'contact':contact})
+    connexion = AuthenticationForm()
+    return render(request,'annuaire_search.html',{'contact':contact,'connexion':connexion})
 # Actualites view
 
 
@@ -88,15 +95,49 @@ def contact(request):
 
 def accueil(request):
     contact = ContactForm()
+    connexion = AuthenticationForm()
     # return render_to_response('accueil.html', context_instance=RequestContext(request))
-    return render(request,'accueil.html',{'contact':contact})
+    return render(request,'accueil.html',{'contact':contact,'connexion':connexion})
 
 
-def InscriptionChercheur(request):
+# def InscriptionChercheur(request):
+#     # forms = {}
+#     if request.method == 'POST':
+#         print("I'm in the post in the view")
+#         forms = ChercheurFormGroup(request.POST)
+#         if forms.is_valid():
+#             print("I'm in the validation of form")
+#             chercheur = forms.save()
+#             id_base36 = chercheur.id #int_to_base36
+#             token = chercheur.activation_token()
+#             template = get_template('activation_email.txt')
+#             domain = RequestSite(request).domain
+#             # print(domain)
+#             message = template.render(Context({
+#                 'chercheur': chercheur,
+#                 'id_base36': id_base36,
+#                 'token': token,
+#                 'domain': domain
+#             }))
+#             print(message)
+#             #The url for the user's connection
+#             #   http://{{ domain }}{% url chercheur_activation id_base36=id_base36, token=token %}
+#             send_mail(
+#                 'Votre inscription au site ARUCA',
+#                 message, 'rulxphilome.alexis@gmail.com', [chercheur.courriel]
+#             )
+#             return HttpResponseRedirect('/annuaire/validation/')
+#     else:
+#         forms = ChercheurFormGroup()
+#         print("I'm in the GET part")
+
+def creation_compte(request):
     # forms = {}
     if request.method == 'POST':
         print("I'm in the post in the view")
+        print(request.POST)
         forms = ChercheurFormGroup(request.POST)
+        print(forms.chercheur.errors)
         if forms.is_valid():
             print("I'm in the validation of form")
             chercheur = forms.save()
@@ -104,7 +145,7 @@ def InscriptionChercheur(request):
             token = chercheur.activation_token()
             template = get_template('activation_email.txt')
             domain = RequestSite(request).domain
-            print(domain)
+            # print(domain)
             message = template.render(Context({
                 'chercheur': chercheur,
                 'id_base36': id_base36,
@@ -124,16 +165,20 @@ def InscriptionChercheur(request):
         print("I'm in the GET part")
 
     # return render_to_response('inscriptionC.html', {'forms' : forms}, context_instance=RequestContext(request))
-    return render(request,'inscriptionC.html',{'forms':forms})
+    return render(request,'creation_compte.html',{'forms':forms})
 
 @chercheur_required
 def perso(request):
     """Espace chercheur (espace personnel du chercheur)"""
+    form = LaboEquipForm
+    contact = ContactForm()
+    connexion = AuthenticationForm()
     chercheur = Chercheur.objects.filter(courriel = request.user.email)[0]  #request.chercheur
     modification = request.GET.get('modification')
     list_publi = PublicationsMajeur.objects.filter(chercheur=chercheur)
     list_these = These.objects.filter(chercheur=chercheur)
-    return render(request, "perso_space.html",{})
+    return render(request,'searchTeam.html',{'form':form,'contact':contact,'connexion':connexion})
+    # return render(request, "searchTeam.html",{})
     # return render(request, "perso.html", {
     #     'chercheur': chercheur,
     #     'modification': modification, 'list_publi': list_publi, 'list_these': list_these
@@ -288,6 +333,8 @@ def list_equipe(request):
 
     return render_to_response('equipes.html', {'equipe_list': equipe_list, 'EquipeCForm': equipe_list.form}, context_instance = RequestContext(request))
 
+
+#Espace utilisateurs
 def login(request, template_name='registration/login.html',
           redirect_field_name=REDIRECT_FIELD_NAME):
     "The Django login view, but using a custom form."
@@ -344,6 +391,7 @@ def login(request, template_name='registration/login.html',
     })
 login = never_cache(login)
 
+#Espace utilisateurs
 @csrf_protect
 @login_required
 def password_change(request,
