@@ -3,8 +3,11 @@
 
 {% block 'contenu' %}
 <!-- Espace contenu  -->
-<div id="contenu">
+<!-- <div id="contenu"> -->
   {% static_placeholder "presentation" %}
+<!-- </div> -->
+<div class="row">
+<video class="col-md-6 col-md-offset-3"src="{% static 'auf_refonte/images/VID_MLouis.MOV' %}" controls width="300px">
+</video>
 </div>
-
 {% endblock %}

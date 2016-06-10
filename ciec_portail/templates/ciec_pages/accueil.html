@@ -1,13 +1,71 @@
 {% extends "auf_refonte/base.html" %}
-{% load cms_tags %}
+{% load cms_tags staticfiles%}
 {% block 'contenu' %}
 <!-- Espace contenu  -->
 <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <!-- <p class="text-muted m-b-30 font-13">A slideshow component for cycling through elements, like a carousel.</p> -->
+    <!-- START carousel-->
+    <div id="carousel-example-captions-1" data-ride="carousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-captions-1" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-captions-1" data-slide-to="1" class=""></li>
+        <li data-target="#carousel-example-captions-1" data-slide-to="2" class=""></li>
+        <li data-target="#carousel-example-captions-1" data-slide-to="3" class=""></li>
+        <li data-target="#carousel-example-captions-1" data-slide-to="4" class=""></li>
+        <li data-target="#carousel-example-captions-1" data-slide-to="5" class=""></li>
+      </ol>
+      <div role="listbox" class="carousel-inner">
+        <div class="item">
+          <img class="img img-rounded" src="{% static 'auf_refonte/images/De_Gaudemar_1.JPG' %}" alt="First slide image">
+        </div>
+        <div class="item">
+          <img class="img img-rounded" src="{% static 'auf_refonte/images/De_Gaudemar_2.JPG' %}" alt="First slide image">
+        </div>
+        <div class="item active">
+          <img class="img img-rounded" src="{% static 'auf_refonte/images/De_Gaudemar_3.JPG' %}" alt="First slide image">
+        </div>
+        <div class="item">
+          <img class="img img-rounded" src="{% static 'auf_refonte/images/De_Gaudemar_4.JPG' %}" alt="First slide image">
+        </div>
+        <div class="item">
+          <img class="img img-rounded" src="{% static 'auf_refonte/images/Jose_Antonio_M.JPG' %}" alt="First slide image">
+        </div>
+        <div class="item">
+          <img class="img img-rounded" src="{% static 'auf_refonte/images/Rapport.JPG' %}" alt="First slide image">
+        </div>
+      </div>
+
+    </div>
+    <!-- END carousel-->
+  </div>
+</div>
+<br />
+<div id="lang">
+<div class="row fr">
   <div class="jumbotron col-md-10 col-md-offset-1">
     {% static_placeholder "acceuil" %}
 </div>
 </div>
+<div class="row en cache">
+  <div class="jumbotron col-md-10 col-md-offset-1">
+    <div class="row en cache">
+    {% static_placeholder "acceuil_ang" %}
+</div>
+</div>
+</div>
 
+<div class="row es cache">
+  <div class="jumbotron col-md-10 col-md-offset-1">
+    {% static_placeholder "acceuil_es" %}
+</div>
+</div>
+<div class="row cr cache">
+  <div class="jumbotron col-md-10 col-md-offset-1">
+    {% static_placeholder "acceuil_cr" %}
+</div>
+</div>
+</div>
 <!-- Espace contenu  -->
 <br /><br /><br />
 {% endblock %}

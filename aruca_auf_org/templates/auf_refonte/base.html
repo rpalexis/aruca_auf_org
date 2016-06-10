@@ -35,10 +35,10 @@
                     <!-- <li class="imfp"><a href="#">Connexion</a></li> -->
                     <li class="imfp"><a href="#">CGU</a></li>
                     <li class="imfp"><a href="#" data-toggle="modal" data-target="#contactForm">Contact</a></li>
-                    <li><a href="#"><img src="{% static 'auf_refonte/images/ht.png' %}" width="22" height="14"></a></li>
-                    <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
-                    <li><a href="#"><img src="{% static 'auf_refonte/images/en.png' %}" width="22" height="14"></a></li>
-                    <li><a href="#"><img src="{% static 'auf_refonte/images/fr.png' %}"></a></li>
+                    <li><a href="#" id="lg_cr"><img src="{% static 'auf_refonte/images/ht.png' %}" width="22" height="14"></a></li>
+                    <li><a href="#" id="lg_es"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
+                    <li><a href="#" id="lg_en"><img src="{% static 'auf_refonte/images/gb_drapeau.gif' %}" width="22" height="14"></a></li>
+                    <li><a href="#" id="lg_fr"><img src="{% static 'auf_refonte/images/fr.png' %}"></a></li>
                     <li>
                       <form action="" class="search-form">
                           <div class="form-group has-feedback">
@@ -60,6 +60,30 @@
                 <li><a href="/aruca/">ARUCA</a></li>
 
               </ul>
+
+              <!-- <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
+                <li class="portail active"><a href="{% url 'ciec_home' %}">Accueil</a></li>
+                <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
+                <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
+                <li><a href="/aruca/">ARUCA</a></li>
+
+              </ul>
+
+              <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
+                <li class="portail active"><a href="{% url 'ciec_home' %}">Accueil</a></li>
+                <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
+                <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
+                <li><a href="/aruca/">ARUCA</a></li>
+
+              </ul>
+
+              <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
+                <li class="portail active"><a href="{% url 'ciec_home' %}">Accueil</a></li>
+                <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
+                <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
+                <li><a href="/aruca/">ARUCA</a></li>
+
+              </ul> -->
               {% if user.is_authenticated %}
                   {% if user.is_active and user.is_staff %}
                       <div class="admin">
@@ -71,12 +95,34 @@
               <!-- scrolled_menu -->
 
               <!-- menu_principal -->
-              <ul class="nav navbar-nav affiche" id="menu_nav">
+              <ul class="nav navbar-nav affiche m_fr" id="menu_nav">
                 <li class="portail active"><a href="{% url 'ciec_home' %}">Accueil</a></li>
                 <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
                 <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
                 <li><a href="/aruca/">ARUCA</a></li>
               </ul>
+
+              <!-- <ul class="nav navbar-nav affiche m_en" id="menu_nav">
+                <li class="portail active"><a href="{% url 'ciec_home' %}">HOME</a></li>
+                <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Apply to CIEC</a></li>
+                <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">
+APPLY to the bodies of the ICCS</a></li>
+                <li><a href="/aruca/">ARUCA</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav affiche m_cr" id="menu_nav">
+                <li class="portail active"><a href="{% url 'ciec_home' %}">Ak&egrave;y</a></li>
+                <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Poze kandidati pou ChEEK</a></li>
+                <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">Poze kandidati pou instans ChEEK la</a></li>
+                <li><a href="/aruca/">ARUCA</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav affiche es" id="menu_nav">
+                <li class="portail active"><a href="{% url 'ciec_home' %}">Accueil</a></li>
+                <li class="candidature_ciec"><a href="{% url 'candidature_ciec' %}">Candidater a la CIEC</a></li>
+                <li class="candidature_instance"><a href="{% url 'candidature_instance' %}">Candidater aux instances de la CIEC</a></li>
+                <li><a href="/aruca/">ARUCA</a></li>
+              </ul> -->
               <!-- menu_principal -->
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -226,6 +272,72 @@
     <script>
       $(document).ready(function(){
         $(".admin li.child a").attr("target","_blank");
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+          $("#lg_cr").click(function(){
+            $("#lang .cr").removeClass("cache");
+            $("#lang .cr").addClass("affiche");
+
+
+            $("#lang .en").removeClass("affiche");
+            $("#lang .en").addClass("cache");
+            $("#lang .es").removeClass("affiche");
+            $("#lang .es").addClass("cache");
+            $("#lang .fr").removeClass("affiche");
+            $("#lang .fr").addClass("cache");
+
+            $(".m_cr").removeClass("cache");
+            $(".m_cr").addClass("affiche");
+
+
+            $(".m_en").removeClass("affiche");
+            $(".m_en").addClass("cache");
+            $(".m_es").removeClass("affiche");
+            $(".m_es").addClass("cache");
+            $(".m_fr").removeClass("affiche");
+            $(".m_fr").addClass("cache");
+          });
+
+          $("#lg_fr").click(function(){
+            $("#lang .fr").removeClass("cache");
+            $("#lang .fr").addClass("affiche");
+
+
+            $("#lang .en").removeClass("affiche");
+            $("#lang .en").addClass("cache");
+            $("#lang .es").removeClass("affiche");
+            $("#lang .es").addClass("cache");
+            $("#lang .cr").removeClass("affiche");
+            $("#lang .cr").addClass("cache");
+          });
+
+          $("#lg_en").click(function(){
+            $("#lang .en").removeClass("cache");
+            $("#lang .en").addClass("affiche");
+
+
+            $("#lang .cr").removeClass("affiche");
+            $("#lang .cr").addClass("cache");
+            $("#lang .es").removeClass("affiche");
+            $("#lang .es").addClass("cache");
+            $("#lang .fr").removeClass("affiche");
+            $("#lang .fr").addClass("cache");
+          });
+
+          $("#lg_es").click(function(){
+            $("#lang .es").removeClass("cache");
+            $("#lang .es").addClass("affiche");
+
+
+            $("#lang .en").removeClass("affiche");
+            $("#lang .en").addClass("cache");
+            $("#lang .cr").removeClass("affiche");
+            $("#lang .cr").addClass("cache");
+            $("#lang .fr").removeClass("affiche");
+            $("#lang .fr").addClass("cache");
+          });
       });
     </script>
     {% block 'extra_js' %}
