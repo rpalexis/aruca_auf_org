@@ -6,12 +6,12 @@
 <!-- Espace contenu  -->
 
 <!-- Button trigger modal -->
-<div class="jumbotron col-md-10 col-md-offset-1">
+<!-- <div class="jumbotron col-md-10 col-md-offset-1">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</div>
+</div> -->
 
 <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModalNorm">
-Publication
+Publier un Article
 </button>
 
 <!-- Modal -->
@@ -63,26 +63,26 @@ Publication
     <h1 class="text-center">Appels d'Offres</h1>
 </div>
 {% for ac in actu %}
-<div class="row">
+<div class="row bordure_actu">
       <br>
       <div class="col-md-2 col-sm-3 text-center">
         <a class="story-img" href="#"><img src="{{ MEDIA_URL}}{{ac.image_artl}}" style="width:150px;height:150px" class="img-circle"></a>
       </div>
-      <div class="col-md-10 col-sm-9">
+      <div class="col-md-10 col-sm-9 articles">
         <h3>{{ac.titre_artl}}</h3>
         <div class="row">
           <div class="col-xs-9">
             <p>{{ac.description_artl}}</p>
             <br />
-            <p class="lead"><a href="/aruca/detail_ar/{{ac.id}}" class="btn btn-warning">Read More</a></p>
-            <span class="list-inline">Lien :<a target="_blank" href="{{ac.lien_artl}}">{{ac.lien_artl}}</a></span>
+            <p class="lead"><a href="/aruca/detail_ar/{{ac.id}}" class="btn btn-warning">Read More</a> <span class="list-inline pull-right">Lien Externe:<a target="_blank" href="{{ac.lien_artl}}">{{ac.lien_artl}}</a></span></p>
+            <!-- <span class="list-inline">Lien :<a target="_blank" href="{{ac.lien_artl}}">{{ac.lien_artl}}</a></span> -->
             <!-- <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p> -->
             <!-- <ul class="list-inline"><li><a href="#">2 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul> -->
 
             </div>
             <br />
-          <div class="col-xs-3">
-            <span>Lien :<a target="_blank" href="{{ac.lien_artl}}">{{ac.lien_artl}}</a></span>
+          <div class="col-xs-3 typePub">
+            <img src="{% static 'auf_refonte/images/megafon.png' %}" alt="type de publication" />
           </div>
         </div>
         <br><br>

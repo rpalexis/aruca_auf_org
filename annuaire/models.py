@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 from django.db import models
+from django.db.models import Q
+import operator
 from django.contrib.auth.models import User
 from auf.django.references.models import Pays
 # from django.utils.hashcompat import sha_constructor
@@ -163,6 +165,23 @@ chx_type = (
     ("1","Actualites"),
     ("2","Appels d'Offres"),
 )
+
+class ActualitesAOManager(models.Manager):
+    def search(self, search_terms):
+        terms = [term.strip() for term in search_terms.split()]
+        q_objects = []
+
+        for term in terms:
+            q_objects.append(Q(titre_artl__icontains=term))
+            q_objects.append(Q(description_artl__icontains=term))
+
+        # Start with a bare QuerySet
+        qs = self.get_queryset()
+
+        # Use operator's or_ to string together all of your Q objects.
+        # return qs.filter(reduce(operator.or_, q_objects))
+
+
 class ActualitesAO(models.Model):
     def user_directory_path(instance, filename):
         # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
@@ -171,11 +190,12 @@ class ActualitesAO(models.Model):
         else:
             return 'images_pic/AO_imgs/{0}'.format(filename)
 
-    type_artl = models.CharField("Types de la publication *",max_length=2,help_text="Types de la publication *",choices=chx_type)
-    titre_artl = models.CharField("Titre de la publication *",max_length=100,help_text="Titre de la publication *")
+    type_artl = models.CharField("Categorie de l'article *",max_length=2,help_text="Categorie de l'article *",choices=chx_type)
+    titre_artl = models.CharField("Titre de l'article *",max_length=100,help_text="Titre de l'article *")
     description_artl = models.TextField("Description de la publication *",max_length=500,help_text="Description de la publication *")
-    image_artl = models.ImageField(upload_to=user_directory_path,help_text="Image de la publication")
-    lien_artl = models.URLField("Lien pour la publication *",help_text="Lien pour la publication *")
+    image_artl = models.ImageField(upload_to=user_directory_path,help_text="Telecharger un image de l'article")
+    lien_artl = models.URLField("Lien pour la publication *",help_text="Un lien pour l'article *")
+    objects = ActualitesAOManager()
 
 langue_choices = (
     ('FR','Francais'),

@@ -10,18 +10,27 @@
 
 <!-- Espace contenu  -->
 <div class="row">
-  <div class="jumbotron col-md-10 col-md-offset-1">
-    {% static_placeholder "text_instance" %}
+  <!-- <div class="jumbotron col-md-10 col-md-offset-1"></div> -->
+  <div class="col-md-6 col-md-offset-3">
+  <!-- <p class=jumbotron>
+    Le remplissage du formulaire pour canditater aux instances de la chaire est un long processus.<br />
+    Il serait judicieux de preparer les questions avant de le remplir en ligne. <br />
+    Utiliser les liens suivants pour recevoir sous format PDF les documents ayant rapport avec le formulaire.
+    <br /> Merci.
+  </p> -->
+  <a href="" class="btn btn-primary text-center pdfs">Termes de reference</a>
+  <a href="" class="pull-right btn btn-primary text-center pdfs">Telecharger le formulaire</a>
+</div>
 </div>
 <div class="row" style="padding-left:60px;">
     <!-- <div class="col-md-8 col-md-offset-2"> -->
       <!-- <h2 class="text-center">Formulaire de candidature aux insctances</h2> -->
       <form id="profileForm" class="test form-horizontal" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <h2>Etape 1</h2>
+        <h2>Identification personnelle</h2>
         {{form.errors}}
         <section data-step="0">
-          <h3>Etape 1</h3>
+          <!-- <h3>Etape 1</h3> -->
           <div class="form-group">
             <label>{{form.sexe.help_text}} :</label>
             {{form.sexe|add_css_classes:"form-control"}}
@@ -46,11 +55,6 @@
             <label>{{form.adresse_residence.help_text}} :</label>
             {{form.adresse_residence|add_css_classes:"form-control"}}
           </div>
-        </section>
-
-        <h2>Etape 2</h2>
-        <section data-step="1">
-          <h3>Etape 2</h3>
           <div class="form-group">
             <label>{{form.ville_residence.help_text}} :</label>
             {{form.ville_residence|add_css_classes:"form-control"}}
@@ -67,6 +71,11 @@
             <label>{{form.mail_direct.help_text}} :</label>
             {{form.mail_direct|add_css_classes:"form-control"}}
           </div>
+        </section>
+
+        <h2>Identification professionnelle</h2>
+        <section data-step="1">
+          <!-- <h3>Etape 2</h3> -->
           <div class="form-group">
             <label>{{form.etablissement_universitaire_1.help_text}} :</label>
             {{form.etablissement_universitaire_1|add_css_classes:"form-control"}}
@@ -75,12 +84,6 @@
             <label>{{form.etabliseement_universitaire_autres.help_text}} :</label>
             {{form.etabliseement_universitaire_autres|add_css_classes:"form-control"}}
           </div>
-        </section>
-
-
-        <h2>Etape 3</h2>
-        <section date-step="2">
-          <h3>Etape 3</h3>
           <div class="form-group">
             <label>{{form.discipline_scient_gnrl.help_text}} :</label>
             {{form.discipline_scient_gnrl|add_css_classes:"form-control"}}
@@ -93,6 +96,13 @@
             <label>{{form.fonction_academique_autre.help_text}} :</label>
             {{form.fonction_academique_autre|add_css_classes:"form-control"}}
           </div>
+        </section>
+
+
+        <h2>Profil académique et scientifique</h2>
+        <section date-step="2">
+          <!-- <h3>Etape 3</h3> -->
+
           <div class="form-group">
             <label>{{form.pls_haut_diplome.help_text}} :</label>
             {{form.pls_haut_diplome|add_css_classes:"form-control"}}
@@ -105,10 +115,6 @@
             <label>{{form.langue_travail_prin.help_text}} :</label>
             {{form.langue_travail_prin|add_css_classes:"form-control"}}
           </div>
-        </section>
-        <h2>Etape 4</h2>
-        <section data-step="3">
-          <h3>Etape 4</h3>
           <div class="form-group">
             <label>{{form.autre_langue_prin.help_text}} :</label>
             {{form.autre_langue_prin|add_css_classes:"form-control"}}
@@ -130,11 +136,9 @@
             {{form.synthese_principale|add_css_classes:"form-control"}}
           </div>
         </section>
-
-
-        <h2>Etape 5</h2>
+        <h2>Argumentaire</h2>
         <section data-step="4">
-          <h3>Etape 5</h3>
+          <!-- <h3>Etape 5</h3> -->
           <div class="form-group">
             <label>{{form.ambition_pr_ciec.help_text}} :</label>
             {{form.ambition_pr_ciec|add_css_classes:"form-control"}}
@@ -144,9 +148,9 @@
             {{form.avantage_comparatif|add_css_classes:"form-control"}}
           </div>
         </section>
-        <h2>Etape 6</h2>
+        <h2>Annexes obligatoires</h2>
         <section data-step="5">
-          <h3>Etape 6</h3>
+          <!-- <h3>Etape 6</h3> -->
           <div class="form-group">
             <label>{{form.cv_detaille.help_text}} :</label>
             {{form.cv_detaille|add_css_classes:"form-control"}}

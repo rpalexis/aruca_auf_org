@@ -6,10 +6,77 @@
 body{
   background-color: #ccc;
 }
+.filtre{
+  list-style-type: none;
+  width: 100%;
+}
+.filtre li a{
+  display: block;
+  background-color: #8dbe23;
+  margin-top: 10px;
+  text-align: center;
+  height: 35px;
+  font-size: 20px;
+  font-weight: bolder;
+
+}
+
+.img_poz{
+  padding-top: 55px;
+}
+.admin li.child{
+  list-style-type: none;
+  text-align: center;
+  padding-top: 5px;
+  font-weight: bolder;
+}
+.admin li.child a{
+  color : #f00;
+
+}
+.admin{
+  position: absolute; /* could be absolute */
+  top: 50px;
+  left: -80px;
+  z-index: 1000;
+  margin: auto;
+  width: 120px;
+  height: 30px;
+  background-color: #ffd500;
+  border-radius: 5px;
+}
 .mine{
   background-color: white;
 }
-#inline_bar_top{
+.bordure_actu{
+  border-bottom: 4px solid #cccccc;
+}
+/*.articles{
+  font-weight: bolder;
+  font-size: 35px;
+}*/
+.articles .col-xs-9 p{
+  text-align: justify;
+  font-size: large;
+  font-style: italic;
+}
+
+.articles h3{
+  font-weight: bolder;
+    font-size: 35px
+}
+
+.typePub img{
+  width: 100px;
+  padding-left: 30px;
+}
+
+.pdfs{
+  font-weight: bolder;
+  font-stretch: extra-condensed;
+  background: #7e378f;
+}
+  #inline_bar_top{
   /*width: 100%;*/
   height:40px;
   background-color: #fff;
@@ -297,6 +364,13 @@ Desing pour la partie ARUCA*/
 
 /*Carousell handling*/
 
+.atikPub{
+  background: #cccccc;
+  border-radius: 2px;
+  /*width:25em;*/
+  /*padding: auto;*/
+  padding: 5px;
+  }
 
 
 /*Carousell handling Carousel with panel

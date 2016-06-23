@@ -160,6 +160,7 @@
     float: left;
     margin: 0 2.5% 0.5em 2.5%;
     width: 70%;
+    height: 1500px;
 }
 
 .wizard > .content > .body
@@ -233,7 +234,7 @@
     float: left;
     margin: 0 2.5%;
     width: 20%;
-    margin-top: -27em;
+    margin-top: -75em;
 }
 
 .wizard > .actions > ul

@@ -1,0 +1,65 @@
+{% extends "home_administration.html" %}
+{% load cms_tags staticfiles addCss%}
+
+{% block "adm_contenu"%}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="page-title">
+        <h1>Liste des membres de la chaire</h1>
+    </div>
+    <div class="row">
+    {% for add in l_cndts%}
+
+    {% empty%}
+
+      <div class="col-lg-4">
+            <div class="panel panel-color panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Avertissement</h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                    Il n' a pas de donnees a afficher pour cette option.<br />
+                    Desole
+                </p>
+              </div>
+            </div>
+          </div>
+
+    {% endfor %}
+    <a href="/t/csv_exporting_2/" class="btn btn-primary pull-right" style="font-weight:bolder;">Telecharger sous forme de tableur</a>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Sexe</th>
+            <th>Pays de Nationalite</th>
+            <th>Adresse email</th>
+            <th>Fiche_PDF</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for add in l_cndts%}
+          <tr>
+            <td>{{add.nom}}</td>
+            <td>{{add.prenom}}</td>
+            <td>
+              {% if add.sexe == 'h'%}
+              Homme
+              {% else%}
+              Femme
+              {%endif%}
+            </td>
+            <td>{{add.pays_nationalite}}</td>
+            <td>{{add.mail_direct}}</td>
+            <td><a href="#" class="btn btn-info btn-xs btn-rounded waves-effect waves-light">PDF</a></td>
+          {% endfor %}
+        </tbody>
+
+      </table>
+    </div>
+
+</div>
+{% endblock %}

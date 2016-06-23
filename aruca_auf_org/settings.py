@@ -170,6 +170,7 @@ INSTALLED_APPS = (
     'pagination',#Pagination handling
     # 'references',
     'administration',
+    'watson',
 )
 
 LANGUAGES = (

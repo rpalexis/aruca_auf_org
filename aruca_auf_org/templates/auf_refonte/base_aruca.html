@@ -40,9 +40,9 @@
                     {%endif%}
                     <li class="imfp"><a href="#">CGU</a></li>
                     <li class="imfp"><a href="#" data-toggle="modal" data-target="#contactForm">Contact</a></li>
+                    <li><a href="#"><img src="{% static 'auf_refonte/images/ht.png' %}" width="22" height="14"></a></li>
                     <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
-                    <li><a href="#"><img src="{% static 'auf_refonte/images/fr.png' %}"></a></li>
-                    <li><a href="#"><img src="{% static 'auf_refonte/images/es.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'auf_refonte/images/gb_drapeau.gif' %}" width="22" height="14"></a></li>
                     <li><a href="#"><img src="{% static 'auf_refonte/images/fr.png' %}"></a></li>
                     <li>
                       <form action="" class="search-form">
@@ -60,17 +60,26 @@
               <!-- scrolled_menu -->
               <ul class="nav navbar-nav navbar-fixed-top cache hidden-sx-down" id="menu_nav_scroll">
                 <li class="aruca_home active"><a href="{% url 'aruca_home'%}">Accueil</a></li>
+                <!-- <li class="equipe_laboratoire"><a href="#">Equipes de recherche</a></li> -->
                 <li class="equipe_laboratoire"><a href="{% url 'equipe_laboratoire' %}">Equipes de recherche</a></li>
                 <li class="appelO"><a href="{% url 'appelO' %}">Appels d'offres</a></li>
                 <li class="actualites"><a href="{% url 'actualites' %}">Actualites</a></li>
                 <li class="presentation"><a href="{% url 'presentation' %}">Presentation</a></li>
                 <li class="usefull_link"><a href="{% url 'usefull_link' %}">Liens Utiles</a></li>
               </ul>
+              {% if user.is_authenticated %}
+                  {% if user.is_active and user.is_staff %}
+                      <div class="admin">
+                        {% show_menu %}
+                      </div>
+                  {% endif %}
+              {% endif %}
               <!-- scrolled_menu -->
 
               <!-- menu_principal -->
               <ul class="nav navbar-nav affiche" id="menu_nav">
                 <li class="aruca_home active"><a href="{% url 'aruca_home'%}">Accueil</a></li>
+                <!-- <li class="equipe_laboratoire"><a href="#">Equipes de recherche</a></li> -->
                 <li class="equipe_laboratoire"><a href="{% url 'equipe_laboratoire' %}">Equipes de recherche</a></li>
                 <li class="appelO"><a href="{% url 'appelO' %}">Appels d'offres</a></li>
                 <li class="actualites"><a href="{% url 'actualites' %}">Actualites</a></li>
@@ -92,7 +101,7 @@
           <!-- text aruca -->
           <h1 style="font-weight:bolder;color:#AA0A2F;">
             Annuaire &eacute;lectronique de la recherche
-            dans les universit&eacute;s de la Caraibe
+            des universit&eacute;s de la Caraibe
           </h1>
         </div>
     </div>

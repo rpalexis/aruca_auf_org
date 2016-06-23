@@ -1,6 +1,145 @@
 {% extends "auf_refonte/base_aruca.html" %}
 {% load cms_tags staticfiles addCss%}
-
+{% block 'extra_css' %}
+<link rel="stylesheet" type="text/css" href="{% static 'auf_refonte/css/tab.css' %}" />
+{% endblock %}
 {% block 'contenu' %}
-  <p>Resulta des Recherches pour l'annuaire en construction</p>
+<div class="row">
+  <div class="col-md-8">
+      <form class="navbar-form" method="POST">
+        <div class="form-group" style="display:inline;">
+          {% csrf_token %}
+          <div class="input-group">
+            <input placeholder="Recherche generale sur le site ..." style="height:50px;" type="text" class="form-control" name="srch_labo">
+            <button style="display:inline-block;float:right;margin-top:-50px;position:relative;z-index:1000;height:50px;"  class="input-group-addon">RECHERCHER</button>
+          </div>
+        </div>
+      </form>
+  </div>
+  <!-- <div class="col-md-4">
+      <h2 class="text-center">Filtres</h2>
+
+      <div class="list-group">
+          <button type="button" class="list-group-item">Nom</button>
+          <button type="button" class="list-group-item">Sigle</button>
+          <button type="button" class="list-group-item">Pays d'origine</button>
+      </div>
+  </div> -->
+<!--<div class="row">-->
+    <!-- -->
+    <!--<div class="col-lg-4">-->
+        <!--&lt;!&ndash;<ul class="filtre">&ndash;&gt;-->
+          <!--&lt;!&ndash;<li><a href="#filter_nom">Nom</a></li>&ndash;&gt;-->
+          <!--&lt;!&ndash;<li><a href="#filter_nom">Sigle</a></li>&ndash;&gt;-->
+          <!--&lt;!&ndash;<li><a href="#filter_nom">Pays d'origine</a></li>&ndash;&gt;-->
+        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+        <!-- -->
+    <!--</div>-->
+<!--</div>-->
+    </div>
+<div class="row">
+  <div class="col-lg-8">
+    <p class="text-center">
+      <strong>R&eacute;sultats:</strong>
+      <strong>Laboratoires : </strong><span>2</span>
+      <strong>Appel d'Offres : </strong><span>2</span>
+      <strong>Actualites : </strong><span>2</span>
+    </p>
+  </div>
+  <div class="col-lg-8">
+    <div class="tabs-vertical-env">
+        <ul class="nav tabs-vertical">
+            <li class="active">
+                <a href="#v-profile" data-toggle="tab" aria-expanded="true">Actualites</a>
+            </li>
+            <li class="">
+                <a href="#v-messages" data-toggle="tab" aria-expanded="false">Appel d'Offres</a>
+            </li>
+            <li class="">
+                <a href="#v-home" data-toggle="tab" aria-expanded="false">Laboratoires</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane" id="v-home">
+              <div class="row">
+                  <div class="col-md-2 img_poz hide-sm">
+                      <img src="{% static 'auf_refonte/images/team_photo.png' %}" alt="Team Picture" height="50px;"/>
+                  </div>
+                <div class="col-md-10">
+                  <h3>Mission en République Dominicaine| Laboratoire</h3>
+                  <p class="justify">
+                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                  </p>
+                  <a href="" class="btn btn-warning pull-right">Ouvrir l'article</a>
+                </div>
+
+              </div>
+              <div class="row">
+                  <div class="col-md-2 img_poz hide-sm">
+                      <img src="{% static 'auf_refonte/images/team_photo.png' %}" alt="Team Picture" height="50px;"/>
+                  </div>
+                <div class="col-md-10">
+                  <h3>Mission en République Dominicaine| Laboratoire</h3>
+                  <p class="justify">
+                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                  </p>
+                  <a href="" class="btn btn-warning pull-right">Ouvrir l'article</a>
+                </div>
+
+              </div>
+            </div>
+            <div class="tab-pane active" id="v-profile">
+              {% for rr in actus_rslt %}
+                {% if rr.type_artl == 2 %}
+              <div class="row">
+                  <div class="col-md-2 img_poz hide-sm" >
+                      <img src="{% static 'auf_refonte/images/megafon.png' %}" alt="Team Picture" height="50px;"/>
+                  </div>
+                <div class="col-md-10">
+                  <h3>{{ rr.titre_artl}}</h3>
+                  <p class="justify">
+                    {{ rr.description_artl | truncatechars:200 }}
+                  </p>
+                  <a href="" class="btn btn-warning pull-right">Ouvrir l'article</a>
+                </div>
+
+              </div>
+              {% endif %}
+              {% empty %}
+              <p>Pas de resultats</p>
+              {% endfor %}
+            </div>
+            <div class="tab-pane" id="v-messages">
+              <div class="row">
+                  <div class="col-md-2 img_poz hide-sm">
+                      <img src="{% static 'auf_refonte/images/ao.png' %}" alt="Team Picture" height="50px;"/>
+                  </div>
+                <div class="col-md-10">
+                  <h3>Mission en République Dominicaine| Appel d'Offres</h3>
+                  <p class="justify">
+                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                  </p>
+                  <a href="" class="btn btn-warning pull-right">Ouvrir l'article</a>
+                </div>
+
+              </div>
+              <div class="row">
+                  <div class="col-md-2 img_poz hide-sm">
+                      <img src="{% static 'auf_refonte/images/ao.png' %}" alt="Team Picture" height="50px;"/>
+                  </div>
+                <div class="col-md-10">
+                  <h3>Mission en République Dominicaine| Appel d'Offres</h3>
+                  <p class="justify">
+                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                  </p>
+                  <a href="" class="btn btn-warning pull-right">Ouvrir l'article</a>
+                </div>
+
+              </div>
+            </div>
+    </div>
+  </div>
+</div>
+</div>
 {% endblock %}

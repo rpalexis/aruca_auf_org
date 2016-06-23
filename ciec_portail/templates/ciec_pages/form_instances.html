@@ -8,7 +8,7 @@
     margin-top: 45px;
   }
 .wizard.vertical > .actions{
-  margin-top: -20em;
+  margin-top: -70em;
 }
 </style>
 {% endblock%}
@@ -16,8 +16,16 @@
 {% block 'contenu' %}
 <!-- Espace contenu  -->
 <div class="row">
-  <div class="jumbotron col-md-10 col-md-offset-1">
-    {% static_placeholder "text_membre" %}
+  <!-- <div class="jumbotron col-md-10 col-md-offset-1"></div> -->
+  <div class="col-md-6 col-md-offset-3">
+  <!-- <p class=jumbotron>
+      Le remplissage du formulaire pour devenir membre de la chaire est un long processus.<br />
+      Il serait judicieux de preparer les questions avant de le remplir en ligne. <br />
+      Utiliser les liens suivants pour recevoir sous format PDF les documents ayant rapport avec le formulaire.
+      <br /> Merci.
+  </p> -->
+  <a href="" class="btn btn-primary text-center pdfs">Termes de reference</a>
+  <a href="" class="pull-right btn btn-primary text-center pdfs">Telecharger le formulaire</a>
 </div>
 </div>
 <div class="row" style="padding-left:60px;">
@@ -25,7 +33,7 @@
       <!-- <h2 class="text-center">Formulaire de candidature pour les membres</h2> -->
       <form id="profileForm" class="test form-horizontal" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <h2>Etape 1</h2>
+        <h2>Identification de l'établissement</h2>
         <section data-step="0">
           <div class="form-group">
             <label>{{form.etabl_nom.help_text}} :</label>
@@ -55,9 +63,6 @@
             <label>{{form.etabl_phone_number.help_text}} :</label>
             {{form.etabl_phone_number|add_css_classes:"form-control"}}
           </div>
-        </section>
-        <h2>Etape 2</h2>
-        <section data-step="1">
           <div class="form-group">
             <label>{{form.etabl_email_gnrl.help_text}} :</label>
             {{form.etabl_email_gnrl|add_css_classes:"form-control"}}
@@ -77,8 +82,10 @@
           <div class="form-group">
             <label>{{form.etabl_partenariat_inter.help_text}} :</label>
             {{form.etabl_partenariat_inter|add_css_classes:"form-control"}}
-          </div>        </section>
-        <h2>Etape 3</h2>
+          </div>
+        </section>
+
+        <h2>Identification du plus haut responsable l'établissement</h2>
         <section data-step="2">
           <div class="form-group">
             <label>{{form.res_etabl_nom.help_text}} :</label>
@@ -104,14 +111,15 @@
             <label>{{form.res_etabl_email_direct.help_text}} :</label>
             {{form.res_etabl_email_direct|add_css_classes:"form-control"}}
           </div>
+
+
+        </section>
+        <h2>Identification du Correspondant CIEC</h2>
+        <section data-step="3">
           <div class="form-group">
             <label>{{form.corr_ciec_sexe.help_text}} :</label>
             {{form.corr_ciec_sexe|add_css_classes:"form-control"}}
           </div>
-
-        </section>
-        <h2>Etape 4</h2>
-        <section data-step="3">
           <div class="form-group">
             <label>{{form.corr_ciec_nom.help_text}} :</label>
             {{form.corr_ciec_nom|add_css_classes:"form-control"}}
@@ -133,7 +141,7 @@
             {{form.corr_ciec_email_direct|add_css_classes:"form-control"}}
           </div>
         </section>
-        <h2>Etape 5</h2>
+        <h2>Quelques éléments synthétiques de présentation de l'Université</h2>
         <section data-step="4">
           <div class="form-group">
             <label>{{form.el_sync_nbr_etud_1_cy.help_text}} :</label>
@@ -179,10 +187,6 @@
             <label>{{form.el_sync_dt_por_etud_cari_pub_sc.help_text}} :</label>
             {{form.el_sync_dt_por_etud_cari_pub_sc|add_css_classes:"form-control"}}
           </div>
-
-        </section>
-        <h2>Etape 6</h2>
-        <section data-step="5">
           <div class="form-group">
             <label>{{form.el_sync_nbr_public_sc.help_text}} :</label>
             {{form.el_sync_nbr_public_sc|add_css_classes:"form-control"}}
@@ -203,13 +207,13 @@
             <label>{{form.el_sync_langue_aut.help_text}} :</label>
             {{form.el_sync_langue_aut|add_css_classes:"form-control"}}
           </div>
+        </section>
+        <h2>Activités de formation et de Recherche sur les études caribéennes</h2>
+        <section data-step="5">
           <div class="form-group">
             <label>{{form.frec_indique.help_text}} :</label>
             {{form.frec_indique|add_css_classes:"form-control"}}
           </div>
-        </section>
-        <h2>Etape 7</h2>
-        <section data-step="8">
           <div class="form-group">
             <label>{{form.frec_attente.help_text}} :</label>
             {{form.frec_attente|add_css_classes:"form-control"}}
@@ -218,6 +222,9 @@
             <label>{{form.frec_contribution.help_text}} :</label>
             {{form.frec_contribution|add_css_classes:"form-control"}}
           </div>
+        </section>
+        <h2>Annexes obligatoires</h2>
+        <section data-step="8">
           <div class="form-group">
             <label>{{form.ann_creation.help_text}} :</label>
             {{form.ann_creation|add_css_classes:"form-control"}}

@@ -28,6 +28,11 @@ from annuaire.models import *
 from annuaire.forms import *
 from annuaire.filters import *
 
+
+#watson search usage
+from watson import search as watson
+#watson search usage
+
 # Actualites view
 def actual(request):
     contact = ContactForm()
@@ -85,7 +90,18 @@ def equipe_laboratoire(request):
     # form = LaboEquipForm
     contact = ContactForm()
     connexion = AuthenticationForm()
-    return render(request,'annuaire_search.html',{'contact':contact,'connexion':connexion})
+    # print(ActualitesAO.objects.search("Domi"))
+    if request.POST.get("srch_labo") == None:
+        qr = ""
+    else:
+        qr = request.POST.get("srch_labo")
+    print(qr)
+    search_results_actus = watson.filter(ActualitesAO,qr)
+    search_results_team = watson.filter(LaboEquip,qr)
+    # print(len(search_results))
+    # for rr in search_results:
+    #     print(rr.titre_artl)
+    return render(request,'annuaire_search.html',{'contact':contact,'connexion':connexion,'actus_rslt':search_results_actus,'team_rslt':search_results_team})
 # Actualites view
 
 
@@ -96,8 +112,28 @@ def contact(request):
 def accueil(request):
     contact = ContactForm()
     connexion = AuthenticationForm()
+    #Contenu slider
+    s1 = []
+    s2 = []
+    s3 = []
+
+
+    actus = ActualitesAO.objects.all()
+    lloop = len(actus)
+    for i in range(2):
+        if(lloop <= 3):
+            s1.append({'titre':actus[i].titre_artl,
+                        'image':actus[i].image_artl
+                        })
+        else:
+            s1.append({'titre':'Non disponible',
+                        'image':'pl_image.png'
+                        })
+
+    print(s1)
+    #Contenu slider
     # return render_to_response('accueil.html', context_instance=RequestContext(request))
-    return render(request,'accueil.html',{'contact':contact,'connexion':connexion})
+    return render(request,'accueil.html',{'contact':contact,'connexion':connexion,'s1':s1})
 
 
 # def InscriptionChercheur(request):
