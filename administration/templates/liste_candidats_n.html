@@ -1,0 +1,144 @@
+{% extends "default.html" %}
+{% load cms_tags staticfiles addCss%}
+
+{% block "adm_contenu"%}
+
+    <!-- Start Page Header -->
+    <div class="page-header">
+        <h1 class="title">Membres de la chaine</h1>
+        <ol class="breadcrumb">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="#">Membres</a></li>
+            <li class="active">Liste des membres</li>
+        </ol>
+
+        <!-- Start Page Header Right Div -->
+        <div class="right">
+            <div class="btn-group" role="group" aria-label="...">
+                <a href="index.html" class="btn btn-light">Telecharger</a>
+                <a href="/t/csv_exporting_2/" class="btn btn-light"><i class="fa fa-file-excel-o"></i></a>
+                <a href="#" class="btn btn-light"><i class="fa fa-file-pdf-o"></i></a>
+                <!-- <a href="#" class="btn btn-light" id="topstats"><i class="fa fa-line-chart"></i></a> -->
+            </div>
+        </div>
+        <!-- End Page Header Right Div -->
+
+    </div>
+    <!-- End Page Header -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START CONTAINER -->
+    <div class="container-default">
+
+
+        <!-- Start Presentation -->
+        <div class="row presentation">
+
+            <div class="col-lg-8 col-md-6 titles">
+                <span class="icon color10-bg"><i class="fa fa-table"></i></span>
+                <h1>Liste des membres</h1>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore </h4>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <strong style="font-size:35px;">{{qtt}}</strong><span>  R&eacute;sultats</span>
+            </div>
+
+            <!-- <div class="col-lg-4 col-md-6">
+                <ul class="list-unstyled list">
+                    <li><i class="fa fa-check"></i>Easy to Use<li>
+                    <li><i class="fa fa-check"></i>Group Options<li>
+                    <li><i class="fa fa-check"></i><a href="http://www.datatables.net/" target="_blank">DataTables</a><li>
+                </ul>
+            </div> -->
+
+        </div>
+        <!-- End Presentation -->
+
+        <!-- Start Row -->
+        <div class="row">
+
+            <!-- Start Panel -->
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-title">
+                        Membres
+                    </div>
+                    <div class="panel-body table-responsive">
+
+                        <table id="example0" class="table display">
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prenom</th>
+                                <th>Sexe</th>
+                                <th>Nationalite</th>
+                                <th>Address Mail</th>
+                                <th>Fiche pdf</th>
+                            </tr>
+                            </thead>
+
+                            <tfoot>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prenom</th>
+                                <th>Sexe</th>
+                                <th>Nationalite</th>
+                                <th>Address Mail</th>
+                                <th>Fiche pdf</th>
+                            </tr>
+                            </tfoot>
+
+                            <tbody>
+                              {% for add in l_cndts %}
+                            <tr>
+                              <td>{{add.nom}}</td>
+                              <td>{{add.prenom}}</td>
+                              <td>
+                                {% if add.sexe == 'h'%}
+                                Homme
+                                {% else%}
+                                Femme
+                                {%endif%}
+                              </td>
+                              <td>{{add.pays_nationalite}}</td>
+                              <td>{{add.mail_direct}}</td>
+                                <td><a href="#" ><i class="fa fa-file-pdf-o"></i></a> </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- End Panel -->
+
+
+
+
+
+
+
+        </div>
+        <!-- End Row -->
+
+
+    </div>
+    <!-- END CONTAINER -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+
+    <!-- Start Footer -->
+    <div class="row footer">
+        <div class="col-md-6 text-left">
+            Copyright © 2016 <a href="http://themeforest.net/user/egemem/portfolio" target="_blank">Alexis Rulx Philome</a> All rights reserved.
+        </div>
+        <div class="col-md-6 text-right">
+            Developed by <a href="http://rpalexis.info" target="_blank">Alexis Rulx Philome</a>
+        </div>
+    </div>
+    <!-- End Footer -->
+
+{% endblock %}

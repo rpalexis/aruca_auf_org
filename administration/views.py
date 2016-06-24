@@ -5,15 +5,15 @@ from ciec_portail.models import *
 import csv
 # Create your views here.
 def adm_home(request):
-    return render(request,'home_administration.html',{})
+    return render(request,'dashboard.html',{})
 
 def instances(request):
     cdts = InstanceCandidature.objects.all()
-    return render(request,'liste_instence.html',{'l_cndts':cdts})
+    return render(request,'list_instance_n.html',{'l_cndts':cdts,'qtt':len(cdts)})
 
 def candidats(request):
     cdts = CandidatMembre.objects.all()
-    return render(request,'liste_candidats.html',{'l_cndts':cdts})
+    return render(request,'liste_candidats_n.html',{'l_cndts':cdts,'qtt':len(cdts)})
 
 def csv_exporting(request):
     # td = vari
