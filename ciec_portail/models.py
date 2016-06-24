@@ -71,7 +71,7 @@ class InstanceCandidature(models.Model):
         help_text = "Pays de Residence",
         choices = pays_tuple
     )
-    numero_telephone_direct = models.CharField("Numero de telephone direct",max_length=15,help_text="Numero de telephone direct")
+    numero_telephone_direct = models.CharField("Numéro de téléphone direct*",max_length=15,help_text="Numéro de téléphone direct*")
     mail_direct = models.EmailField("Adresse email direct",max_length=254,help_text="Adresse email direct",unique=True)
     etablissement_universitaire_1 = models.CharField("Etablissement Universitaire de Rattachement",max_length=100,help_text="Etablissement Universitaire de Rattachement")
     etabliseement_universitaire_autres = models.CharField("Autres universites que l'etablissement de rattachement dans lesquelles vous intervenez regulierement",max_length=254,help_text="Autres universites que l'etablissement de rattachement dans lesquelles vous intervenez regulierement")
